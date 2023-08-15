@@ -1,0 +1,113 @@
+@charset "ISO-8859-1";
+.container {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  height: 170vh;
+}
+body {
+  /* background-color: #8d959c; */
+  background-color: #171717;
+  height: 100vh; /* Vollbildhöhe */
+}
+.hero-image-container {
+  width: 100%;
+  background-image: url("../img/fastBusBILD2.0.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vh;
+  position: relative;
+}
+.hero-content {
+  position: relative;
+}
+.hero-search-box {
+  position: absolute;
+  height: 20vh;
+  width: 60%;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 2px 4px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.search-box-all-items {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  margin-left: 2rem;
+}
+.search-box-all-items input {
+  height: 20px;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
+.search-box-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 40%;
+  border-bottom: 1px solid #aaa;
+}
+.search-box-header h2 {
+  color: #7a8288;
+}
+.searchbar-box-main {
+  display: flex;
+  align-items: center;
+  height: 60%;
+}
+
+.start-end {
+  display: flex;
+}
+.start-end div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.date {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.date input {
+  width: 150px;
+  border: 3px solid gray;
+  border-radius: 20px;
+  height: 30px;
+}
+.submitContainer {
+  margin-left: 140px;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 30px;
+}
+.subbutton {
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 15px;
+  box-shadow: 2px 2px 2px 1px rgb(131, 134, 134);
+  border: 1px solid gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+.subbutton:hover {
+  background-color: rgb(69, 69, 68);
+  color: rgb(246, 244, 248);
+  transition: all 0.5s ease 0s;
+}
+.fastbusImg {
+  margin-left: 10px;
+  width: 100px;
+  height: 40px;
+}
