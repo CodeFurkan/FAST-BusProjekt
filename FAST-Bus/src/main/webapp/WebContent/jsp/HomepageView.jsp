@@ -16,8 +16,8 @@
 
     <link type="text/css" rel="stylesheet" href="../css/main1.0.css" />
     <link type="text/css" rel="stylesheet" href="../css/main2.0.css" />
+	  <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
 
-    <link type="text/css" rel="stylesheet" href="../css/navbar.css" />
     <link type="text/css" rel="stylesheet" href="../css/footer.css" />
   </head>
   
@@ -33,7 +33,8 @@
     <div class="container">
     						  <!-- Navbar -->
       <header>
-      	<jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+           <jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+      
       </header>
 							<!-- Navbar end -->
 
@@ -42,7 +43,9 @@
       <main>
         	<!-- Box für Verbindungssuche -->
         <form action="./HomepageAppl.jsp" method="get">
-           <jsp:getProperty name="navbar" property="formularBoxAsHtml" />
+         
+         <jsp:getProperty name="navbar" property="formularBoxAsHtml" />
+        
         </form>
              <!-- Box für Verbindungssuche -->
         

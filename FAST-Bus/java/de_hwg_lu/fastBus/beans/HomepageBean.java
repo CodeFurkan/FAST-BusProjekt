@@ -90,6 +90,15 @@ public class HomepageBean {
 		return html;
 	}
 
+	public void selectBuchung() {
+		
+		String sql = "";
+		System.out.println(sql);
+	}
+	
+	
+	
+	
 	public String getFooterAsHtml(){
 		String html =
 			    "<footer>" +
