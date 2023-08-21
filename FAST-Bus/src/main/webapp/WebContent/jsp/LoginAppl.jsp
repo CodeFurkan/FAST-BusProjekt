@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!--  Bean einbinden, Methoden von Bean einfügen --> 
 <%
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
