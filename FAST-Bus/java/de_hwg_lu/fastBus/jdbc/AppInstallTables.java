@@ -15,8 +15,9 @@ public class AppInstallTables {
 	}
 	public void doSomething() throws SQLException {
 		this.createTableAccount();
-		this.createTableStaedte();
-		this.insertRouten();
+//		this.dropTableAccount();
+//		this.createTableStaedte();
+//		this.insertRouten();
 	}
 	
 	public void executeUpdateWithoutParms(String sql) throws SQLException{
@@ -26,14 +27,21 @@ public class AppInstallTables {
 	public void createTableAccount() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Account("
-				+ "	KundenId serial not null primary key,"
-				+ "	Email varchar(256) not null,"
-				+ " Passwort char(32) not null,"
-				+ "	Vorname varchar(256) not null,"
-				+ "	Nachname varchar(256) not null"
+				+ "	KundenId 		serial 			not null primary key	,"
+				+ "	Vorname 		varchar(256) 	not null				,"
+				+ "	Nachname 		varchar(256) 	not null				,"
+				+ " Geburtsdatum 	date									,"
+				+ "	Email 			varchar(256) 	not null				,"
+				+ " Passwort 		char(32) 		not null				 "
 				+ ")"
 				);			
 	}
+	public void dropTableAccount() throws SQLException{
+	String sql = "drop table if exists account";
+	System.out.println(sql);
+	this.dbConn.prepareStatement(sql).executeUpdate();
+	System.out.println("Table Account gedropped");
+}
 	
 	public void createTableStaedte() throws SQLException {
 		this.executeUpdateWithoutParms(

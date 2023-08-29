@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +16,7 @@
       rel="stylesheet"
     />
 <body>
+<jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
   <header> <img src="../img/logo1.png" id="logoImg"/></header>
   <main>
   	 <form action="./RegAppl.jsp" method="get">

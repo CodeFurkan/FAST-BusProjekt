@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
 
 <%
 	String vorname = request.getParameter("vorname");

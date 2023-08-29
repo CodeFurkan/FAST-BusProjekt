@@ -46,6 +46,7 @@ if(btnVerbindung.equals("Suchen")){
 	response.sendRedirect("./VerbindungSuche.jsp");
 }
 
+
 %>
 
 </body>
