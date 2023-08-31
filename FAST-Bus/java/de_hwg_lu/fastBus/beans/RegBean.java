@@ -23,6 +23,7 @@ public class RegBean {
 		
 		this.vorname ="";
 		this.nachname ="";
+		
 		this.email="";
 		this.password ="";
 		

@@ -1,4 +1,8 @@
 <%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +17,7 @@
 <%
 	String vorname = request.getParameter("vorname");
 	String nachname = request.getParameter("nachname");
-	String alter = request.getParameter("alter");
+	String geburtsdatum = request.getParameter("geburtsdatum");
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
 	String btnsubmit = request.getParameter("btnsubmit");
@@ -22,8 +26,27 @@
 	if(btnsubmit == null) btnsubmit="";
 	if(zumLogin == null) zumLogin="";
 	
+	
+	//SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+	//Date geburtsdate = new Date();
+
+	//try {
+	//	geburtsdate = dateFormat.parse(DateGeburtsdatum);
+	 //  System.out.println(geburtsdate);
+	//}
+	//catch (ParseException e) {
+	 //   e.printStackTrace();
+	//}
+	
+	
 	if(btnsubmit.equals("kostenlos registrieren")){
-		response.sendRedirect("./");
+		regBean.setVorname(vorname);
+		regBean.setNachname(nachname);
+	//	regBean.setGeburtsdatum(geburtsdatum);
+		regBean.setEmail(email);
+		regBean.setPassword(password);
+		
+		response.sendRedirect("./HomepageAppl.jsp");
 	}else if(zumLogin.equals("zumLogin")){
 		response.sendRedirect("./LoginView.jsp");
 		
