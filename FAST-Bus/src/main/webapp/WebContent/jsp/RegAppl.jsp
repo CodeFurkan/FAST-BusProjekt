@@ -27,21 +27,35 @@
 	if(btnsubmit == null) btnsubmit="";
 	if(zumLogin == null) zumLogin="";
 	
-	
+	Date gebdatum = null; // Deklaration und Initialisierung von gebdatum
+	String outputDateString = null;
+		   SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 	
 	try{
-		   SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		    Date date = dateFormat.parse(geburtsdatum);	}
+        System.out.println("Eingegebenes Geburtsdatum: " + geburtsdatum);
+        Date date = dateFormat.parse(geburtsdatum);
+        // Erstellen Sie ein SimpleDateFormat-Objekt für das gewünschte Ausgabeformat
+        SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       
+         outputDateString = outputDateFormat.format(date);        
+        // gebdatum = dateFormat.parse(geburtsdatum);	
+		     }
 	
 	catch (ParseException e) {
 	   e.printStackTrace();
+    System.out.println("Fehler: Das Geburtsdatum ist ungültig. Bitte geben Sie ein Datum im Format dd.MM.yyyy ein.");
 	}
 	
 	
 	if(btnsubmit.equals("kostenlos registrieren")){
 		regBean.setVorname(vorname);
 		regBean.setNachname(nachname);
-	//	regBean.setGeburtsdatum(geburtsdatum);
+
+		 // Konvertieren Sie das outputDateString in ein Date-Objekt
+	    SimpleDateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    Date geburtsdate = inputDateFormat.parse(outputDateString);
+	    java.sql.Date sqlGebDatum = new java.sql.Date(geburtsdate.getTime());
+		regBean.setGeburtsdatum(sqlGebDatum);
 		regBean.setEmail(email);
 		regBean.setPassword(password);
 		regBean.insertAccoutNoCheck();

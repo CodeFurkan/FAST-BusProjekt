@@ -49,7 +49,7 @@
                      
                          	<div class="alter">
                             <label for ="alter">Geburtsdatum</label> 
-                            <input type="date" name="alter"  />
+                            <input type="date" name="geburtsdatum"  />
                        		</div>
                            
                             <div class="email">

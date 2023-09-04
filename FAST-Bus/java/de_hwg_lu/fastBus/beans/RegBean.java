@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import de_hwg_lu.fastBus.jdbc.NoConnectionException;
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
-
 public class RegBean {
 	
 	String vorname;
@@ -37,8 +35,8 @@ public class RegBean {
 		prep.setString(1, this.vorname);
 		prep.setString(2, this.nachname);
 		prep.setDate(3, this.geburtsdatum);
-		prep.setString(3, this.email);
-		prep.setString(4, this.password);
+		prep.setString(4, this.email);
+		prep.setString(5, this.password);
 		prep.executeUpdate();
 		System.out.println("Account " + this.email+ " erfolgreich angelegt.");
 		
@@ -67,12 +65,12 @@ public class RegBean {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
-//	public Date getGeburtsdatum() {
-//		return geburtsdatum;
-//	}
-//	public void setGeburtsdatum(Date geburtsdatum) {
-//		this.geburtsdatum = geburtsdatum;
-//	}
+	public Date getGeburtsdatum() {
+		return geburtsdatum;
+	}
+	public void setGeburtsdatum(Date geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
 	public String getEmail() {
 		return email;
 	}
