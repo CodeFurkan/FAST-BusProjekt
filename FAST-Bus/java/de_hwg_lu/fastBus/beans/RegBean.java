@@ -13,7 +13,7 @@ public class RegBean {
 	
 	String vorname;
 	String nachname;
-	Date geburtsdatum;
+//	Date geburtsdatum;
 	String email;
 	String password;
 	
@@ -36,7 +36,7 @@ public class RegBean {
 		PreparedStatement prep = dbConn.prepareStatement(sql);
 		prep.setString(1, this.vorname);
 		prep.setString(2, this.nachname);
-		prep.setDate(3, this.geburtsdatum);
+//		prep.setDate(3, this.geburtsdatum);
 		prep.setString(3, this.email);
 		prep.setString(4, this.password);
 		prep.executeUpdate();
@@ -67,12 +67,12 @@ public class RegBean {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
-	public Date getGeburtsdatum() {
-		return geburtsdatum;
-	}
-	public void setGeburtsdatum(Date geburtsdatum) {
-		this.geburtsdatum = geburtsdatum;
-	}
+//	public Date getGeburtsdatum() {
+//		return geburtsdatum;
+//	}
+//	public void setGeburtsdatum(Date geburtsdatum) {
+//		this.geburtsdatum = geburtsdatum;
+//	}
 	public String getEmail() {
 		return email;
 	}

@@ -45,7 +45,8 @@
 	//	regBean.setGeburtsdatum(geburtsdatum);
 		regBean.setEmail(email);
 		regBean.setPassword(password);
-		
+		regBean.insertAccoutNoCheck();
+		System.out.println("registieren erfolgreich.");
 		response.sendRedirect("./HomepageAppl.jsp");
 	}else if(zumLogin.equals("zumLogin")){
 		response.sendRedirect("./LoginView.jsp");

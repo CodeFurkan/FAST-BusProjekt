@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <!--  Bean einbinden, Methoden von Bean einfügen --> 
 <%
 	String email = request.getParameter("email");
@@ -20,7 +20,7 @@
 	if(zurReg == null) zurReg="";
 	
 	if(btnsubmit.equals("Anmelden")){
-		response.sendRedirect(".");
+		response.sendRedirect(".HomepageView.jsp");
 		}
 	else if(zurReg.equals("zurReg")){
 		response.sendRedirect("./RegView.jsp");
