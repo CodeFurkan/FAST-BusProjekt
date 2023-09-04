@@ -14,6 +14,7 @@
 <body>
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
 
+
 <%
 	String vorname = request.getParameter("vorname");
 	String nachname = request.getParameter("nachname");
@@ -27,16 +28,14 @@
 	if(zumLogin == null) zumLogin="";
 	
 	
-	//SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-	//Date geburtsdate = new Date();
-
-	//try {
-	//	geburtsdate = dateFormat.parse(DateGeburtsdatum);
-	 //  System.out.println(geburtsdate);
-	//}
-	//catch (ParseException e) {
-	 //   e.printStackTrace();
-	//}
+	
+	try{
+		   SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		    Date date = dateFormat.parse(geburtsdatum);	}
+	
+	catch (ParseException e) {
+	   e.printStackTrace();
+	}
 	
 	
 	if(btnsubmit.equals("kostenlos registrieren")){
@@ -47,7 +46,7 @@
 		regBean.setPassword(password);
 		regBean.insertAccoutNoCheck();
 		System.out.println("registieren erfolgreich.");
-		response.sendRedirect("./HomepageAppl.jsp");
+		response.sendRedirect("./HomepageView.jsp");
 	}else if(zumLogin.equals("zumLogin")){
 		response.sendRedirect("./LoginView.jsp");
 		
@@ -55,8 +54,6 @@
 		response.sendRedirect("./LoginView.jsp");
 	}
 	
-	
-
 
 %>
 </body>

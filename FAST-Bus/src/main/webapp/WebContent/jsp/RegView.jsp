@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Jetzt Registrieren</title>
 </head>
+ 	  <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
    <link rel="stylesheet" type="text/css" href="../css/reg.css">
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +18,15 @@
     />
 <body>
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
-  <header> <img src="../img/logo1.png" id="logoImg"/></header>
+<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean" />
+  
+  
+   						  <!-- Navbar -->
+      <header>
+           <jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+      
+      </header>
+							<!-- Navbar end -->
   <main>
   	 <form action="./RegAppl.jsp" method="get">
             <div class="hero-container">

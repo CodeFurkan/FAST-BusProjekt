@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Jetzt anmelden</title>
  <link rel="stylesheet" type="text/css" href="../css/login.css">
+ 
+ 	 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com"  />
@@ -16,8 +18,19 @@
     />
 </head>
 <body>
-<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
- <header> <img src="../img/logo1.png" id="logoImg"/></header>
+	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
+		scope="session" />
+	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
+<!--  
+<header> <img src="../img/logo1.png" id="logoImg"/></header>
+-->
+   						  <!-- Navbar -->
+      <header>
+           <jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+      
+      </header>
+							<!-- Navbar end -->
+
 <main>
  <form action="./LoginAppl.jsp" method="get">
             <div class="hero-container">
