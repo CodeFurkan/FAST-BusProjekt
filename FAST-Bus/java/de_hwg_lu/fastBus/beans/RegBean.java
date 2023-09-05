@@ -32,6 +32,7 @@ public class RegBean {
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
+		
 		prep.setString(1, this.vorname);
 		prep.setString(2, this.nachname);
 		prep.setDate(3, this.geburtsdatum);

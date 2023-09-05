@@ -45,10 +45,10 @@
 	if(btnsubmit.equals("kostenlos registrieren")){
 		regBean.setVorname(vorname);
 		regBean.setNachname(nachname);
-
 		regBean.setGeburtsdatum(geburtsdatumSql);
 		regBean.setEmail(email);
 		regBean.setPassword(password);
+		
 		regBean.insertAccoutNoCheck();
 		
 		System.out.println("registieren erfolgreich.");

@@ -64,7 +64,7 @@
                             </div>
                       
                             <div class="regist">
-                                <button type="submit" name="btnsubmit" class="btnsubmit">kostenlos registrieren</button>
+                                <button type="submit" name="btnsubmit" class="btnsubmit" value="kostenlos registrieren" >kostenlos registrieren</button>
                             </div>
                             <div>
                               <p>Sie haben ein Konto?
