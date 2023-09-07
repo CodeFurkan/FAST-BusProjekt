@@ -57,7 +57,7 @@
 		//Überprüfen ob Account schon existiert (EmailCheck)	
 		accountExistiert = regBean.checkAccountExists(); //falls existiert auf true gesetzt;
 		if (accountExistiert) {
-			System.out.println("Account existiert");
+			System.out.println("Account existiertt");
 			response.sendRedirect("./RegView.jsp");
 		} 
 		else {
