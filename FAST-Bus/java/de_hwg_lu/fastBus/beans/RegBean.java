@@ -27,7 +27,7 @@ public class RegBean {
 		
 	}
 	public void insertAccoutNoCheck() throws SQLException {
-		String sql ="insert into account (vorname, nachname, geburtsdatum, email, password)"
+		String sql ="insert into account (vorname, nachname, geburtsdatum, email, passwort) "
 				+ 	"values (?,?,?,?,?)";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
@@ -49,7 +49,11 @@ public class RegBean {
 		PreparedStatement prep = dbConn.prepareStatement(sql);
 		prep.setString(1, this.email);
 		ResultSet dbRes = prep.executeQuery();
-		return dbRes.next();
+		
+		boolean gefunden = dbRes.next();
+		
+		return gefunden;
+		
 		
 	}
 	

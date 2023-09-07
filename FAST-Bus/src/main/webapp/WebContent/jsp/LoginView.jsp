@@ -58,7 +58,7 @@
                              </div>
                              <br>
                              <div class="login">
-                                <button type="submit" name="btnsubmit" class="btnsubmit">Anmelden</button>
+                                <button type="submit" name="btnsubmit" view="Anmelden" class="btnsubmit">Anmelden</button>
                             </div>
                         </div>
                     </div>

@@ -43,7 +43,7 @@
                          	</div>
                         	<div class="nachname">
                               <label for="nachname">Nachname</label>    
-                               <input type="text" name="nachname" required />
+                               <input type="teSxt" name="nachname" required />
                                <br>
                           	</div>
                      
