@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.MessageBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,7 +20,8 @@
 <body>
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
 <jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean" />
-  
+<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
+ 
   
    						  <!-- Navbar -->
       <header>
@@ -27,6 +29,12 @@
       
       </header>
 							<!-- Navbar end -->
+
+	
+	
+<h2><jsp:getProperty name="msgBean" property="informationsMsg" />	</h2>					
+<h2><jsp:getProperty name="msgBean" property="actionMsg" />	</h2>	
+						
   <main>
   	 <form action="./RegAppl.jsp" method="get">
             <div class="hero-container">
@@ -43,7 +51,7 @@
                          	</div>
                         	<div class="nachname">
                               <label for="nachname">Nachname</label>    
-                               <input type="teSxt" name="nachname" required />
+                               <input type="text" name="nachname" required />
                                <br>
                           	</div>
                      

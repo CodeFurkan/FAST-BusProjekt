@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.MessageBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
 <%@page import="java.text.ParseException"%>
 <%@page import="java.util.Date"%>
@@ -13,6 +14,8 @@
 </head>
 <body>
 	<jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean"
+		scope="session" />
+		<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean"
 		scope="session" />
 
 
@@ -44,32 +47,54 @@
 		System.out.println("Fehler: Das Geburtsdatum ist ungültig. Bitte geben Sie ein Datum im Format dd.MM.yyyy ein.");
 	}
 
-	boolean accountExistiertNicht = false;
-
 	if (btnsubmit.equals("kostenlos registrieren")) {
+		msgBean.setRegistrationWelcome();
 		regBean.setVorname(vorname);
 		regBean.setNachname(nachname);
 		regBean.setGeburtsdatum(geburtsdatumSql);
 		regBean.setEmail(email);
 		regBean.setPassword(password);
-
-		boolean accountExistiert = false;
-		//Überprüfen ob Account schon existiert (EmailCheck)	
-		accountExistiert = regBean.checkAccountExists(); //falls existiert auf true gesetzt;
-		if (accountExistiert) {
-			System.out.println("Account existiertt");
+		
+//	boolean accountExistiertNicht = false;
+	boolean accountAngelegt = false;
+	try{
+		accountAngelegt = regBean.insertAccountIfNotExsits();
+		if(accountAngelegt){
+			msgBean.setAccountAngelegt(email);
+			System.out.println("Account angelegt.");
+			response.sendRedirect("./LoginView.jsp");
+			
+		}else{
+			msgBean.setAccountVorhanden(email);
+			System.out.println("Account existiert bereits.");
 			response.sendRedirect("./RegView.jsp");
-		} 
-		else {
-			regBean.insertAccoutNoCheck();
-			System.out.println("registieren erfolgreich.");
-			response.sendRedirect("./HomepageView.jsp");
+			
 		}
+	}catch(Exception e){
+		msgBean.setAnyError();
+		e.printStackTrace();
+		response.sendRedirect("./RegView.jsp");
+		
+	}
+//boolean accountExistiert = false;
+		//Überprüfen ob Account schon existiert (EmailCheck)	
+//		accountExistiert = regBean.checkAccountExists(); //falls existiert auf true gesetzt;
+//if (accountExistiert) {
+//			System.out.println("Account existiertt");
+//			response.sendRedirect("./RegView.jsp");
+//		} 
+//		else {
+//			regBean.insertAccoutNoCheck();
+//			System.out.println("registieren erfolgreich.");
+//			response.sendRedirect("./HomepageView.jsp");
+//		}
 
 	} else if (zumLogin.equals("zumLogin")) {
+		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");
 
 	} else {
+		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");
 	}
 	%>

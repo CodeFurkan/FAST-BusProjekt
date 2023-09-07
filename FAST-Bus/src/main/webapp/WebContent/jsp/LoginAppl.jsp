@@ -20,6 +20,7 @@
 	if(zurReg == null) zurReg="";
 	
 	if(btnsubmit.equals("Anmelden")){
+		
 		response.sendRedirect(".HomepageView.jsp");
 		}
 	else if(zurReg.equals("zurReg")){

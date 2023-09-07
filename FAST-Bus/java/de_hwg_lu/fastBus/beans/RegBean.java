@@ -52,11 +52,20 @@ public class RegBean {
 		
 		boolean gefunden = dbRes.next();
 		
-		return gefunden;
-		
+		return gefunden;	
 		
 	}
-	
+	public boolean insertAccountIfNotExsits( ) throws SQLException {
+		boolean accountVorhanden = this.checkAccountExists();
+		
+		if(accountVorhanden) { 
+			return false;
+		}else {
+			this.insertAccoutNoCheck();
+			return true;
+			
+		}
+	}
 	
 	public String getVorname() {
 		return vorname;
