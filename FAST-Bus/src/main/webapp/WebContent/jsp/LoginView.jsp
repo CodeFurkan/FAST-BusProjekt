@@ -1,3 +1,5 @@
+<%@page import="de_hwg_lu.fastBus.beans.MessageBean"%>
+<%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,9 +20,10 @@
     />
 </head>
 <body>
-	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
-		scope="session" />
+	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean" scope="session" />
 	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
+	<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
+
 <!--  
 <header> <img src="../img/logo1.png" id="logoImg"/></header>
 -->
@@ -30,7 +33,8 @@
       
       </header>
 							<!-- Navbar end -->
-
+<h2><jsp:getProperty name="msgBean" property="informationsMsg" />	</h2>					
+<h2><jsp:getProperty name="msgBean" property="actionMsg" />	</h2>	
 <main>
  <form action="./LoginAppl.jsp" method="get">
             <div class="hero-container">
@@ -58,7 +62,7 @@
                              </div>
                              <br>
                              <div class="login">
-                                <button type="submit" name="btnsubmit" view="Anmelden" class="btnsubmit">Anmelden</button>
+                                <button type="submit" name="btnsubmit" value="Anmelden" class="btnsubmit">Anmelden</button>
                             </div>
                         </div>
                     </div>

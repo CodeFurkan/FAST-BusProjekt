@@ -26,7 +26,7 @@ public class LoginBean {
 	 * 	andernfalls - FALSE
 	*/
 	public boolean checkEmailPassword() throws SQLException {
-		String sql="select email from account where email=? and password=?";
+		String sql="select email from account where email=? and passwort=?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);

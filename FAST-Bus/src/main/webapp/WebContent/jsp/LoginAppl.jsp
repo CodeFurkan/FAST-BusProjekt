@@ -1,3 +1,5 @@
+<%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
+<%@page import="de_hwg_lu.fastBus.beans.MessageBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,7 +10,9 @@
 </head>
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
-<!--  Bean einbinden, Methoden von Bean einfügen --> 
+<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
+
+
 <%
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
@@ -20,12 +24,31 @@
 	if(zurReg == null) zurReg="";
 	
 	if(btnsubmit.equals("Anmelden")){
-		
-		response.sendRedirect(".HomepageView.jsp");
+		msgBean.setGeneralWelcome();
+		loginBean.setEmail(email);
+		loginBean.setPassword(password);
+		try{
+		boolean accountFound = loginBean.checkEmailPassword();
+		if(accountFound){
+			loginBean.setLoggedIn(true);
+			msgBean.setLogin(email);
+			response.sendRedirect("./HomepageView.jsp");
+		}else{
+			loginBean.setLoggedIn(false);
+			msgBean.setLoginFailed();
+			response.sendRedirect("./LoginView.jsp");
 		}
-	else if(zurReg.equals("zurReg")){
+		}catch(Exception e){
+			msgBean.setAnyError();
+			e.printStackTrace();
+			response.sendRedirect("./LoginView.jsp");
+		}
+	
+	}else if(zurReg.equals("zurReg")){
+		msgBean.setRegistrationWelcome();
 		response.sendRedirect("./RegView.jsp");
 	}else{
+		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");
 	}
 	
