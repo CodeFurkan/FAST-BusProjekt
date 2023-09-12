@@ -41,7 +41,7 @@ body {
 .ueberschrift {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   border-bottom: 1px solid #aaa;
   color: #7a8288;
   width: 90%;
@@ -51,8 +51,9 @@ body {
   display: flex;
   /* background-color: brown; */
   height: 100px;
-  align-items: center
-    /* justify-content: center; */
+  height: 12vh;
+  align-items: center;
+  justify-content: center;
     /* box-sizing: border-box; */
 }
 
@@ -109,8 +110,10 @@ body {
   position: relative;
   margin-top: 30px;
   height: 50px;
-  width: 1200px;
-  left: 100vh;
+/*   width: 1200px; */
+  width: 60%;
+  left: 50%;
+/*   left: 100vh; */
   transform: translate(-50%, -50%);
   background-color: white;
   /* box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3); */
@@ -147,8 +150,10 @@ body {
   /* height: 20vh; */
   height: 190px;
   /* width:125vh; */
-  width: 1200px;
-  left: 100vh;
+/*   width: 1200px; */
+  width: 60%;
+   left: 50%;
+/*   left: 100vh; */
   transform: translate(-50%, -50%);
   background-color: white;
   box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
