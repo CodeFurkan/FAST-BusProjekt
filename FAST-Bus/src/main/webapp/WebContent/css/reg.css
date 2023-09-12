@@ -28,7 +28,6 @@ body{
     position: absolute;
     height: 5px;
     width: 400px;
-   
     left: 50%;
     transform: translate(-50%, -50%);
     
