@@ -39,7 +39,7 @@ body{
     
 }.login-box-header {
     display: flex;
-  
+  justify-content: center;
   }
   .login-box-all-items {
     display: flex;
