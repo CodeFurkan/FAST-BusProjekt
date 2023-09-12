@@ -11,6 +11,7 @@
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
+<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 
 
 <%
@@ -30,6 +31,7 @@
 		boolean accountFound = loginBean.checkEmailPassword();
 		if(accountFound){
 			loginBean.setLoggedIn(true);
+			hb.setAnmeldung(false);
 			msgBean.setLogin(email);
 			response.sendRedirect("./HomepageView.jsp");
 		}else{

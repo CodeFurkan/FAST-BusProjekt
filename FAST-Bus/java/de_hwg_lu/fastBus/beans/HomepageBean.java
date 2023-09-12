@@ -7,13 +7,11 @@ public class HomepageBean {
 	String inputEnd;
 	Date datum;
 	boolean anmeldung;
+	
 
-
-
-
-	public HomepageBean() {
-		// TODO Auto-generated constructor stub
-	}
+public HomepageBean() {
+	
+}
 	
 	
 	
@@ -36,11 +34,27 @@ public class HomepageBean {
 			    "        src='../img/clipart153139.png'" +
 			    "        alt='anmelden'" +
 			    "        width='25px'" +
-			    "      />" +
-			    "      <a href='./LoginView.jsp' class=''>Anmelden</a>" +
-			    "    </label>" +
-			    "  </div>" +
-			    "</nav>";
+			    "      />";
+			    if(anmeldung == true) {
+			    	html +=  "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
+			    			"    </label>" +
+			    			"  </div>" +
+			    			"</nav>";
+			    }
+			    else {
+			    	html =   "<nav id='navbar'>" +
+						    "  <div class='logo'><h1>FASTBUS</h1></div>" +
+						    "  <div class='divLink'>" +
+						    "    <ul>" +
+						    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
+						    "      <li><a href='url'>Städte</a></li>" +
+						    "      <li><a href='url'>Meine Buchungen</a></li>" +
+						    "      <li><a href='url'>Hilfe</a></li>" +
+						    "    </ul>" +
+						    "  </div>" +
+			    			"</nav>";
+			    	
+			    }
 		return html;
 	}
 	
