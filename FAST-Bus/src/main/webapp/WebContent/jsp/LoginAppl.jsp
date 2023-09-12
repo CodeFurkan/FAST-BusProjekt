@@ -24,7 +24,6 @@
 	if(zurReg == null) zurReg="";
 	
 	if(btnsubmit.equals("Anmelden")){
-		msgBean.setGeneralWelcome();
 		loginBean.setEmail(email);
 		loginBean.setPassword(password);
 		try{

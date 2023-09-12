@@ -6,7 +6,8 @@ public class HomepageBean {
 	String inputStart;
 	String inputEnd;
 	Date datum;
-	
+	boolean anmeldung;
+
 
 
 
@@ -36,7 +37,7 @@ public class HomepageBean {
 			    "        alt='anmelden'" +
 			    "        width='25px'" +
 			    "      />" +
-			    "      <a href='#' class=''>Anmelden</a>" +
+			    "      <a href='./LoginView.jsp' class=''>Anmelden</a>" +
 			    "    </label>" +
 			    "  </div>" +
 			    "</nav>";
@@ -181,4 +182,15 @@ public Date getDatum() {
 public void setDatum(Date datum) {
 	this.datum = datum;
 }
+
+public boolean isAnmeldung() {
+	return anmeldung;
 }
+
+
+
+public void setAnmeldung(boolean anmeldung) {
+	this.anmeldung = anmeldung;
+}
+}
+
