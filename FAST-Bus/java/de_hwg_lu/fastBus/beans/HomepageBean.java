@@ -6,11 +6,10 @@ public class HomepageBean {
 	String inputStart;
 	String inputEnd;
 	Date datum;
-	boolean anmeldung;
+	boolean anmeldung = false;
 	
 
 public HomepageBean() {
-	
 }
 	
 	
@@ -33,9 +32,9 @@ public HomepageBean() {
 			    "        class=''" +
 			    "        src='../img/clipart153139.png'" +
 			    "        alt='anmelden'" +
-			    "        width='25px'" +
+			    "        width='15px'" +
 			    "      />";
-			    if(anmeldung == true) {
+			    if(anmeldung == false) {
 			    	html +=  "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
 			    			"    </label>" +
 			    			"  </div>" +
@@ -46,7 +45,7 @@ public HomepageBean() {
 						    "  <div class='logo'><h1>FASTBUS</h1></div>" +
 						    "  <div class='divLink'>" +
 						    "    <ul>" +
-						    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
+						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
 						    "      <li><a href='url'>Städte</a></li>" +
 						    "      <li><a href='url'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +

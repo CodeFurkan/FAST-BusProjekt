@@ -23,7 +23,7 @@
 	
 	if(btnsubmit == null) btnsubmit="";
 	if(zurReg == null) zurReg="";
-	
+	//kaka
 	if(btnsubmit.equals("Anmelden")){
 		loginBean.setEmail(email);
 		loginBean.setPassword(password);
@@ -31,7 +31,7 @@
 		boolean accountFound = loginBean.checkEmailPassword();
 		if(accountFound){
 			loginBean.setLoggedIn(true);
-			hb.setAnmeldung(false);
+			hb.setAnmeldung(true);
 			msgBean.setLogin(email);
 			response.sendRedirect("./HomepageView.jsp");
 		}else{
