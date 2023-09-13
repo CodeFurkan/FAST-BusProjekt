@@ -23,7 +23,7 @@
 	
 	if(btnsubmit == null) btnsubmit="";
 	if(zurReg == null) zurReg="";
-	
+	//kaka
 	if(btnsubmit.equals("Anmelden")){
 		loginBean.setEmail(email);
 		loginBean.setPassword(password);

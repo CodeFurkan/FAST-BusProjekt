@@ -45,7 +45,7 @@ public HomepageBean() {
 						    "  <div class='logo'><h1>FASTBUS</h1></div>" +
 						    "  <div class='divLink'>" +
 						    "    <ul>" +
-						    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
+						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
 						    "      <li><a href='url'>Städte</a></li>" +
 						    "      <li><a href='url'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +
