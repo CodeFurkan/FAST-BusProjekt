@@ -76,18 +76,6 @@
 		response.sendRedirect("./RegView.jsp");
 		
 	}
-//boolean accountExistiert = false;
-		//Überprüfen ob Account schon existiert (EmailCheck)	
-//		accountExistiert = regBean.checkAccountExists(); //falls existiert auf true gesetzt;
-//if (accountExistiert) {
-//			System.out.println("Account existiertt");
-//			response.sendRedirect("./RegView.jsp");
-//		} 
-//		else {
-//			regBean.insertAccoutNoCheck();
-//			System.out.println("registieren erfolgreich.");
-//			response.sendRedirect("./HomepageView.jsp");
-//		}
 
 	} else if (zumLogin.equals("zumLogin")) {
 		msgBean.setGeneralWelcome();

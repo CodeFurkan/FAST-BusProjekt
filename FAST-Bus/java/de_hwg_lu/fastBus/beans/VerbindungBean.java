@@ -1,8 +1,8 @@
 package de_hwg_lu.fastBus.beans;
 
-public class TestBean {
+public class VerbindungBean {
 
-	public TestBean() {
+	public VerbindungBean() {
 		// TODO Auto-generated constructor stub
 	}
 

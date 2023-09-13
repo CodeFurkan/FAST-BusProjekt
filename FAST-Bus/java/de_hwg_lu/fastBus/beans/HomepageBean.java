@@ -10,7 +10,6 @@ public class HomepageBean {
 	
 
 public HomepageBean() {
-	
 }
 	
 	
@@ -33,7 +32,7 @@ public HomepageBean() {
 			    "        class=''" +
 			    "        src='../img/clipart153139.png'" +
 			    "        alt='anmelden'" +
-			    "        width='25px'" +
+			    "        width='15px'" +
 			    "      />";
 			    if(anmeldung == true) {
 			    	html +=  "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
