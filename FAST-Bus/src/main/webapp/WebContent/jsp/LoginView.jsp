@@ -44,11 +44,6 @@
                             <div class="login-box-header">
                                 <h1>Anmelden</h1>
                             </div>
-                            <div>
-                                <p>Sie haben noch kein Konto?
-                                    <a href="./LoginAppl.jsp?zurReg=zurReg" class="reg">Registrieren</a>
-                                </p>
-                            </div>
                             <div class="email">
                                 <label for ="email">E-Mail</label> <br>
                                 <input type="email" name="email"  required placeholder="beispiel@beispiel.de" />
@@ -62,6 +57,11 @@
                              <br>
                              <div class="login">
                                 <button type="submit" name="btnsubmit" value="Anmelden" class="btnsubmit">Anmelden</button>
+                            </div>
+                            <div>
+                                <p>Sie haben noch kein Konto?
+                                    <a href="./LoginAppl.jsp?zurReg=zurReg" class="reg">Registrieren</a>
+                                </p>
                             </div>
                         </div>
                     </div>

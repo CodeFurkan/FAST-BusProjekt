@@ -11,6 +11,7 @@
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
+<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 
 
 <%
@@ -24,13 +25,13 @@
 	if(zurReg == null) zurReg="";
 	
 	if(btnsubmit.equals("Anmelden")){
-		msgBean.setGeneralWelcome();
 		loginBean.setEmail(email);
 		loginBean.setPassword(password);
 		try{
 		boolean accountFound = loginBean.checkEmailPassword();
 		if(accountFound){
 			loginBean.setLoggedIn(true);
+			hb.setAnmeldung(false);
 			msgBean.setLogin(email);
 			response.sendRedirect("./HomepageView.jsp");
 		}else{

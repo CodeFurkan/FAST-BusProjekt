@@ -14,6 +14,7 @@
 <body>
 
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
+<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 
 <%
 
@@ -34,6 +35,13 @@ catch (ParseException e) {
     e.printStackTrace();
 }
 
+if(loginBean.isLoggedIn() == true){
+	hb.setAnmeldung(false);
+}
+else{
+	hb.setAnmeldung(true);
+}
+
 
 if(btnVerbindung == null ) btnVerbindung="";
 //Hier muss evtl die Methode von der LoginBean hinzugefuegt werden wie zb in der PortalAppl.jsp VL 
@@ -46,6 +54,8 @@ if(btnVerbindung.equals("Suchen")){
 	hb.setDatum(date);
 	response.sendRedirect("./VerbindungSuche.jsp");
 }
+
+
 
 
 %>
