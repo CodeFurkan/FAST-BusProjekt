@@ -6,7 +6,7 @@ public class HomepageBean {
 	String inputStart;
 	String inputEnd;
 	Date datum;
-	boolean anmeldung;
+	boolean anmeldung = false;
 	
 
 public HomepageBean() {
@@ -34,7 +34,7 @@ public HomepageBean() {
 			    "        alt='anmelden'" +
 			    "        width='15px'" +
 			    "      />";
-			    if(anmeldung == true) {
+			    if(anmeldung == false) {
 			    	html +=  "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
 			    			"    </label>" +
 			    			"  </div>" +
