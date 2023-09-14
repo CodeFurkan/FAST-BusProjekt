@@ -30,6 +30,10 @@
 	<!-- JSP USEBEAN  -->
 		
 		
+		
+	<jsp:getProperty name="navbar" property="anmeldung" />
+		
+		
     <div class="container">
     						  <!-- Navbar -->
       <header>
