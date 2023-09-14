@@ -25,19 +25,19 @@
   
   <body>
   	<!-- JSP USEBEAN  -->
-	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
+	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		scope="session" />
 	<!-- JSP USEBEAN  -->
 		
 		
 		
-	<jsp:getProperty name="navbar" property="anmeldung" />
+	<jsp:getProperty name="hb" property="anmeldung" />
 		
 		
     <div class="container">
     						  <!-- Navbar -->
       <header>
-           <jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+           <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
       
       </header>
 							<!-- Navbar end -->
@@ -48,7 +48,7 @@
         	<!-- Box für Verbindungssuche -->
         <form action="./HomepageAppl.jsp" method="get">
          
-         <jsp:getProperty name="navbar" property="formularBoxAsHtml" />
+         <jsp:getProperty name="hb" property="formularBoxAsHtml" />
         
         </form>
              <!-- Box für Verbindungssuche -->
@@ -97,7 +97,7 @@
 
 
       <!------------------ footer------------ -->
-        <jsp:getProperty name="navbar" property="footerAsHtml" />
+        <jsp:getProperty name="hb" property="footerAsHtml" />
       <!------------------ footer end------------ -->
             
     </div>
