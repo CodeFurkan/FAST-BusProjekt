@@ -25,7 +25,7 @@
 <body>
 	<div class="container">
 		<header>
-		 <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
+		 <jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
 		</header>
 		<main>
 
@@ -96,6 +96,7 @@
 				</div>
 	</form>
 	</main>
+        <jsp:getProperty name="hb" property="footerAsHtml" />
 
 	</div>
 
