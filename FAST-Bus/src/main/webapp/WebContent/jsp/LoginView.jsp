@@ -50,7 +50,6 @@
                             </div>
 
                             <div class="password">
-           
                                 <label for="password">Passwort</label>    <br>
                                  <input type="password" name="password" id="Passwort" required />
                                  <br>

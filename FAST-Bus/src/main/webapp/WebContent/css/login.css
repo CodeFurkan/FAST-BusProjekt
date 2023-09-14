@@ -15,7 +15,7 @@ body{
     background-color: #ffffff;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
  
     
 }
@@ -63,8 +63,6 @@ body{
     background-color: rgb(180, 180, 176);
     font-size: 20px;
     padding: 10px 10px;
-
-
 
   }
   .reg{

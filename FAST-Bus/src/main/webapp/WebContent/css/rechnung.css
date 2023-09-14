@@ -1,20 +1,75 @@
+ main{
+ width: 100%;
+ height: 150%;
  
+ }
 body{
-    font-family: "Open Sans", sans-serif;
+   font-family: "Open Sans", sans-serif;
     font-family: "Poppins", sans-serif;
     background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    margin: 0;
     
 }
-main {
-
-    text-align:center;
-}
-
 .container{
-	background-color: #f9f9f9;
+	height: 50%;
+	width:100%;
+
+}
+.billing-box {
+	display:flex;
+	position:absolute;
+	height: 10px;
+	width: 250px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+}
+.billing-all-items{
+	
+
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+ 	margin: 2rem;	
+}
+.billing-main{
+	height: 100vh;
+}
+.billing-main div{
+	display: contents;
+		display: flex;
+	flex-direction: column;
+
+	
+	 justify-content: space-between;
+	
+}
+ .billing-all-items input{
+ 	
+ 	display: flex;
+ 	height: 20px;
+ 	border: 1px solid gray;
+ 	border-radius: 5px;
+ 	width: 300px;
+ 	margin-bottom: 10px;
+ 	
+ 
+ }
+ .Land{
+ 	display: flex;
+	flex-direction: column;
+ }
+ .header{
+ text-align: left;
+ }
+.btnKasse{
+	width:306px;
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(180, 180, 176);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 10px;
+	text-align: center;
 }

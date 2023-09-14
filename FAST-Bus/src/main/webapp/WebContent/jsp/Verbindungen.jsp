@@ -26,7 +26,7 @@
 	<!-- JSP USEBEAN  -->
 	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		 scope="session" />
-	<jsp:useBean id="verbindung" class="de_hwg_lu.fastBus.beans.VerbindungenBean" scope="session" />
+	<jsp:useBean id="verbindung" class="de_hwg_lu.fastBus.beans.VerbindungBean" scope="session" />
 		 
 	<!-- JSP USEBEAN  -->
 
