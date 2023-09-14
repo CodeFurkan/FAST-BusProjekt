@@ -1,4 +1,4 @@
-package de_hwg_lu.fastBus.beans;
+ package de_hwg_lu.fastBus.beans;
 
 import java.sql.Connection;
 import java.sql.Date;
