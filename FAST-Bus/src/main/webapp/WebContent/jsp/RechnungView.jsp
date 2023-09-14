@@ -65,7 +65,7 @@
 									<label>Stadt <input type="text" name="stadt" value="" /></label>
 								</div>
 								<div class="plz">
-									<label>PLZ<input type="text" name="zip" value="" /></label>
+									<label>PLZ<input type="text" name="plz" value="" /></label>
 								</div>
 
 								<h1 class="header">Zahlung</h1>
@@ -84,7 +84,7 @@
 
 								<!-- button-Element, dient zur Erstellung eines Buttons -->
 								<div class="kasse">
-									<button type="submit" name="btnZurKasse" value="jetzt kaufen"
+									<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
 										class="btnKasse">Jetzt kaufen</button>
 								</div>
 

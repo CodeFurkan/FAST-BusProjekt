@@ -14,16 +14,36 @@ public class AppInstallTables {
 
 	}
 	public void doSomething() throws SQLException {
-		this.createTableAccount();
+//		this.createTableAccount();
 //		this.dropTableAccount();
 //		this.createTableStaedte();
 //		this.insertRouten();
+		this.createTableBuchung();
 	}
 	
 	public void executeUpdateWithoutParms(String sql) throws SQLException{
 		System.out.println(sql);
 		this.dbConn.prepareStatement(sql).executeUpdate();
 	}
+	
+	public void createTableBuchung() throws SQLException {
+		this.executeUpdateWithoutParms(
+				"Create table Buchung("
+				+ "BuchungId 		serial 			not null primary key	,"
+				+ "	Vorname 		varchar(256) 	not null				,"
+				+ "	Nachname 		varchar(256) 	not null				,"
+				+ "	Email 			varchar(256) 	not null				,"
+				+ " Adresse			varchar(256)	not null				,"
+				+ " Land 			varchar(256)	not null				,"
+				+ " Stadt 			varchar(256)	not null				,"
+				+ " PLZ 			varchar(256)	not null				,"
+				+ " IBAN 			varchar(256)	not null				,"
+				+ " BIC 			varchar(256)	not null				,"
+				+ "	NameKonto		varchar(256)	not null				 "
+				+ ")"
+				);
+	}
+	
 	public void createTableAccount() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Account("
