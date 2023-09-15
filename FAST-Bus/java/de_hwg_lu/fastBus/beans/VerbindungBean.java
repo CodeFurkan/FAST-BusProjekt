@@ -4,20 +4,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class VerbindungBean {
+
 	
 	String startStadt;
 	String zielStadt;
 	String datum;
-	int[] tageszeiten= {8,16,24};
+	double[] tageszeiten= {8.00,16,24};
 	double dauer;
 	int dauerStd, dauerMin;
 
 	
-	public String getVerbindungsBox() {
+	public String getVerbindungsBox() throws SQLException {
+		dauer();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
 			html += " <div class=\"verbindungsbox\">"
@@ -26,24 +29,24 @@ public class VerbindungBean {
 					+ "          <div class=\"vUhrzeitStadt\">"
 					+ "            <div class=\"vUhrzeitStadtO\">"
 					+ "              <div class=\"vUhrzeit\">"
-					+ "                "+tageszeiten[i]+""
+					+ "                "+dauerInString(dauerSplit(tageszeiten[i]))+""
 					+ "              </div>"
 					+ "              <div class=\"vStadt\">"
-					+ "                München Hbf"
+					+ "                "+getStartStadt() +" Hbf"
 					+ "              </div>"
 					+ "            </div>"
 					+ "            <div class=\"vUhrzeitStadtO\">"
 					+ "              <div class=\"vUhrzeit\">"
-					+ "                "+tageszeiten[i]+dauer +""
+					+ "                "+tagesZeitPlusDauer(tageszeiten[i]) +""
 					+ "              </div>\r\n"
 					+ "              <div class=\"vStadt\">"
-					+ "                Berlin Hbf"
+					+ "                "+getZielStadt()+" Hbf"
 					+ "              </div>"
 					+ "            </div>"
 					+ "          </div>"
 					+ "          <div class=\"vDauer\">"
 					+ "            <img class=\"\" src=\"../img/timer.png\" alt=\"anmelden\" width=\"35px\" /> &nbsp;"
-					+ "            6 Std 20 Min"
+					+ "            "+getDauerStd() +" Std "+getDauerMin()+" Min"
 					+ "          </div>"
 					+ "        </div>"
 					+ "        <div class=\"vBoxUnten\">"
@@ -92,15 +95,16 @@ public class VerbindungBean {
 		this.datum = datum;
 	}
 
-	public int[] getTageszeiten() {
+	public double[] getTageszeiten() {
 		return tageszeiten;
 	}
 
-	public void setTageszeiten(int[] tageszeiten) {
+	public void setTageszeiten(double[] tageszeiten) {
 		this.tageszeiten = tageszeiten;
 	}
 
-	public Double getDauer() throws SQLException {
+	public void dauer() throws SQLException {
+		
 		String sql="SELECT Dauer FROM Routen where Startstadt = ? AND ZielStadt = ?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
@@ -108,20 +112,66 @@ public class VerbindungBean {
 		prep.setString(1, this.startStadt);
 		prep.setString(2, this.zielStadt);
 		ResultSet dbRes = prep.executeQuery();
-		dauer= dbRes.getDouble("Dauer");
-		return dauer;
+		if(dbRes.next()){
+			this.dauer= dbRes.getDouble("Dauer");
+//			String result = String.format("%.2f", dauer);
+//			System.out.println(result);
+		}
+		
+		int[] dauersplit = dauerSplit(dauer);
+		setDauerStd(dauersplit[0]);
+		
+		if(dauersplit[1]/10==0)dauersplit[1]*=10;
+		setDauerMin(dauersplit[1]);
+		
 	}
-	public void splitDauer() {
-		String dauerString = Double.toString(dauer);
+	
+	public String tagesZeitPlusDauer(double tageszeit) {
+		double ins= tageszeit+this.dauer;
+		int[] dauersplit=dauerSplit(ins);
+		
+		int speicher = dauersplit[1]/60;
+		dauersplit[0] += speicher;
+
+		dauersplit[1]%=60;
+		
+		
+		dauersplit[0] %= 24;
+//		
+//		int stunden = dauersplit[0]%24;
+//		dauersplit[0] = stunden;
+//		
+//		int minuten= dauersplit[1]/60;
+//		dauersplit[0]+=minuten;
+//		
+		
+		
+
+		return dauerInString(dauersplit);
+	}
+	
+	public int[] dauerSplit(double dauerzumsplit) {
+		
+//		DecimalFormat df = new DecimalFormat("#.##");
+//		dauerzumsplit = Double.parseDouble(df.format(dauerzumsplit));
+		
+		String dauerString = Double.toString(dauerzumsplit);
 		String[] convert = dauerString.split("\\.");
 		
-	     int std = Integer.parseInt(convert[0]);
-	     int min = Integer.parseInt(convert[1]);
-	     
-	     setDauerStd(std);
-	     setDauerMin(min);
+		int[] dauersplit= {Integer.parseInt(convert[0]),Integer.parseInt(convert[1])};
+
+		return dauersplit;
 	     
 	}
+	public String dauerInString(int[]dauersplit) {
+		
+		String tageszeitString = ""+dauersplit[0]+":"+dauersplit[1];
+		if(tageszeitString.split( "\\:" )[ 1 ].length() == 1 ) tageszeitString+="0";
+		if(tageszeitString.split( "\\:" )[ 0 ].length() == 1 ) tageszeitString="0"+tageszeitString;
+		return tageszeitString;
+		
+	}
+	
 
 	public int getDauerStd() {
 		return dauerStd;

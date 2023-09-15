@@ -93,7 +93,7 @@ public HomepageBean() {
 			    "                        <input type='date' name='date' class='date' />" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
-			    "                        <button type='submit' name='btnVerbindung'  class='subbutton'>Suchen</button>" +
+			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' >Suchen</button>" +
 			    "                        <!-- null check -->" +
 			    "                        <!-- <img class='fastbusImg' src='img/Fast-Bus.png' />-->" +
 			    "                    </div>" +

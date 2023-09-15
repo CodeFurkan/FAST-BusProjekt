@@ -24,9 +24,9 @@
 
 <body>
 	<!-- JSP USEBEAN  -->
-	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
+	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		 scope="session" />
-	<jsp:useBean id="verbindung" class="de_hwg_lu.fastBus.beans.VerbindungBean" scope="session" />
+	<jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean" scope="session" />
 		 
 	<!-- JSP USEBEAN  -->
 
@@ -34,7 +34,7 @@
 	<div class="container">
 		<!-- Navbar -->
 		<header>
-			<jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+			<jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
 
 		</header>
 		<!-- Navbar end -->
@@ -126,12 +126,10 @@
 <!--       </div> -->
 <!--   </div> -->
 		<!-- main box end -->
-	<jsp:getProperty name="verbindung" property="verbindungsBox" />
-	<jsp:getProperty name="verbindung" property="verbindungsBox" />
-	<jsp:getProperty name="verbindung" property="verbindungsBox" />
+	<jsp:getProperty name="vb" property="verbindungsBox" />
 
 		<!------------------ footer------------ -->
-		<jsp:getProperty name="navbar" property="footerAsHtml" />
+		<jsp:getProperty name="hb" property="footerAsHtml" />
 		<!------------------ footer end------------ -->
 
 	</div>
