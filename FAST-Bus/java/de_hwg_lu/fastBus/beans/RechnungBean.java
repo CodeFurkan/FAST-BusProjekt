@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import de_hwg_lu.fastBus.jdbc.NoConnectionException;
+
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class RechnungBean {
@@ -55,6 +55,15 @@ public class RechnungBean {
 		System.out.println("Buchung erfolgreich abgeschlossen");
 		
 	}
+	public void checkVorname(String vorname) throws Exception {
+		if( vorname != null && vorname.length() <=16) {
+			this.vorname = vorname;
+		}else {
+			throw new IllegalArgumentException("Der Vorname ist zu lang.");
+		}
+		
+	}
+	
 	
 	
 	
