@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.MessageBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -33,6 +34,7 @@
 			loginBean.setLoggedIn(true);
 			hb.setAnmeldung(true);
 			msgBean.setLogin(email);
+			System.out.println("Anmelden");
 			response.sendRedirect("./HomepageView.jsp");
 		}else{
 			loginBean.setLoggedIn(false);

@@ -6,7 +6,7 @@ public class HomepageBean {
 	String inputStart;
 	String inputEnd;
 	Date datum;
-	boolean anmeldung = false;
+	boolean anmeldung;
 	
 
 public HomepageBean() {
@@ -15,7 +15,9 @@ public HomepageBean() {
 	
 	
 	public String getNavbarWithLoginAsHtml() {
-		String html =
+		String html= "";
+		if(anmeldung == false) {
+		 html =
 			    "<nav id='navbar'>" +
 			    "  <div class='logo'><h1>FASTBUS</h1></div>" +
 			    "  <div class='divLink'>" +
@@ -33,14 +35,13 @@ public HomepageBean() {
 			    "        src='../img/clipart153139.png'" +
 			    "        alt='anmelden'" +
 			    "        width='15px'" +
-			    "      />";
-			    if(anmeldung == false) {
-			    	html +=  "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
+			    "      />" 	 + 
+			    "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
 			    			"    </label>" +
 			    			"  </div>" +
 			    			"</nav>";
 			    }
-			    else {
+			    else if(anmeldung == true) {
 			    	html =   "<nav id='navbar'>" +
 						    "  <div class='logo'><h1>FASTBUS</h1></div>" +
 						    "  <div class='divLink'>" +
@@ -120,7 +121,7 @@ public HomepageBean() {
 			    "                        <input type='date' name='date' class='date' />" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
-			    "                        <button type='submit' name='btnVerbindung'  class='subbutton'>Suchen</button>" +
+			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' >Suchen</button>" +
 			    "                        <!-- null check -->" +
 			    "                        <!-- <img class='fastbusImg' src='img/Fast-Bus.png' />-->" +
 			    "                    </div>" +
@@ -188,7 +189,9 @@ public HomepageBean() {
 		return html;
 	
 	}
-
+	
+	
+	
 
 public String getInputStart() {
 	return inputStart;

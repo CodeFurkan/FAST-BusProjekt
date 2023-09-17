@@ -13,11 +13,9 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&display=swap"
       rel="stylesheet"
     />
-
+	<link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
     <link type="text/css" rel="stylesheet" href="../css/main1.0.css" />
     <link type="text/css" rel="stylesheet" href="../css/main2.0.css" />
-	  <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
-
     <link type="text/css" rel="stylesheet" href="../css/footer.css" />
   </head>
   
@@ -25,15 +23,19 @@
   
   <body>
   	<!-- JSP USEBEAN  -->
-	<jsp:useBean id="navbar" class="de_hwg_lu.fastBus.beans.HomepageBean"
+	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		scope="session" />
 	<!-- JSP USEBEAN  -->
+		
+		
+		
+	<jsp:getProperty name="hb" property="anmeldung" />
 		
 		
     <div class="container">
     						  <!-- Navbar -->
       <header>
-           <jsp:getProperty name="navbar" property="navbarWithLoginAsHtml" />
+           <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
       
       </header>
 							<!-- Navbar end -->
@@ -44,7 +46,7 @@
         	<!-- Box für Verbindungssuche -->
         <form action="./HomepageAppl.jsp" method="get">
          
-         <jsp:getProperty name="navbar" property="formularBoxAsHtml" />
+         <jsp:getProperty name="hb" property="formularBoxAsHtml" />
         
         </form>
              <!-- Box für Verbindungssuche -->
@@ -93,7 +95,7 @@
 
 
       <!------------------ footer------------ -->
-        <jsp:getProperty name="navbar" property="footerAsHtml" />
+        <jsp:getProperty name="hb" property="footerAsHtml" />
       <!------------------ footer end------------ -->
             
     </div>
