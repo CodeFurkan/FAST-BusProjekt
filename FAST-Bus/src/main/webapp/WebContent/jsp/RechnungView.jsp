@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.RegBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,6 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<jsp:getProperty name="loginBean" property="checkLoggedIn"/>
+
 <title>Zahlungsvorgang</title>
 <link rel="stylesheet" type="text/css" href="../css/rechnung.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
@@ -18,14 +22,14 @@
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
 <link type="text/css" rel="stylesheet" href="../css/footer.css" />
 </head>
-
+<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session" />
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 
 <body>
 	<div class="container">
 		<header>
-		 <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
+		 <jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
 		</header>
 		<main>
 
@@ -65,7 +69,7 @@
 									<label>Stadt <input type="text" name="stadt" value="" /></label>
 								</div>
 								<div class="plz">
-									<label>PLZ<input type="text" name="zip" value="" /></label>
+									<label>PLZ<input type="text" name="plz" value="" /></label>
 								</div>
 
 								<h1 class="header">Zahlung</h1>
@@ -84,7 +88,7 @@
 
 								<!-- button-Element, dient zur Erstellung eines Buttons -->
 								<div class="kasse">
-									<button type="submit" name="btnZurKasse" value="jetzt kaufen"
+									<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
 										class="btnKasse">Jetzt kaufen</button>
 								</div>
 
@@ -96,6 +100,7 @@
 				</div>
 	</form>
 	</main>
+        <jsp:getProperty name="hb" property="footerAsHtml" />
 
 	</div>
 

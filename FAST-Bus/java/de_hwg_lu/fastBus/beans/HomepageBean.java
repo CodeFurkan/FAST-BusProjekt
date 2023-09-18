@@ -57,6 +57,34 @@ public HomepageBean() {
 			    }
 		return html;
 	}
+	public String getNavbarWithLogoutAsHtml() {
+			String html =
+				    "<nav id='navbar'>"											+
+				    "  <div class='logo'><h1>FASTBUS</h1></div>" 				+
+				    "  <div class='divLink'>" 									+
+				    "    <ul>" 													+
+				    "      <!--<li><a href=''>Reise Planen</a></li>-->" 		+
+				    "      <li><a href='url'>Städte</a></li>" 					+
+				    "      <li><a href='url'>Meine Buchungen</a></li>" 			+
+				    "      <li><a href='url'>Hilfe</a></li>" 					+
+				    "    </ul>" 												+
+				    "  </div>"													+
+				    "  <div class='divLogout'>" 								+
+				    "    <label class='abmelden'>" 								+
+				    "      <img" 												+
+				    "        class=''" 											+
+				    "        src='../img/clipart153139.png'"					+
+				    "        alt='abmelden'" 									+
+				    "        width='15px'" 										+
+				    "      />" 													+
+				    "<a href='./LoginView.jsp' class='abmelden'>Abmelden</a>" 	+
+	    			"    </label>"												+
+	    			"  </div>" 													+
+	    			"</nav>";
+	
+	
+	return html;
+	}
 	
 	public String getFormularBoxAsHtml() {
 		String html =
