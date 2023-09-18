@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
@@ -14,13 +16,14 @@ public class VerbindungBean {
 	String startStadt;
 	String zielStadt;
 	String datum;
-	double[] tageszeiten= {8.00,16,24};
+	double[] tageszeiten= {8,16,24};
 	double dauer;
+	double preis;
 	int dauerStd, dauerMin;
 
 	
 	public String getVerbindungsBox() throws SQLException {
-		dauer();
+		dauerUndPreis();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
 			html += " <div class=\"verbindungsbox\">"
@@ -55,11 +58,11 @@ public class VerbindungBean {
 					+ "          </div>\r\n"
 					+ "          <div class=\"vPreisButton\">"
 					+ "            <div class=\"vPreis\">"
-					+ "              33,00&euro;"
+					+ "              "+getPreisString()+"&euro;"
 					+ "            </div>"
 					+ "            <div class=\"vButton\">"
-					+ "              <!-- <input type=\"submit\" name=\"btnZumAngebot\" value=\"Zum Angebot\" /> -->"
-					+ "              <button type=\"submit\" class=\"subbutton\">Zum Angebot</button>"
+					+ "              <!-- <input type=\"submit\" name=\"btnZumAngebot\" value=\"Zum Angebot1\" /> -->"
+					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+tageszeiten[i]+"' >Zum Angebot</button>"
 					+ "            </div>"
 					+ "          </div>"
 					+ "        </div>"
@@ -103,9 +106,9 @@ public class VerbindungBean {
 		this.tageszeiten = tageszeiten;
 	}
 
-	public void dauer() throws SQLException {
+	public void dauerUndPreis() throws SQLException {
 		
-		String sql="SELECT Dauer FROM Routen where Startstadt = ? AND ZielStadt = ?";
+		String sql="SELECT Dauer,Preis FROM Routen where Startstadt = ? AND ZielStadt = ?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -114,6 +117,7 @@ public class VerbindungBean {
 		ResultSet dbRes = prep.executeQuery();
 		if(dbRes.next()){
 			this.dauer= dbRes.getDouble("Dauer");
+			this.preis=dbRes.getDouble("Preis");
 //			String result = String.format("%.2f", dauer);
 //			System.out.println(result);
 		}
@@ -172,6 +176,7 @@ public class VerbindungBean {
 		
 	}
 	
+	
 
 	public int getDauerStd() {
 		return dauerStd;
@@ -188,7 +193,30 @@ public class VerbindungBean {
 	public void setDauerMin(int dauerMin) {
 		this.dauerMin = dauerMin;
 	}
+
+	public String getPreisString() {
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String s = numberFormat.format(this.preis);
+		String res;
+		res= s.substring(0, s.length() - 1);
+
+		return res;
+	}
+	public void setPreis(double preis) {
+		this.preis = preis;
+	}
 	
 
-
+	public static void main(String[] args) {
+//		double d = 30.5;
+//		System.out.println(d);
+//		
+//		Locale locale = Locale.GERMANY;
+//		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+//		String s = numberFormat.format(d);
+//		String res;
+//		res= s.substring(0, s.length() - 2);
+//		System.out.println(res);
+	}
 }

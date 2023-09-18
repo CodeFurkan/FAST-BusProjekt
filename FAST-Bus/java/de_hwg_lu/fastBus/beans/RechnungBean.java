@@ -21,6 +21,15 @@ public class RechnungBean {
 	String bic;
 	String nameKonto;
 	
+	String startStadt;
+	String ZielStadt;
+	String datum;
+	String startUhrzeit;
+	String zielUhrzeit;
+	int dauerStd;
+	int dauerMin;
+	String preis;
+	
 	public RechnungBean() {
 		this.vorname ="";
 		this.nachname ="";
@@ -154,6 +163,75 @@ public class RechnungBean {
 
 	public void setNameKonto(String nameKonto) {
 		this.nameKonto = nameKonto;
+	}
+	
+	
+	
+	
+	
+
+	public String getStartStadt() {
+		return startStadt;
+	}
+
+	public void setStartStadt(String startStadt) {
+		this.startStadt = startStadt;
+	}
+
+	public String getZielStadt() {
+		return ZielStadt;
+	}
+
+	public void setZielStadt(String zielStadt) {
+		ZielStadt = zielStadt;
+	}
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+
+	public String getStartUhrzeit() {
+		return startUhrzeit;
+	}
+
+	public void setStartUhrzeit(String startUhrzeit) {
+		this.startUhrzeit = startUhrzeit;
+	}
+
+	public String getZielUhrzeit() {
+		return zielUhrzeit;
+	}
+
+	public void setZielUhrzeit(String zielUhrzeit) {
+		this.zielUhrzeit = zielUhrzeit;
+	}
+
+	public int getDauerStd() {
+		return dauerStd;
+	}
+
+	public void setDauerStd(int dauerStd) {
+		this.dauerStd = dauerStd;
+	}
+
+	public int getDauerMin() {
+		return dauerMin;
+	}
+
+	public void setDauerMin(int dauerMin) {
+		this.dauerMin = dauerMin;
+	}
+
+	public String getPreis() {
+		return preis;
+	}
+
+	public void setPreis(String preis) {
+		this.preis = preis;
 	}
 
 	
