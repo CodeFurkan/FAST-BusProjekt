@@ -38,7 +38,7 @@ body {
   flex-direction: row;
   align-items: center;
   height: 60%;
-  flex-wrap: wrap; /* Hinzufügen von flex-wrap, um das Umbruchverhalten zu steuern */
+  flex-wrap: wrap; /* Hinzufügeng von flex-wrap, um das Umbruchverhalten zu steuern */
 }
 .search-box-all-items {
   display: flex;

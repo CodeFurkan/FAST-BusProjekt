@@ -14,7 +14,7 @@
 	rel="stylesheet" />
 
 <link type="text/css" rel="stylesheet" href="../css/verbindungen.css" />
-<!-- <link type="text/css" rel="stylesheet" href="../css/main2.0.css" /> -->
+<!-- <link type="text/css" rel="stylesheet" href="../css/main2.0.css" /> tst-->
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
 
 <link type="text/css" rel="stylesheet" href="../css/footer.css" />
