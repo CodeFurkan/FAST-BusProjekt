@@ -41,32 +41,8 @@
 
 
 		<!-- main box -->
- <div class="hintergrund">
-      <div class="box">
-        <div class="flexcol">
-          <div class="ueberschrift">
-            <h2>Jetzt Verbindung suchen</h2>
-          </div>
-          <div class="unterehaelfte">
-            <div class="flexrow">
-              <div class="von">
-                <input type="text" name="inputStart" placeholder="Von..." />
-              </div>
-              <div class="nach">
-                <input name="inputEnd" placeholder="Nach..." />
-              </div>
-              <div class="datum">
-                <input type="date" name="date" />
-              </div>
-              <div class="suchen">
-                <button type='submit' name='btnVerbindung'  class='subbutton'>Suchen</button>
-                <!-- <input type="submit" name="btnSuchen" value="Suchen" /> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+         <jsp:getProperty name="hb" property="formularBoxAsHtml" />
+
     <!---------------------------------- box gestern morgen -------------------------------------->
     <div class="vornachtagbox">
       <div class="vornachtag">
@@ -119,7 +95,7 @@
 <!--             </div> -->
 <!--             <div class="vButton"> -->
 <!--               <input type="submit" name="btnZumAngebot" value="Zum Angebot" /> -->
-<!--               <button type="submit" class="subbutton">Zum Angebot</button> -->
+<!--       ß        <button type="submit" class="subbutton">Zum Angebot</button> -->
 <!--             </div> -->
 <!--           </div> -->
 <!--         </div> -->

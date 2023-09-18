@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 .container {
   display: flex;
   flex-direction: column;
@@ -9,7 +8,7 @@ main {
 body {
   /* background-color: #8d959c; */
   background-color: #171717;
-  height: 100vh; /* Vollbildhöhe */
+  height: 100vh; /* VollbildhÃ¶he */
 }
 .hero-image-container {
   width: 100%;
@@ -39,7 +38,7 @@ body {
   flex-direction: row;
   align-items: center;
   height: 60%;
-  flex-wrap: wrap; /* Hinzufügen von flex-wrap, um das Umbruchverhalten zu steuern */
+  flex-wrap: wrap; /* HinzufÃ¼gen von flex-wrap, um das Umbruchverhalten zu steuern */
 }
 .search-box-all-items {
   display: flex;
@@ -47,7 +46,7 @@ body {
   width: 90%;
   height: 100%;
   margin-left: 2rem;
-  /*overflow-y: auto; /* Scrollen, wenn der Inhalt die Höhe überschreitet */
+  /*overflow-y: auto; /* Scrollen, wenn der Inhalt die HÃ¶he Ã¼berschreitet */
 }
 .search-box-all-items input {
   height: 20px;
@@ -95,8 +94,8 @@ body {
   margin-left: 80px;
   display: flex;
   align-items: center;
-  /* Entfernen Sie die feste Breite und Höhe */
-  flex-grow: 1; /* Der Container vergrößert sich, um den verfügbaren Platz zu füllen */
+  /* Entfernen Sie die feste Breite und HÃ¶he */
+  flex-grow: 1; /* Der Container vergrÃ¶ÃŸert sich, um den verfÃ¼gbaren Platz zu fÃ¼llen */
 }
 .subbutton {
   padding: 14px 40px;
@@ -121,10 +120,10 @@ body {
 }
 .swap {
   position: relative;
-  top: -30px; /* Anpassen, um es über den Inputs anzuzeigen */
+  top: -30px; /* Anpassen, um es Ã¼ber den Inputs anzuzeigen */
   left: 0;
   transform: translateX(0);
-  z-index: 1; /* Stelle sicher, dass es über den Inputs liegt */
+  z-index: 1; /* Stelle sicher, dass es Ã¼ber den Inputs liegt */
   padding: 5px 10px; /* Kleinere Abmessungen */
-  font-size: 14px; /* Kleinere Schriftgröße */
+  font-size: 14px; /* Kleinere SchriftgrÃ¶ÃŸe */
 }
