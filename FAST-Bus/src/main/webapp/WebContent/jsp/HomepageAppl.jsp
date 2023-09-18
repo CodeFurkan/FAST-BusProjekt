@@ -52,7 +52,7 @@ if(btnVerbindung.equals("Suchen")){
 	hb.setInputStart(inputStart);
 	hb.setInputEnd(inputEnd);
 	hb.setDatum(date);
-	response.sendRedirect("./VerbindungSuche.jsp");
+	response.sendRedirect("./VerbindungView.jsp");
 }
 
 

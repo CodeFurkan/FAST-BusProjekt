@@ -20,7 +20,7 @@
 	String password = request.getParameter("password");
 	String btnsubmit = request.getParameter("btnsubmit");
 	String zurReg = request.getParameter("zurReg");
-	
+	String btnLogout = request.getParameter("btnLogout");
 	
 	if(btnsubmit == null) btnsubmit="";
 	if(zurReg == null) zurReg="";
@@ -50,6 +50,9 @@
 	}else if(zurReg.equals("zurReg")){
 		msgBean.setRegistrationWelcome();
 		response.sendRedirect("./RegView.jsp");
+	}else if(btnLogout.equals("true")){
+	loginBean.setLoggedIn(false);
+		response.sendRedirect("./RechnungsView.jsp");
 	}else{
 		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");

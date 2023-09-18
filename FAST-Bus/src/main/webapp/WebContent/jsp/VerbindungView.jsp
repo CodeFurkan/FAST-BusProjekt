@@ -23,6 +23,8 @@
 
 
 <body>
+<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
+	<a href="./RechnungView.jsp">hallo</a>
 	<!-- JSP USEBEAN  -->
 	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		 scope="session" />

@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
 <body>
+
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean" />
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
