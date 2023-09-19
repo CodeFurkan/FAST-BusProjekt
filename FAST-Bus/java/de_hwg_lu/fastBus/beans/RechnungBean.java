@@ -32,8 +32,13 @@ public class RechnungBean {
 	String nameKonto;
 	
 	String startStadt;
+<<<<<<< HEAD
 	String ZielStadt;
 	Date datum;
+=======
+	String zielStadt;
+	String datum;
+>>>>>>> branch 'master' of https://github.com/CodeFurkan/FAST-BusProjekt
 	String startUhrzeit;
 	String zielUhrzeit;
 	int dauerStd;
@@ -188,12 +193,14 @@ public class RechnungBean {
 		this.startStadt = startStadt;
 	}
 
+	
+
 	public String getZielStadt() {
-		return ZielStadt;
+		return zielStadt;
 	}
 
 	public void setZielStadt(String zielStadt) {
-		ZielStadt = zielStadt;
+		this.zielStadt = zielStadt;
 	}
 
 

@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>Jetzt Registrieren</title>
 </head>
- 	  <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
-   <link rel="stylesheet" type="text/css" href="../css/reg.css">
+ 	<link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
+	<link rel="stylesheet" type="text/css" href="../css/reg.css">
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&display=swap"
       rel="stylesheet"
     />
+<script type="text/javascript"
+		src="../js/reg.js" ></script> 
 <body>
 
 <jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session"/>
@@ -37,7 +39,7 @@
 <h2><jsp:getProperty name="msgBean" property="actionMsg" />	</h2>	
 						
   <main>
-  	 <form action="./RegAppl.jsp" method="get">
+  	 <form action="./RegAppl.jsp" method="get" onsubmit= "return checkInput(this)">
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-reg-box">
@@ -48,11 +50,11 @@
                             <div class="reg-box-main">
                             <div class="vorname">
                               <label for ="vorname">Vorname</label> 
-                              <input type="text" name="vorname"  required />
+                              <input type="text" name="vorname"   />
                          	</div>
                         	<div class="nachname">
                               <label for="nachname">Nachname</label>    
-                               <input type="text" name="nachname" required />
+                               <input type="text" name="nachname"  />
                                <br>
                           	</div>
                      
@@ -63,17 +65,17 @@
                            
                             <div class="email">
                                 <label for ="email">E-Mail</label> 
-                                <input type="email" name="email"  required placeholder="beispiel@beispiel.de" />
+                                <input type="email" name="email"   placeholder="beispiel@beispiel.de" />
                             </div>
                             <div class="password">
            
                                 <label for="password">Passwort</label>    
-                                 <input type="password" name="password" required />
+                                 <input type="password" name="password"  />
                                  <br>
                             </div>
                       
                             <div class="regist">
-                                <button type="submit" name="btnsubmit" class="btnsubmit" value="kostenlos registrieren" >kostenlos registrieren</button>
+                                <button type="submit" name="btnRegister" class="btnsubmit" value="kostenlos registrieren" >kostenlos registrieren</button>
                             </div>
                             <div>
                               <p>Sie haben ein Konto?
