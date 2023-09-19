@@ -17,6 +17,8 @@ public class VerbindungBean {
 	String startStadt;
 	String zielStadt;
 	String datum;
+	String vorTag;
+	String nachTag;
 	double[] tageszeiten= {8,16,24};
 	double dauer;
 	double preis;
@@ -207,14 +209,13 @@ public void setZielStadt(String zielStadt) {
 	this.zielStadt = zielStadt;
 }
 
-
-
 public String getDatum() {
-	System.out.println("test");
 	return datum;
 }
 
 public void setDatum(String datum) {
+	setVorTag(datum);
+	setNachTag(datum);
 	this.datum = datum;
 }
 
@@ -225,4 +226,25 @@ public double[] getTageszeiten() {
 public void setTageszeiten(double[] tageszeiten) {
 	this.tageszeiten = tageszeiten;
 }
+
+
+public String getVorTag() {
+	return vorTag;
+}
+
+
+public void setVorTag(String vorTag) {
+	this.vorTag = vorTag;
+}
+
+
+public String getNachTag() {
+	return nachTag;
+}
+
+
+public void setNachTag(String nachTag) {
+	this.nachTag = nachTag;
+}
+
 }

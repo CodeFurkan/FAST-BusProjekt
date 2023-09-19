@@ -19,7 +19,7 @@ String btnZumAngebot = request.getParameter("btnZumAngebot");
 if(btnZumAngebot == null ) btnZumAngebot="";
 
 if(btnZumAngebot.equals("Zum Angebot1")){
-// 	System.out.println("tesutonr1");
+// 	System.out.println("tesuonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());
