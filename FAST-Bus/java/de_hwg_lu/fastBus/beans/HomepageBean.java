@@ -8,7 +8,7 @@ public class HomepageBean {
 	Date datum;
 	boolean anmeldung;
 	
-
+//damit man pullen kann
 public HomepageBean() {
 }
 	
