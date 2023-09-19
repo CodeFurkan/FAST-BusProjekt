@@ -3,13 +3,23 @@ package de_hwg_lu.fastBus.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-
+import java.util.Date;
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
+
+
+
 
 public class RechnungBean {
 	
 	
+	public Date getDatum() {
+		return datum;
+	}
+
+	public void setDatum(Date datum) {
+		this.datum = datum;
+	}
+
 	String vorname;
 	String nachname;
 	String email;
@@ -23,7 +33,7 @@ public class RechnungBean {
 	
 	String startStadt;
 	String ZielStadt;
-	String datum;
+	Date datum;
 	String startUhrzeit;
 	String zielUhrzeit;
 	int dauerStd;
@@ -186,13 +196,6 @@ public class RechnungBean {
 		ZielStadt = zielStadt;
 	}
 
-	public String getDatum() {
-		return datum;
-	}
-
-	public void setDatum(String datum) {
-		this.datum = datum;
-	}
 
 	public String getStartUhrzeit() {
 		return startUhrzeit;

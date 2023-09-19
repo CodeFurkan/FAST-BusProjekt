@@ -1,5 +1,8 @@
+<%@page import="de_hwg_lu.fastBus.beans.VerbindungBean"%>
 <%@page import="java.text.ParseException"%>
 <%@page import="java.util.Date"%>
+<%@page import="java.util.Date"%>
+
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
@@ -14,6 +17,8 @@
 <body>
 
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
+<jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
+
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 
 <%
@@ -24,16 +29,17 @@ String inputEnd = request.getParameter("inputEnd");
 String stringDate = request.getParameter("date");
 
 
-DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+
+SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 Date date = new Date();
 
 try {
-     date = format.parse(stringDate);
+    date = dateFormat.parse(stringDate);
     System.out.println(date);
 }
 catch (ParseException e) {
     e.printStackTrace();
-}
+ }
 
 if(loginBean.isLoggedIn() == true){
 	hb.setAnmeldung(false);
@@ -49,9 +55,12 @@ if(btnVerbindung == null ) btnVerbindung="";
 
 
 if(btnVerbindung.equals("Suchen")){
-	hb.setInputStart(inputStart);
-	hb.setInputEnd(inputEnd);
-	hb.setDatum(date);
+    System.out.println(stringDate);
+    System.out.println(inputStart);
+    vb.setStartStadt(inputStart);   
+    vb.setZielStadt(inputEnd);   
+   	//vb.setDatum(date);	
+    
 	response.sendRedirect("./VerbindungView.jsp");
 }
 

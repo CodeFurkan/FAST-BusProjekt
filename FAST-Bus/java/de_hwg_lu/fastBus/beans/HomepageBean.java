@@ -118,7 +118,7 @@ public HomepageBean() {
 			    "                        </div>" +
 			    "                    </div>" +
 			    "                    <div class='date'>" +
-			    "                        <input type='date' name='date' class='date' />" +
+			    "                        <input type='date' name='date' class='date' id='dateInput'/>" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
 			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' >Suchen</button>" +

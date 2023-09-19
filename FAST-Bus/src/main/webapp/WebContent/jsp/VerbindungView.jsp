@@ -1,4 +1,6 @@
+<%@page import="de_hwg_lu.fastBus.beans.VerbindungBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -24,7 +26,7 @@
 
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
-	<a href="./RechnungView.jsp">hallo</a>
+
 	<!-- JSP USEBEAN  -->
 	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		 scope="session" />
@@ -53,7 +55,7 @@
           
         </div>
         <div class="tagtag">
-          <a href="url">13.12.1982</a>
+          <a href="url"> <%= vb.getDatum() %> </a>
         </div>
         <div class="nachtag">
           <a href="url">14.12.1982</a>

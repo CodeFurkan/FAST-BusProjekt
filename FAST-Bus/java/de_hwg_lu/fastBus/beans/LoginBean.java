@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import de_hwg_lu.fastBus.jdbc.NoConnectionException;
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
-
+	
 public class LoginBean {
 	
 	String  email;

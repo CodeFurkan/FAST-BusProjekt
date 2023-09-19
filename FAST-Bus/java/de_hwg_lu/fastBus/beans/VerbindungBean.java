@@ -1,6 +1,7 @@
 package de_hwg_lu.fastBus.beans;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ public class VerbindungBean {
 	
 	String startStadt;
 	String zielStadt;
-	String datum;
+	Date datum;
 	double[] tageszeiten= {8,16,24};
 	double dauer;
 	double preis;
@@ -74,37 +75,6 @@ public class VerbindungBean {
 		return html;
 	}
 
-	public String getStartStadt() {
-		return startStadt;
-	}
-
-	public void setStartStadt(String startStadt) {
-		this.startStadt = startStadt;
-	}
-
-	public String getZielStadt() {
-		return zielStadt;
-	}
-
-	public void setZielStadt(String zielStadt) {
-		this.zielStadt = zielStadt;
-	}
-
-	public String getDatum() {
-		return datum;
-	}
-
-	public void setDatum(String datum) {
-		this.datum = datum;
-	}
-
-	public double[] getTageszeiten() {
-		return tageszeiten;
-	}
-
-	public void setTageszeiten(double[] tageszeiten) {
-		this.tageszeiten = tageszeiten;
-	}
 
 	public void dauerUndPreis() throws SQLException {
 		
@@ -219,4 +189,39 @@ public class VerbindungBean {
 //		res= s.substring(0, s.length() - 2);
 //		System.out.println(res);
 	}
+
+
+public String getStartStadt() {
+	return startStadt;
+}
+
+public void setStartStadt(String startStadt) {
+	this.startStadt = startStadt;
+}
+
+public String getZielStadt() {
+	return zielStadt;
+}
+
+public void setZielStadt(String zielStadt) {
+	this.zielStadt = zielStadt;
+}
+
+
+
+public Date getDatum() {
+	return datum;
+}
+
+public void setDatum(Date datum) {
+	this.datum = datum;
+}
+
+public double[] getTageszeiten() {
+	return tageszeiten;
+}
+
+public void setTageszeiten(double[] tageszeiten) {
+	this.tageszeiten = tageszeiten;
+}
 }
