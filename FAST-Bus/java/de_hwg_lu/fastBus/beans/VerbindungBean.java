@@ -16,7 +16,7 @@ public class VerbindungBean {
 	
 	String startStadt;
 	String zielStadt;
-	Date datum;
+	String datum;
 	double[] tageszeiten= {8,16,24};
 	double dauer;
 	double preis;
@@ -209,11 +209,12 @@ public void setZielStadt(String zielStadt) {
 
 
 
-public Date getDatum() {
+public String getDatum() {
+	System.out.println("test");
 	return datum;
 }
 
-public void setDatum(Date datum) {
+public void setDatum(String datum) {
 	this.datum = datum;
 }
 

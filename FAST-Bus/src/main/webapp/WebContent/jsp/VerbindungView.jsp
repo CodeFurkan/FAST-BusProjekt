@@ -55,7 +55,7 @@
           
         </div>
         <div class="tagtag">
-          <a href="url"> <%= vb.getDatum() %> </a>
+          <a href="url"> <jsp:getProperty name="vb" property="datum"/> </a>
         </div>
         <div class="nachtag">
           <a href="url">14.12.1982</a>

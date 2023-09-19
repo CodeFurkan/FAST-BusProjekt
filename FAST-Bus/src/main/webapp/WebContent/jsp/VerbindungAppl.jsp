@@ -23,8 +23,6 @@ if(btnZumAngebot.equals("Zum Angebot1")){
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());
-// 	rb.setStartUhrzeit();
-// 	rb.setZielUhrzeit();
 	rb.setDauerStd(vb.getDauerStd());
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
@@ -40,8 +38,6 @@ if(btnZumAngebot.equals("Zum Angebot2")){
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());
-// 	rb.setStartUhrzeit();
-// 	rb.setZielUhrzeit();
 	rb.setDauerStd(vb.getDauerStd());
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
@@ -57,8 +53,6 @@ if(btnZumAngebot.equals("Zum Angebot3")){
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());
-// 	rb.setStartUhrzeit();
-// 	rb.setZielUhrzeit();
 	rb.setDauerStd(vb.getDauerStd());
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());

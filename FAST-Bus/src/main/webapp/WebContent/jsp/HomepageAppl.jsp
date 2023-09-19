@@ -29,17 +29,23 @@ String inputEnd = request.getParameter("inputEnd");
 String stringDate = request.getParameter("date");
 
 
+// System.out.println(stringDate);
 
-SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-Date date = new Date();
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+Date convertedCurrentDate = sdf.parse(stringDate);
+String date=sdf.format(convertedCurrentDate );
 
-try {
-    date = dateFormat.parse(stringDate);
-    System.out.println(date);
-}
-catch (ParseException e) {
-    e.printStackTrace();
- }
+Date myDate = convertedCurrentDate;
+String test = new SimpleDateFormat("dd.MM.yyyy").format(myDate);
+System.out.println("MAYBE "+test);
+
+// try {
+//     date = dateFormat.parse(stringDate);
+//     System.out.println(date);
+// }
+// catch (ParseException e) {
+//     e.printStackTrace();
+//  }
 
 if(loginBean.isLoggedIn() == true){
 	hb.setAnmeldung(false);
@@ -55,11 +61,9 @@ if(btnVerbindung == null ) btnVerbindung="";
 
 
 if(btnVerbindung.equals("Suchen")){
-    System.out.println(stringDate);
-    System.out.println(inputStart);
     vb.setStartStadt(inputStart);   
     vb.setZielStadt(inputEnd);   
-   	//vb.setDatum(date);	
+   	vb.setDatum(test);	
     
 	response.sendRedirect("./VerbindungView.jsp");
 }
