@@ -25,11 +25,11 @@
 	String geburtsdatumStr = request.getParameter("geburtsdatum");
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
-	String btnsubmit = request.getParameter("btnsubmit");
+	String btnRegister = request.getParameter("btnRegister");
 	String zumLogin = request.getParameter("zumLogin");
 
-	if (btnsubmit == null)
-		btnsubmit = "";
+	if (btnRegister == null)
+		btnRegister = "";
 	if (zumLogin == null)
 		zumLogin = "";
 	Date geburtsdatum = null;
@@ -47,7 +47,7 @@
 		System.out.println("Fehler: Das Geburtsdatum ist ungültig. Bitte geben Sie ein Datum im Format dd.MM.yyyy ein.");
 	}
 
-	if (btnsubmit.equals("kostenlos registrieren")) {
+	if (btnRegister.equals("kostenlos registrieren")) {
 		msgBean.setRegistrationWelcome();
 		regBean.setVorname(vorname);
 		regBean.setNachname(nachname);

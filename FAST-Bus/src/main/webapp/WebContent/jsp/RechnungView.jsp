@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 
-<jsp:getProperty name="loginBean" property="checkLoggedIn"/>
+<jsp:getProperty name="loginBean" property="checkLoggedIn" />
 
 <title>Zahlungsvorgang</title>
 <link rel="stylesheet" type="text/css" href="../css/rechnung.css">
@@ -21,19 +21,23 @@
 
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
 <link type="text/css" rel="stylesheet" href="../css/footer.css" />
+
 </head>
-<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
-<jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean" scope="session" />
-<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
+<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean"
+	scope="session" />
+<jsp:useBean id="regBean" class="de_hwg_lu.fastBus.beans.RegBean"
+	scope="session" />
+<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
+	scope="session" />
 
 <body>
 	<div class="container">
 		<header>
-		 <jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
+			<jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
 		</header>
 		<main>
 
-			<form action="./RechnungAppl.jsp" method="get">
+			<form action="./RechnungAppl.jsp" method="get" onsubmit="return validateForm()">
 				<div class="content">
 					<div class="billing-box">
 						<div class="billing-all-items">
@@ -42,6 +46,7 @@
 							</div>
 
 							<div class="billing-main">
+							
 								<div class="vorname">
 									<label>Vorname <input type="text" name="vorname"
 										value='<jsp:getProperty name="regBean" property="vorname"/>' /></label>
@@ -73,7 +78,7 @@
 								</div>
 
 								<h1 class="header">Zahlung</h1>
-								<h3>Sofort&uuml;berweisung</h3>
+								<h3>Lastschrift</h3>
 
 								<div class="iban">
 									<label>IBAN <input type="text" name="iban" value="" /></label>
@@ -88,8 +93,8 @@
 
 								<!-- button-Element, dient zur Erstellung eines Buttons -->
 								<div class="kasse">
-									<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
-										class="btnKasse">Jetzt kaufen</button>
+									<button type="submit" name="btnJetztKaufen"
+										value="jetzt kaufen" class="btnKasse">Jetzt kaufen</button>
 								</div>
 
 
@@ -98,9 +103,9 @@
 						</div>
 					</div>
 				</div>
-	</form>
-	</main>
-        <jsp:getProperty name="hb" property="footerAsHtml" />
+			</form>
+		</main>
+		<jsp:getProperty name="hb" property="footerAsHtml" />
 
 	</div>
 

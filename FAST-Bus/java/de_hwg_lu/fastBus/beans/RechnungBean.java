@@ -22,7 +22,7 @@ public class RechnungBean {
 	String nameKonto;
 	
 	String startStadt;
-	String ZielStadt;
+	String zielStadt;
 	String datum;
 	String startUhrzeit;
 	String zielUhrzeit;
@@ -178,12 +178,14 @@ public class RechnungBean {
 		this.startStadt = startStadt;
 	}
 
+	
+
 	public String getZielStadt() {
-		return ZielStadt;
+		return zielStadt;
 	}
 
 	public void setZielStadt(String zielStadt) {
-		ZielStadt = zielStadt;
+		this.zielStadt = zielStadt;
 	}
 
 	public String getDatum() {
