@@ -49,7 +49,7 @@ if(btnZumAngebot.equals("Zum Angebot1")){
 }
 
 if(btnZumAngebot.equals("Zum Angebot2")){
-// 	System.out.println("tesutonr1");
+// 	System.out.println("tesutnr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());

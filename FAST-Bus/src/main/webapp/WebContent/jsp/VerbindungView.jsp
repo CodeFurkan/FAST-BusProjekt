@@ -98,7 +98,7 @@
 <!--             </div> -->
 <!--             <div class="vButton"> -->
 <!--               <input type="submit" name="btnZumAngebot" value="Zum Angebot" /> -->
-<!--       ß        <button type="submit" class="subbutton">Zum Angebot</button> -->
+<!--               <button type="submit" class="subbutton">Zum Angebot</button> -->
 <!--             </div> -->
 <!--           </div> -->
 <!--         </div> -->

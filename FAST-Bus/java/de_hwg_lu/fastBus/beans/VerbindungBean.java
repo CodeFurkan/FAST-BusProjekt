@@ -91,7 +91,7 @@ public class VerbindungBean {
 			this.dauer= dbRes.getDouble("Dauer");
 			this.preis=dbRes.getDouble("Preis");
 //			String result = String.format("%.2f", dauer);
-//			System.out.println(result);
+//			System.out.println(result)
 		}
 		
 		int[] dauersplit = dauerSplit(dauer);
