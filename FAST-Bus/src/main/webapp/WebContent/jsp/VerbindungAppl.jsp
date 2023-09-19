@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert titlehere</title>
+<title>Insert title here</title>
 </head>
 <body>
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
@@ -15,10 +15,10 @@
 <%
 
 String btnZumAngebot = request.getParameter("btnZumAngebot");
-
+System.out.println(btnZumAngebot);
 if(btnZumAngebot == null ) btnZumAngebot="";
 
-if(btnZumAngebot.equals("Zum Angebot1")){
+if(btnZumAngebot.equals("Zum Angebot0")){
 // 	System.out.println("tesuonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
@@ -33,7 +33,7 @@ if(btnZumAngebot.equals("Zum Angebot1")){
 	response.sendRedirect("./RechnungView.jsp");
 }
 
-if(btnZumAngebot.equals("Zum Angebot2")){
+if(btnZumAngebot.equals("Zum Angebot1")){
 // 	System.out.println("tesutonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
@@ -48,7 +48,7 @@ if(btnZumAngebot.equals("Zum Angebot2")){
 	response.sendRedirect("./RechnungView.jsp");
 }
 
-if(btnZumAngebot.equals("Zum Angebot3")){
+if(btnZumAngebot.equals("Zum Angebot2")){
 // 	System.out.println("tesutonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());

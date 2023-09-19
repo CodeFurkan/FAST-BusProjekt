@@ -14,7 +14,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&display=swap" 
 	rel="stylesheet" />
-//zest
 <link type="text/css" rel="stylesheet" href="../css/verbindungen.css" />
 <!-- <link type="text/css" rel="stylesheet" href="../css/main2.0.css" /> tst-->
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
@@ -106,8 +105,10 @@
 <!--       </div> -->
 <!--   </div> -->
 		<!-- main box end -->
-	<jsp:getProperty name="vb" property="verbindungsBox" />
-
+		
+		<form action="./VerbindungAppl.jsp" method="get">
+		<jsp:getProperty name="vb" property="verbindungsBox" />
+		</form>
 		<!------------------ footer------------ -->
 		<jsp:getProperty name="hb" property="footerAsHtml" />
 		<!------------------ footer end------------ -->

@@ -65,7 +65,7 @@ public class VerbindungBean {
 					+ "            </div>"
 					+ "            <div class=\"vButton\">"
 					+ "              <!-- <input type=\"submit\" name=\"btnZumAngebot\" value=\"Zum Angebot1\" /> -->"
-					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+tageszeiten[i]+"' >Zum Angebot</button>"
+					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+i+"' >Zum Angebot</button>"
 					+ "            </div>"
 					+ "          </div>"
 					+ "        </div>"
