@@ -37,7 +37,7 @@ public class LoginBean {
 		return dbRes.next();
 	}
 	/*
-	 * überprüft, ob der Nutzer eingeloggt ist
+	 * überprüft, ob der Nutzer eingeloggt istt
 	 * falls nicht eingeloggt Weiterleitung an HomepageAppl
 	 * falls eingeloggt leerer String - keine Weiterleitung
 	 */
