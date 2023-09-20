@@ -18,6 +18,7 @@ public class AppInstallTables {
 //		this.dropTableAccount();
 //		this.createTableStaedte();
 //		this.insertRouten();
+		this.dropTableBuchung();
 		this.createTableBuchung();
 	}
 	
@@ -28,20 +29,24 @@ public class AppInstallTables {
 	
 	public void createTableBuchung() throws SQLException {
 		this.executeUpdateWithoutParms(
-				"Create table Buchung("
-				+ "BuchungId 		serial 			not null primary key	,"
-				+ "	Vorname 		varchar(256) 	not null				,"
-				+ "	Nachname 		varchar(256) 	not null				,"
-				+ "	Email 			varchar(256) 	not null				,"
-				+ " Adresse			varchar(256)	not null				,"
-				+ " Land 			varchar(256)	not null				,"
-				+ " Stadt 			varchar(256)	not null				,"
-				+ " PLZ 			varchar(256)	not null				,"
-				+ " IBAN 			varchar(256)	not null				,"
-				+ " BIC 			varchar(256)	not null				,"
-				+ "	NameKonto		varchar(256)	not null				 "
-				+ ")"
-				);
+				"Create table bwi520_632085.Buchung(\r\n"
+						+ "				 BuchungId 		serial 			not null primary key	,\r\n"
+						+ "				 Kundennummer 	int										, \r\n"
+						+ "				 Adresse		varchar(256)	not null				,\r\n"
+						+ "				 Stadt 			varchar(256)	not null				,\r\n"
+						+ "				 PLZ 			varchar(256)	not null				,\r\n"
+						+ "				 IBAN 			varchar(256)	not null				,\r\n"
+						+ "				 BIC 			varchar(256)	not null				,\r\n"
+						+ "				NameKonto		varchar(256)	not null				,\r\n"
+						+ "				foreign key (Kundennummer) references bwi520_632085.account(kundenid)\r\n"
+						+ "				)"
+						);
+	}
+	public void dropTableBuchung() throws SQLException{
+		String sql = "drop table if exists buchung";
+		System.out.println(sql);
+		this.dbConn.prepareStatement(sql).executeUpdate();
+		System.out.println("Table Buchung gedropped");
 	}
 	
 	public void createTableAccount() throws SQLException {
