@@ -11,14 +11,14 @@
 </head>
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
-<jsp:useBean id="rechnungBean" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
+<jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <%
 	String vorname = request.getParameter("vorname");
 	String nachname = request.getParameter("nachname");
 	String email = request.getParameter("email");
 	String adresse = request.getParameter("adresse");
-	String land =  request.getParameter("land");
+	
 	String stadt =  request.getParameter("stadt");
 	String plz =  request.getParameter("plz");
 	String iban =  request.getParameter("iban");
@@ -34,17 +34,14 @@
 		
 	}else if(btnJetztKaufen.equals("jetzt kaufen")){
 		
-		rechnungBean.setVorname(vorname);
-		rechnungBean.setNachname(nachname);
-		rechnungBean.setEmail(email);
-		rechnungBean.setAdresse(adresse);
-		rechnungBean.setLand(land);
-		rechnungBean.setStadt(stadt);
-		rechnungBean.setPlz(plz);
-		rechnungBean.setIban(iban);
-		rechnungBean.setBic(bic);
-		rechnungBean.setNameKonto(nameKonto);
-		rechnungBean.insertIntoBuchung();
+
+		rb.setAdresse(adresse);
+		rb.setStadt(stadt);
+		rb.setPlz(plz);
+		rb.setIban(iban);
+		rb.setBic(bic);
+		rb.setNameKonto(nameKonto);
+		rb.insertIntoBuchung();
 		
 		
 		response.sendRedirect("./BestaetigungView.jsp");

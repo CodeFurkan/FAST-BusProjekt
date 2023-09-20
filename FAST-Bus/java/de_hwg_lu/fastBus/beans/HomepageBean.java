@@ -59,11 +59,7 @@ public HomepageBean() {
 						    "        src='../img/clipart153139.png'"					+
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
-						    "      />" 													+
-						    "<a href='./LoginAppl.jsp?btnLogout=true' class='abmelden'>Abmelden</a>"     +
-						    "    </label>"												+
-			    			"  </div>" 													+
-			    			"</nav>";
+						    "      />" 	;												
 			    	
 			    }
 		return html;

@@ -37,7 +37,7 @@
 		</header>
 		<main>
 
-			<form action="./RechnungAppl.jsp" method="get" onsubmit="return validateForm()">
+			<form action="./RechnungAppl.jsp" method="get" >
 				<div class="content">
 					<div class="billing-box">
 						<div class="billing-all-items">
@@ -65,11 +65,7 @@
 										name="adresse" value="" />
 									</label>
 								</div>
-								<div class="Land">
-									<label>Land <select name="land">
-											<option value="1">DE</option>
-									</select></label>
-								</div>
+								
 								<div class="stadt">
 									<label>Stadt <input type="text" name="stadt" value="" /></label>
 								</div>

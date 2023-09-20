@@ -18,7 +18,7 @@ public class RechnungBean {
 	public void setDatum(String datum) {
 		this.datum = datum;
 	}
-
+	String kundennummer;
 	String vorname;
 	String nachname;
 	String email;
@@ -56,33 +56,24 @@ public class RechnungBean {
 	}
 
 	public void insertIntoBuchung() throws SQLException {
-		String sql = "insert into Buchung (vorname, nachname, email, adresse, stadt, plz, iban, bic, nameKonto) "
-				+ "values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Buchung (adresse, stadt, plz, iban, bic, nameKonto) "
+				+ "values (?,?,?,?,?,?)";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
-		prep.setString(1, this.vorname);
-		prep.setString(2, this.nachname);
-		prep.setString(3, this.email);
-		prep.setString(4, this.adresse);
-		prep.setString(5, this.stadt);
-		prep.setString(6, this.plz);
-		prep.setString(7, this.iban);
-		prep.setString(8, this.bic);
-		prep.setString(9, this.nameKonto);
+		
+		prep.setString(1, this.adresse);
+		prep.setString(2, this.stadt);
+		prep.setString(3, this.plz);
+		prep.setString(4, this.iban);
+		prep.setString(5, this.bic);
+		prep.setString(6, this.nameKonto);
 		prep.executeUpdate();
 		System.out.println("Buchung erfolgreich abgeschlossen");
 
 	}
 
-	public void checkVorname(String vorname) throws Exception {
-		if (vorname != null && vorname.length() <= 16) {
-			this.vorname = vorname;
-		} else {
-			throw new IllegalArgumentException("Der Vorname ist zu lang.");
-		}
 
-	}
 
 	public boolean checkBusInfoExists() throws SQLException {
 		String sql = "SELECT datum,tageszeit,RoutenID FROM BusInfo where datum = ? AND tageszeit = ? "
