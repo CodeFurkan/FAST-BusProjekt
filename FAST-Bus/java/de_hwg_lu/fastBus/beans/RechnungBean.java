@@ -11,14 +11,7 @@ import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class RechnungBean {
 	
-	
-	public Date getDatum() {
-		return datum;
-	}
 
-	public void setDatum(Date datum) {
-		this.datum = datum;
-	}
 
 	String vorname;
 	String nachname;
@@ -32,13 +25,11 @@ public class RechnungBean {
 	String nameKonto;
 	
 	String startStadt;
-<<<<<<< HEAD
 	String ZielStadt;
-	Date datum;
-=======
+
+
 	String zielStadt;
 	String datum;
->>>>>>> branch 'master' of https://github.com/CodeFurkan/FAST-BusProjekt
 	String startUhrzeit;
 	String zielUhrzeit;
 	int dauerStd;
@@ -99,6 +90,14 @@ public class RechnungBean {
 	
 	
 	
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
 
 	public String getVorname() {
 		return vorname;
