@@ -39,7 +39,7 @@
 <h2><jsp:getProperty name="msgBean" property="actionMsg" />	</h2>	
 						
   <main>
-  	 <form action="./RegAppl.jsp" method="get" onsubmit= "return checkInput(this)">
+  	 <form action="./RegAppl.jsp" method="get"  >
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-reg-box">
@@ -50,28 +50,32 @@
                             <div class="reg-box-main">
                             <div class="vorname">
                               <label for ="vorname">Vorname</label> 
-                              <input type="text" name="vorname"   />
+                              <input type="text" name="vorname"  required />
+                      
                          	</div>
                         	<div class="nachname">
                               <label for="nachname">Nachname</label>    
-                               <input type="text" name="nachname"  />
-                               <br>
+                               <input type="text" name="nachname" required  />
+                               
+                        
                           	</div>
                      
                          	<div class="alter">
                             <label for ="alter">Geburtsdatum</label> 
-                            <input type="date" name="geburtsdatum"  />
+                            <input type="date" name="geburtsdatum" required />
+                           
                        		</div>
                            
                             <div class="email">
                                 <label for ="email">E-Mail</label> 
-                                <input type="email" name="email"   placeholder="beispiel@beispiel.de" />
+                                <input type="email" name="email"  required placeholder="beispiel@beispiel.de"   />
+                                
                             </div>
                             <div class="password">
            
                                 <label for="password">Passwort</label>    
-                                 <input type="password" name="password"  />
-                                 <br>
+                                 <input type="password" name="password"  minlength="6" required />
+                              
                             </div>
                       
                             <div class="regist">

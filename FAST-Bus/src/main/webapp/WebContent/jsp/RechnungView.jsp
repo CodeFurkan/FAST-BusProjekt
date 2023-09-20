@@ -49,16 +49,16 @@
 							
 								<div class="vorname">
 									<label>Vorname <input type="text" name="vorname"
-										value='<jsp:getProperty name="regBean" property="vorname"/>' /></label>
+										value='<jsp:getProperty name="loginBean" property="vorname"/>' /></label>
 								</div>
 								<div class="nachname">
 									<label>Nachname <input type="text" name="nachname"
-										value='<jsp:getProperty name="regBean" property="nachname"/>' />
+										value='<jsp:getProperty name="loginBean" property="nachname"/>' />
 									</label>
 								</div>
 								<div class="email">
 									<label>E-mail <input type="text" name="email"
-										value='<jsp:getProperty name="regBean" property="email"/>' /></label>
+										value='<jsp:getProperty name="loginBean" property="email"/>' /></label>
 								</div>
 								<div class="anschrift">
 									<label>Stra&szlig;e und Hausnummer <input type="text"
