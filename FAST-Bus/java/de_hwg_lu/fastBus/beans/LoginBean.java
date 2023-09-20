@@ -45,7 +45,7 @@ public class LoginBean {
 	public String getCheckLoggedIn() {
 		System.out.println("login");
 		if(!this.isLoggedIn()) 
-			return "<meta http-equiv='refresh' content='0; URL=./ErrorpageView.jsp' >\n";
+			return "<meta http-equiv='refresh' content='0; URL=./HomepageAppl.jsp' >\n";
 		else return "";
 	}
 	

@@ -51,7 +51,18 @@ public HomepageBean() {
 						    "      <li><a href='url'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
-						    "  </div>" +
+						    "  </div>"													+
+						    "  <div class='divLogout'>" 								+
+						    "    <label class='abmelden'>" 								+
+						    "      <img" 												+
+						    "        class=''" 											+
+						    "        src='../img/clipart153139.png'"					+
+						    "        alt='abmelden'" 									+
+						    "        width='15px'" 										+
+						    "      />" 													+
+						    "<a href='./LoginAppl.jsp?btnLogout=true' class='abmelden'>Abmelden</a>"     +
+						    "    </label>"												+
+			    			"  </div>" 													+
 			    			"</nav>";
 			    	
 			    }
@@ -77,8 +88,8 @@ public HomepageBean() {
 				    "        alt='abmelden'" 									+
 				    "        width='15px'" 										+
 				    "      />" 													+
-				    "<a href='./LoginView.jsp' class='abmelden'>Abmelden</a>" 	+
-	    			"    </label>"												+
+				    "<a href='./LoginAppl.jsp?btnLogout=true' class='abmelden'>Abmelden</a>"     +
+				    "    </label>"												+
 	    			"  </div>" 													+
 	    			"</nav>";
 	
@@ -218,6 +229,7 @@ public void setInputEnd(String inputEnd) {
 
 
 public Date getDatum() {
+	
 	return datum;
 }
 

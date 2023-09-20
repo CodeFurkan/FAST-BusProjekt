@@ -1,3 +1,4 @@
+<%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -7,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
     <title>FASt-Bus</title>
     <script language="javascript" type="text/javascript" src="../js/FormularBox.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,18 +23,16 @@
     <link type="text/css" rel="stylesheet" href="../css/footer.css" />
   </head>
   
-  
-  
-  <body>
   	<!-- JSP USEBEAN  -->
 	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		scope="session" />
+	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean"
+	scope="session" />
 	<!-- JSP USEBEAN  -->
-		
-		
-		
-	<jsp:getProperty name="hb" property="anmeldung" />
-		
+  
+  
+  <body>
+  
 		
     <div class="container">
     						  <!-- Navbar -->

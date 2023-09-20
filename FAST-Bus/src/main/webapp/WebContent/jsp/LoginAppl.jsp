@@ -52,7 +52,7 @@
 		response.sendRedirect("./RegView.jsp");
 	}else if(btnLogout.equals("true")){
 	loginBean.setLoggedIn(false);
-		response.sendRedirect("./RechnungsView.jsp");
+		response.sendRedirect("./RechnungView.jsp");
 	}else{
 		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");
