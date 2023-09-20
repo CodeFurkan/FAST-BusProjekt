@@ -27,9 +27,10 @@ if(btnZumAngebot.equals("Zum Angebot0")){
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
 	
-	rb.setStartUhrzeit("8:00");
-	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(8.0));
+	rb.setRoutenID(vb.getRoutenID());
 	
+	rb.setStartUhrzeit("06:00");
+	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(6.0));
 	response.sendRedirect("./RechnungView.jsp");
 }
 
@@ -42,8 +43,10 @@ if(btnZumAngebot.equals("Zum Angebot1")){
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
 	
-	rb.setStartUhrzeit("16:00");
-	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(16.0));
+	rb.setRoutenID(vb.getRoutenID());
+	
+	rb.setStartUhrzeit("14:00");
+	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(14.0));
 	
 	response.sendRedirect("./RechnungView.jsp");
 }
@@ -57,8 +60,10 @@ if(btnZumAngebot.equals("Zum Angebot2")){
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
 	
-	rb.setStartUhrzeit("24:00");
-	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(24.0));
+	rb.setRoutenID(vb.getRoutenID());
+	
+	rb.setStartUhrzeit("22:00");
+	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(22.0));
 	
 	response.sendRedirect("./RechnungView.jsp");
 }

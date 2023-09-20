@@ -21,15 +21,17 @@ public class VerbindungBean {
 	String nachTag;
 	String vorTagFuerLink;
 	String nachTagFuerLink;
+	
+	String routenID;
+	int plaetzeFrei;
 
-	double[] tageszeiten= {8,16,24};
+	double[] tageszeiten= {6,14,22};
 	double dauer;
 	double preis;
 	int dauerStd, dauerMin;
-
 	
 	public String getVerbindungsBox() throws SQLException {
-		dauerUndPreis();
+		dauerPreisRoutenID();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
 			html += " <div class=\"verbindungsbox\">"
@@ -60,7 +62,7 @@ public class VerbindungBean {
 					+ "        </div>"
 					+ "        <div class=\"vBoxUnten\">"
 					+ "          <div class=\"vPlaetzeFrei\">"
-					+ "            30 von 30 Plätzen frei"
+					+ "            "+getPlaetzeFrei(dauerInString(dauerSplit(tageszeiten[i])))+" von 50 Plätzen frei"
 					+ "          </div>\r\n"
 					+ "          <div class=\"vPreisButton\">"
 					+ "            <div class=\"vPreis\">"
@@ -81,9 +83,9 @@ public class VerbindungBean {
 	}
 
 
-	public void dauerUndPreis() throws SQLException {
+	public void dauerPreisRoutenID() throws SQLException {
 		
-		String sql="SELECT Dauer,Preis FROM Routen where Startstadt = ? AND ZielStadt = ?";
+		String sql="SELECT Dauer,Preis,RoutenID FROM Routen where Startstadt = ? AND ZielStadt = ?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -93,6 +95,7 @@ public class VerbindungBean {
 		if(dbRes.next()){
 			this.dauer= dbRes.getDouble("Dauer");
 			this.preis=dbRes.getDouble("Preis");
+			this.routenID=dbRes.getString("RoutenID");
 //			String result = String.format("%.2f", dauer);
 //			System.out.println(result)
 		}
@@ -123,8 +126,6 @@ public class VerbindungBean {
 //		int minuten= dauersplit[1]/60;
 //		dauersplit[0]+=minuten;
 //		
-		
-		
 
 		return dauerInString(dauersplit);
 	}
@@ -150,8 +151,6 @@ public class VerbindungBean {
 		return tageszeitString;
 		
 	}
-	
-	
 
 	public int getDauerStd() {
 		return dauerStd;
@@ -181,7 +180,6 @@ public class VerbindungBean {
 	public void setPreis(double preis) {
 		this.preis = preis;
 	}
-	
 
 	public static void main(String[] args) {
 //		double d = 30.5;
@@ -228,44 +226,72 @@ public void setTageszeiten(double[] tageszeiten) {
 	this.tageszeiten = tageszeiten;
 }
 
-
 public String getVorTag() {
 	return vorTag;
 }
-
 
 public void setVorTag(String vorTag) {
 	this.vorTag = vorTag;
 }
 
-
 public String getNachTag() {
 	return nachTag;
 }
-
 
 public void setNachTag(String nachTag) {
 	this.nachTag = nachTag;
 }
 
-
 public String getVorTagFuerLink() {
 	return vorTagFuerLink;
 }
-
 
 public void setVorTagFuerLink(String vorTagFuerLink) {
 	this.vorTagFuerLink = vorTagFuerLink;
 }
 
-
 public String getNachTagFuerLink() {
 	return nachTagFuerLink;
 }
 
-
 public void setNachTagFuerLink(String nachTagFuerLink) {
 	this.nachTagFuerLink = nachTagFuerLink;
 }
+
+public String getRoutenID() {
+	return routenID;
+}
+
+public void setRoutenID(String routenID) {
+	this.routenID = routenID;
+}
+
+
+public int getPlaetzeFrei(String tageszeit) throws SQLException {
+	String sql = "SELECT plaetzeFrei FROM BusInfo where datum = ? AND tageszeit = ? "
+			+ "AND RoutenID=?";
+	System.out.println(sql);
+	Connection dbConn = new PostgreSQLAccess().getConnection();
+	PreparedStatement prep = dbConn.prepareStatement(sql);
+	
+	plaetzeFrei=50;
+	
+	prep.setString(1, this.datum);
+	prep.setString(2, tageszeit);
+	prep.setString(3, this.routenID);
+	ResultSet dbRes = prep.executeQuery();
+	
+	if (dbRes.next()) {
+		System.out.println(tageszeit);
+		this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
+	}
+	return plaetzeFrei;
+}
+
+
+public void setPlaetzeFrei(int plaetzeFrei) {
+	this.plaetzeFrei = plaetzeFrei;
+}
+
 
 }
