@@ -19,6 +19,9 @@ public class VerbindungBean {
 	String datum;
 	String vorTag;
 	String nachTag;
+	String vorTagFuerLink;
+	String nachTagFuerLink;
+
 	double[] tageszeiten= {8,16,24};
 	double dauer;
 	double preis;
@@ -214,8 +217,6 @@ public String getDatum() {
 }
 
 public void setDatum(String datum) {
-	setVorTag(datum);
-	setNachTag(datum);
 	this.datum = datum;
 }
 
@@ -245,6 +246,26 @@ public String getNachTag() {
 
 public void setNachTag(String nachTag) {
 	this.nachTag = nachTag;
+}
+
+
+public String getVorTagFuerLink() {
+	return vorTagFuerLink;
+}
+
+
+public void setVorTagFuerLink(String vorTagFuerLink) {
+	this.vorTagFuerLink = vorTagFuerLink;
+}
+
+
+public String getNachTagFuerLink() {
+	return nachTagFuerLink;
+}
+
+
+public void setNachTagFuerLink(String nachTagFuerLink) {
+	this.nachTagFuerLink = nachTagFuerLink;
 }
 
 }

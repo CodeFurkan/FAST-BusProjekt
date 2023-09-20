@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="de_hwg_lu.fastBus.beans.VerbindungBean"%>
 <%@page import="java.text.ParseException"%>
 <%@page import="java.util.Date"%>
@@ -35,9 +36,28 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 Date convertedCurrentDate = sdf.parse(stringDate);
 String date=sdf.format(convertedCurrentDate );
 
+
+Calendar calendar = Calendar.getInstance();
+calendar.setTime(convertedCurrentDate); //heute
+//vortag->
+calendar.add(Calendar.DATE, -1);
+Date yesterday = calendar.getTime();
+//nachtag->
+calendar.add(Calendar.DATE, +2);
+Date tmrw = calendar.getTime();
+
+// System.out.println("vortag "+yesterday);
+
 Date myDate = convertedCurrentDate;
 String test = new SimpleDateFormat("dd.MM.yyyy").format(myDate);
-System.out.println("MAYBE "+test);
+String vortag = new SimpleDateFormat("dd.MM.yyyy").format(yesterday);
+String nachtag = new SimpleDateFormat("dd.MM.yyyy").format(tmrw);
+
+String blabla = new SimpleDateFormat("yyyy-MM-dd").format(yesterday);
+String dingbing = new SimpleDateFormat("yyyy-MM-dd").format(tmrw);
+
+// System.out.println("vortag "+vortag);
+// System.out.println("nachtag "+nachtag);
 
 // try {
 //     date = dateFormat.parse(stringDate);
@@ -62,8 +82,14 @@ if(btnVerbindung == null ) btnVerbindung="";
 
 if(btnVerbindung.equals("Suchen")){
     vb.setStartStadt(inputStart);   
-    vb.setZielStadt(inputEnd);   
+    vb.setZielStadt(inputEnd);  
+    
+ 	vb.setVorTag(vortag);
+ 	vb.setNachTag(nachtag);
    	vb.setDatum(test);	
+   	
+   	vb.setVorTagFuerLink(blabla);
+    vb.setNachTagFuerLink(dingbing);
     
 	response.sendRedirect("./VerbindungView.jsp");
 }
