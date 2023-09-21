@@ -31,79 +31,104 @@
 	scope="session" />
 
 <body>
-	<div class="container">
 		<header>
 			<jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
 		</header>
+		
 		<main>
 
-			<form action="./RechnungAppl.jsp" method="get" >
-				<div class="content">
-					<div class="billing-box">
-						<div class="billing-all-items">
-							<div class="header">
-								<h1>Zahlungsadresse</h1>
-							</div>
+			<div class="container">
+				<div class="zahlungsadresse">
 
-							<div class="billing-main">
-							
+					<div class="header">
+						<h1>Zahlungsadresse</h1>
+					</div>
+					<form action="./RechnungAppl.jsp" method="get">
+						<div class="main-Content">
+							<div class="vor-Nachname">
 								<div class="vorname">
-									<label>Vorname <input type="text" name="vorname"
-										value='<jsp:getProperty name="loginBean" property="vorname"/>' /></label>
+									<label class="vorname">Vorname </label> <input type="text"
+										name="vorname"                     value='<jsp:getProperty name="regBean" property="vorname"/>' />
 								</div>
 								<div class="nachname">
-									<label>Nachname <input type="text" name="nachname"
-										value='<jsp:getProperty name="loginBean" property="nachname"/>' />
-									</label>
+									<label>Nachname </label> <input type="text" name="nachname"
+										                    value='<jsp:getProperty name="regBean" property="nachname" />' 
+										                    />
 								</div>
-								<div class="email">
-									<label>E-mail <input type="text" name="email"
-										value='<jsp:getProperty name="loginBean" property="email"/>' /></label>
-								</div>
-								<div class="anschrift">
-									<label>Stra&szlig;e und Hausnummer <input type="text"
-										name="adresse" value="" />
-									</label>
-								</div>
-								
-								<div class="stadt">
-									<label>Stadt <input type="text" name="stadt" value="" /></label>
-								</div>
+							</div>
+							<div class="email">
+								<label>Email </label> <input type="text" name="email" 
+                  				  value='<jsp:getProperty name="regBean" property="email"/>'
+								/>
+							</div>
+							<div class="adresse">
+								<label>Stra&szlig;e und Hausnummer </label> <input type="text"
+									name="adresse" value="" required />
+							</div>
+							<div class="stadt-plz">
+
+
 								<div class="plz">
-									<label>PLZ<input type="text" name="plz" value="" /></label>
+									<label>PLZ </label> <input type="text" name="plz" value=""
+										pattern="[0-9]{5}" required />
 								</div>
-
-								<h1 class="header">Zahlung</h1>
-								<h3>Lastschrift</h3>
-
-								<div class="iban">
-									<label>IBAN <input type="text" name="iban" value="" /></label>
+								<div class="stadt">
+									<label>Stadt </label> <input type="text" name="stadt" value=""
+										required />
 								</div>
-								<div class="bic">
-									<label>BIC <input type="text" name="bic" value="" /></label>
-								</div>
-								<div class="nameKonto">
-									<label>Name des Kontoinhabers <input type="text"
-										name="nameKonto" value="" /></label>
-								</div>
+							</div>
+						</div>
 
-								<!-- button-Element, dient zur Erstellung eines Buttons -->
-								<div class="kasse">
-									<button type="submit" name="btnJetztKaufen"
-										value="jetzt kaufen" class="btnKasse">Jetzt kaufen</button>
-								</div>
+						<div class="zahlung">
 
-
+							<div class="zwischen-Header">
+								<h1>SEPA-Lastschrift</h1>
 							</div>
 
+							<div class="kontoname">
+								<label>Kontoname </label> <input type="text" name="nameKonto"
+									value="" required />
+							</div>
+							<div class="iban-bic">
+								<label>IBAN </label> <input type="text" name="iban" value=""
+									required />
+							</div>
+
+							<div class="iban-bic">
+								<label>BIC </label> <input type="text" name="bic" value=""
+									required />
+							</div>
+							<div class="kasse">
+								<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
+									class="btnKasse">Jetzt kaufen</button>
+							</div>
 						</div>
-					</div>
 				</div>
+			</div>
 			</form>
-		</main>
-		<jsp:getProperty name="hb" property="footerAsHtml" />
+	</div>
+
+	<div class="verbindungsContainer">
+		<div class="überschrift">
+			<h1>Deine Verbindung</h1>
+		</div>
+		<div class="main-container">
+			<div class="von">Von</div>
+			<div class="busBild">
+				<img src="img/Fast-BusZahlung.png" alt="">
+			</div>
+			<div class="nach">Nach</div>
+
+		</div>
+
+		<div class="gesamtpreis"></div>
 
 	</div>
+
+	</main>
+
+	<jsp:getProperty name="hb" property="footerAsHtml" />
+
 
 
 
