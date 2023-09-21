@@ -97,7 +97,6 @@ public class RechnungBean {
 	public void insertIntoBusInfo() throws SQLException {
 		boolean alreadyExists = checkBusInfoExists();
 		if (plaetzeFrei != 0) {
-
 			if (alreadyExists) {
 				String sql = "update BusInfo set PlaetzeFrei='" + plaetzeFrei-- + "' where datum=? "
 						+ "AND tageszeit=? AND RoutenID=?";
@@ -114,7 +113,7 @@ public class RechnungBean {
 				prep.setString(1, this.datum);
 				prep.setString(2, this.startUhrzeit);
 				prep.setString(3, this.routenID);
-				prep.setInt(4, 50);
+				prep.setInt(4, 49);
 				prep.executeUpdate();
 			}
 		}else {

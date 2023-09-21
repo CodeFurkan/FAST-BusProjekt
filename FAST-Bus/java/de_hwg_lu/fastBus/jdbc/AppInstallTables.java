@@ -42,12 +42,6 @@ public class AppInstallTables {
 						+ "				)"
 						);
 	}
-	public void dropTableBuchung() throws SQLException{
-		String sql = "drop table if exists buchung";
-		System.out.println(sql);
-		this.dbConn.prepareStatement(sql).executeUpdate();
-		System.out.println("Table Buchung gedropped");
-	}
 	
 	public void createTableAccount() throws SQLException {
 		this.executeUpdateWithoutParms(

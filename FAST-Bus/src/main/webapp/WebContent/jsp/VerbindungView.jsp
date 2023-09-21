@@ -1,8 +1,9 @@
 <%@page import="de_hwg_lu.fastBus.beans.VerbindungBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" --%>
+<%-- 	pageEncoding="ISO-8859-1"%> --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +45,9 @@
 
 
 		<!-- main box -->
+		<form action="./HomepageAppl.jsp" method="get">
          <jsp:getProperty name="hb" property="formularBoxAsHtml" />
-
+		</form>
     <!---------------------------------- box gestern morgen -------------------------------------->
     <div class="vornachtagbox">
       <div class="vornachtag">
@@ -76,7 +78,7 @@
 <!--                 12:30 -->
 <!--               </div> -->
 <!--               <div class="vStadt"> -->
-<!--                 München Hbf -->
+<!--                 MÃ¼nchen Hbf -->
 <!--               </div> -->
 <!--             </div> -->
 <!--             <div class="vUhrzeitStadtO"> -->
@@ -95,11 +97,11 @@
 <!--         </div> -->
 <!--         <div class="vBoxUnten"> -->
 <!--           <div class="vPlaetzeFrei"> -->
-<!--             30 von 30 Plätzen frei -->
+<!--             30 von 30 PlÃ¤tzen frei -->
 <!--           </div> -->
 <!--           <div class="vPreisButton"> -->
 <!--             <div class="vPreis"> -->
-<!--               33,00€ -->
+<!--               33,00â¬ -->
 <!--             </div> -->
 <!--             <div class="vButton"> -->
 <!--               <input type="submit" name="btnZumAngebot" value="Zum Angebot" /> -->

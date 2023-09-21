@@ -1,8 +1,9 @@
 <%@page import="de_hwg_lu.fastBus.beans.LoginBean"%>
 <%@page import="de_hwg_lu.fastBus.beans.HomepageBean"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" --%>
+<%--     pageEncoding="ISO-8859-1"%> --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,8 @@
   </head>
   
   	<!-- JSP USEBEAN  -->
-	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
-		scope="session" />
-	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean"
-	scope="session" />
+	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean" scope="session" />
+	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session" />
 	<!-- JSP USEBEAN  -->
   
   
@@ -44,22 +43,22 @@
 
 							  <!-- main box -->	
       <main>
-        	<!-- Box für Verbindungssuche -->
+        	<!-- Box fÃ¼r Verbindungssuche -->
         <form action="./HomepageAppl.jsp" method="get">
          
          <jsp:getProperty name="hb" property="formularBoxAsHtml" />
         
         </form>
-             <!-- Box für Verbindungssuchee -->
+             <!-- Box fÃ¼r Verbindungssuchee -->
         
         
         
         <article>
           <div class="content-Body">
-            <header class="überschrift">
-              <h1>Die meist besuchten Städte Deutschlands</h1>
+            <header class="Ã¼berschrift">
+              <h1>Die meist besuchten StÃ¤dte Deutschlands</h1>
             </header>
-            <div class="herocontainer-FürAlleStädte">
+            <div class="herocontainer-FÃ¼rAlleStÃ¤dte">
               <div class="stadtContainer">
                 <div class="stadt">
                   <a class="stadt-imgContainer" href="">
@@ -69,7 +68,7 @@
                 </div>
                 <div class="stadt">
                   <a class="stadt-imgContainer" href="">
-                    <span>München</span>
+                    <span>MÃ¼nchen</span>
                     <img src="../img/muenchen.jpeg" />
                   </a>
                 </div>

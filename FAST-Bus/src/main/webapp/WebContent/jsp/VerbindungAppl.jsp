@@ -15,7 +15,7 @@
 <%
 
 String btnZumAngebot = request.getParameter("btnZumAngebot");
-System.out.println(btnZumAngebot);
+
 if(btnZumAngebot == null ) btnZumAngebot="";
 
 if(btnZumAngebot.equals("Zum Angebot0")){
