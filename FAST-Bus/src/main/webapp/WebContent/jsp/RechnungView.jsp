@@ -13,6 +13,8 @@
 <title>Zahlungsvorgang</title>
 <link rel="stylesheet" type="text/css" href="../css/rechnung.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
+ <link type="text/css" rel="text/css" href="../css/headerAndNavbar.css" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link
@@ -107,24 +109,35 @@
 			</div>
 			</form>
 	</div>
+<div class="verbindungsContainer">
+  <div class="überschrift">
+    <h1>Deine Verbindung</h1> 
+  </div>
+  <div class="main-container">
+    <div class="datum"> <h4>Abf.: 15.10.22</h4> </div>
+  <div class="route-Container">
+    <div class="Uhrzeit">
+      <p class="von-uhr"> 20:10</p>
+      <p class="nach-uhr"> 23:00 </p>
+    </div>
+    <div class="bild-route">
+      <img src="../img/von-nach_BildNew.jpg" alt="">
+    </div>
+    <div class="Stadt">
+      <p class="von-stadt"> Berlin</p>
+      <p class="nach-stadt"> Monnem</p></div>
+    </div>
+      
+<div class="busBild">
+  <img src="../img/Fast-BusZahlung.png" alt="">
+</div>
+</div>
 
-	<div class="verbindungsContainer">
-		<div class="überschrift">
-			<h1>Deine Verbindung</h1>
-		</div>
-		<div class="main-container">
-			<div class="von">Von</div>
-			<div class="busBild">
-				<img src="img/Fast-BusZahlung.png" alt="">
-			</div>
-			<div class="nach">Nach</div>
+<div class="gesamtpreis">
+<h3> Preis (inkl. MwSt.) </h3> <h3 class="summe"> EUR 20,50 </h3>
+</div>
 
-		</div>
-
-		<div class="gesamtpreis"></div>
-
-	</div>
-
+</div>
 	</main>
 
 	<jsp:getProperty name="hb" property="footerAsHtml" />

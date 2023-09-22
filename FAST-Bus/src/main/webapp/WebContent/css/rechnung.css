@@ -155,24 +155,46 @@ form {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
   height: 180px;
 }
+.datum {
+  height: 10px;
+}
+.datum h4 {
+  margin-top: 0px;
+  font-size: 14px;
+}
+.route-Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.bild-route img {
+  height: 63px;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
 .busBild img {
   width: 200px;
   height: 53px;
   margin-top: 15px;
 }
 .busBild {
-  margin-top: 20px;
+  margin-top: 5px;
   border-bottom: 3px solid #2d2d2d;
   border-top: 3px solid #2d2d2d;
 }
-.von {
-}
-.nach {
-  margin-top: 15px;
-}
+
 .gesamtpreis {
+  display: flex;
   margin-top: 22px;
+  margin-left: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+}
+.summe {
+  margin-left: 70px;
 }
