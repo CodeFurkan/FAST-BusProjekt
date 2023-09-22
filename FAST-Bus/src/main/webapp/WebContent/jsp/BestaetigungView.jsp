@@ -6,11 +6,25 @@
 <meta charset="UTF-8">
 <title>Bestellbest&auml;tigung</title>
 <link type="text/css" rel="stylesheet" href="../css/bestaetigung.css" />
+<link rel="stylesheet" type="text/css" href="../css/footer.css">
+<link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
+
 </head>
+
+<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
+	scope="session" />
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
 <jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
+
+  						  <!-- Navbarr -->
+      <header>
+           <jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
+      
+      </header>
+							<!-- Navbar end -->
+
 
  <div class="invoice-container">
         <div class="invoice-header">
@@ -59,5 +73,7 @@
         </table>
       
     </div>
+    	<jsp:getProperty name="hb" property="footerAsHtml" />
+    
 </body>
 </html>

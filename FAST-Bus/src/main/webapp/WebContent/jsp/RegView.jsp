@@ -26,7 +26,7 @@
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
  
   
-   						  <!-- Navbar -->
+   						  <!-- Navbarr -->
       <header>
            <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
       
