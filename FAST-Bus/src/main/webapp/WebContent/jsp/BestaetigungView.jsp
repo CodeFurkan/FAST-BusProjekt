@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                     <td> <jsp:getProperty  name="rb" property="zielStadt"/></td>
-                     <td><jsp:getProperty  name="rb" property="datum"/></td>
+                     <td><jsp:getProperty  name="rb" property="zielDatum"/></td>
                     <td><jsp:getProperty  name="rb" property="zielUhrzeit"/></td>
                       
                         

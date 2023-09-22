@@ -18,12 +18,13 @@
 	String nachname = request.getParameter("nachname");
 	String email = request.getParameter("email");
 	String adresse = request.getParameter("adresse");
-	
-	String stadt =  request.getParameter("stadt");
 	String plz =  request.getParameter("plz");
+	String stadt =  request.getParameter("stadt");
+	
+	String nameKonto =  request.getParameter("nameKonto");
 	String iban =  request.getParameter("iban");
 	String bic =  request.getParameter("bic");
-	String nameKonto =  request.getParameter("nameKonto");
+	
 	String btnJetztKaufen =  request.getParameter("btnJetztKaufen");
 	
 	if(btnJetztKaufen ==null) btnJetztKaufen ="";
@@ -42,7 +43,7 @@
 		rb.setBic(bic);
 		rb.setNameKonto(nameKonto);
 		rb.insertIntoBuchung();
-		
+		rb.insertIntoBusInfo();
 		
 		response.sendRedirect("./BestaetigungView.jsp");
 		

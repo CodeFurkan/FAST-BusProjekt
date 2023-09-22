@@ -65,6 +65,8 @@ if(btnZumAngebot.equals("Zum Angebot2")){
 	rb.setStartUhrzeit("22:00");
 	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(22.0));
 	
+	rb.setNextDay(vb.getNachTag());
+	
 	response.sendRedirect("./RechnungView.jsp");
 }
 %>

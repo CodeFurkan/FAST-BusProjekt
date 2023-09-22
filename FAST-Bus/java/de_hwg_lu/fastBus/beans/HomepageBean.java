@@ -60,7 +60,7 @@ public HomepageBean() {
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
 						    "      /> " 	+
-				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Abmelkkkden</a>"
+				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Abmelden</a>"
 				    		+ "</label>" ;
 			    	
 			    }
@@ -110,8 +110,8 @@ public HomepageBean() {
 			    "                        <div class='start'>"
 			    + "<div class=\"custom-select\" style=\"width:150px;\">" +
 			    							
-			    "                            	<select name=\"inputStart\"Id='inputStart' placeholder='Von...'>\n"
-			    + "									<option value='Von...'>Von...</option>\n"
+			    "                            	<select name=\"inputStart\"Id='inputStart' placeholder='Von...' required>\n"
+			    + "									<option value='' disabled selected>Von...</option>\n"
 			    + "									 <option value=\"Berlin\">Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
@@ -129,8 +129,8 @@ public HomepageBean() {
 			    "                        <div class='end'>" +
 			     "<div class=\"custom-select\" style=\"width:150px;\">" +
 				
-			    "                            	<select name=\"inputEnd\"Id='inputEnd' placeholder='Von...'>\n"
-			    + "									<option value='Nach...'>Nach...</option>\n"
+			    "                            	<select name=\"inputEnd\"Id='inputEnd' placeholder='Nach...' required>\n"
+			    + "									<option value=''>Nach...</option>\n"
 			    + "									 <option value=\"Berlin\">Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
@@ -148,11 +148,11 @@ public HomepageBean() {
 			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' onclick='datum();'/>" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
-			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' >Suchen</button>" +
+			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' onclick=\"setButtonClicked(this.name)\" >Suchen</button>" +
 			    "                        <!-- null check -->" +
 			    "                        <!-- <img class='fastbusImg' src='img/Fast-Bus.png' />-->" +
 			    "                    </div>" +
-			    "                </div>" +
+			    "                </div> <p id='selbeStadtMsg' class='fehlerfeld'></p>" +
 			    "            </div>" +
 			    "        </div>" +
 			    "    </div>" +

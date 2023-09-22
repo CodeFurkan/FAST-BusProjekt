@@ -11,13 +11,6 @@ import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class RechnungBean {
 
-	public String getDatum() {
-		return datum;
-	}
-
-	public void setDatum(String datum) {
-		this.datum = datum;
-	}
 	String kundennummer;
 	String vorname;
 	String nachname;
@@ -33,6 +26,7 @@ public class RechnungBean {
 	String ZielStadt;
 	String zielStadt;
 	String datum;
+	String zielDatum;
 	String startUhrzeit;
 	String zielUhrzeit;
 	int dauerStd;
@@ -41,6 +35,8 @@ public class RechnungBean {
 
 	String routenID;
 	int plaetzeFrei;
+	
+	String nextDay;
 
 	public RechnungBean() {
 		this.vorname = "";
@@ -76,7 +72,7 @@ public class RechnungBean {
 
 
 	public boolean checkBusInfoExists() throws SQLException {
-		String sql = "SELECT datum,tageszeit,RoutenID FROM BusInfo where datum = ? AND tageszeit = ? "
+		String sql = "SELECT datum,tageszeit,RoutenID,plaetzeFrei FROM BusInfo where datum = ? AND tageszeit = ? "
 				+ "AND RoutenID=?";
 		boolean gefunden = false;
 		System.out.println(sql);
@@ -89,7 +85,10 @@ public class RechnungBean {
 		ResultSet dbRes = prep.executeQuery();
 		if (dbRes.next()) {
 			gefunden = true;
+			System.out.println("plaetzefreo??????????????????????????????");
+//			this.plaetzeFrei = dbRes.getInt("plaetzeFrei");
 			this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
+			System.out.println(plaetzeFrei);
 		}
 		return gefunden;
 	}
@@ -98,15 +97,20 @@ public class RechnungBean {
 		boolean alreadyExists = checkBusInfoExists();
 		if (plaetzeFrei != 0) {
 			if (alreadyExists) {
-				String sql = "update BusInfo set PlaetzeFrei='" + plaetzeFrei-- + "' where datum=? "
+				plaetzeFrei--;
+				String sql = "update BusInfo set plaetzeFrei='" + plaetzeFrei + "' where datum=? "
 						+ "AND tageszeit=? AND RoutenID=?";
 				System.out.println(sql);
 				Connection dbConn = new PostgreSQLAccess().getConnection();
 				PreparedStatement prep = dbConn.prepareStatement(sql);
+				prep.setString(1, this.datum);
+				prep.setString(2, this.startUhrzeit);
+				prep.setString(3, this.routenID);
 				prep.executeUpdate();
+				
 			} else {
 				// inserten alles
-				String sql = "insert into BusInfo(datum, tageszeit, RoutenID, PlaetzeFrei) " + "values (?,?,?,?)";
+				String sql = "insert into BusInfo(datum, tageszeit, RoutenID, plaetzeFrei) " + "values (?,?,?,?)";
 				System.out.println(sql);
 				Connection dbConn = new PostgreSQLAccess().getConnection();
 				PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -257,5 +261,42 @@ public class RechnungBean {
 		this.routenID = routenID;
 	}
 
+	public String getZielDatum() {
+		String zweiZeichenZielUhrzeit = this.zielUhrzeit;
+		String zweiZeichenStartUhrzeit=this.startUhrzeit;
+		
+		zweiZeichenZielUhrzeit=zweiZeichenZielUhrzeit.substring(0, 2);
+		zweiZeichenStartUhrzeit=zweiZeichenStartUhrzeit.substring(0, 2);
+		
+		int merkerZiel=Integer.parseInt(zweiZeichenZielUhrzeit);
+		int merkerStart=Integer.parseInt(zweiZeichenStartUhrzeit);
+		
+		if(merkerStart==22 && merkerZiel <=22 ) {
+//			System.out.println(getNextDay());
+			return getNextDay();
+		}
+		return getDatum();
+	}
+
+	public void setZielDatum(String zielDatum) {
+		this.zielDatum = zielDatum;
+	}
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+
+	public String getNextDay() {
+		return nextDay;
+	}
+
+	public void setNextDay(String nextDay) {
+		this.nextDay = nextDay;
+	}
+	
 }
 

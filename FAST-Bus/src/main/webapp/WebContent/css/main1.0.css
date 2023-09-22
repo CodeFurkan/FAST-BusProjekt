@@ -134,4 +134,7 @@ body {
   padding: 5px 10px; /* Kleinere Abmessungen */
   font-size: 14px; /* Kleinere Schriftgröße */
 }
+.fehlerfeld{
+	color: red;
+}
 

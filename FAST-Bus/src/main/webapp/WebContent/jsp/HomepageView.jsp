@@ -47,7 +47,7 @@
 							  <!-- main box -->	
       <main>
         	<!-- Box für Verbindungssuche -->
-        <form action="./HomepageAppl.jsp" method="get">
+        <form action="./HomepageAppl.jsp" method="get" onsubmit="return checkSelbeStadt(this)">
          
          <jsp:getProperty name="hb" property="formularBoxAsHtml" />
         
