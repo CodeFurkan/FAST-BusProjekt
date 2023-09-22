@@ -58,7 +58,7 @@
 //	boolean accountExistiertNicht = false;
 	boolean accountAngelegt = false;
 	try{
-		accountAngelegt = regBean.insertAccountIfNotExsits();
+		accountAngelegt = regBean.insertAccountIfNotExists();
 		if(accountAngelegt){
 			msgBean.setAccountAngelegt(email);
 			System.out.println("Account angelegt.");

@@ -55,7 +55,7 @@ public class RegBean {
 		return gefunden;	
 		
 	}
-	public boolean insertAccountIfNotExsits( ) throws SQLException {
+	public boolean insertAccountIfNotExists( ) throws SQLException {
 		boolean accountVorhanden = this.checkAccountExists();
 		
 		if(accountVorhanden) { 

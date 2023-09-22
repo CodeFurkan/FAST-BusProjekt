@@ -66,6 +66,7 @@ public HomepageBean() {
 			    }
 		return html;
 	}
+	//unnötig falls die Methode oben klappt 
 	public String getNavbarWithLogoutAsHtml() {
 			String html =
 				    "<nav id='navbar'>"											+
@@ -190,14 +191,14 @@ public HomepageBean() {
 			    "                <i class='fa fa-phone'" +
 			    "                    ><img src='../img/phone-24.png' alt='' width='18px'" +
 			    "                /></i>" +
-			    "                <p>+49 176 32985346</p>" +
+			    "                <p></p>" +
 			    "            </div>" +
 			    "            <div>" +
 			    "                <i class='fa fa-envelope'" +
 			    "                    ><img src='../img/email-3-24.png' alt='' width='18px'" +
 			    "                /></i>" +
 			    "                <p>" +
-			    "                    <a href='mailto:support@company.com'>sema.saglam@live.de</a>" +
+			    "                    <a href='mailto:support@company.com'></a>" +
 			    "                </p>" +
 			    "            </div>" +
 			    "        </div>" +
