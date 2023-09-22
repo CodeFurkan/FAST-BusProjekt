@@ -179,7 +179,7 @@ public HomepageBean() {
 			    "            </a>" +
 			    "            <p class='footer-links'>" +
 			    "                <a href='#' class='link-1'>Home</a>" +
-			    "                <span class='nein'><a href='#'>Alle Städte</a></span>" +
+			    "                <span class='nein'><a href='../jsp/städteView.jsp'>Alle Städte</a></span>" +
 			    "                <span class='nein'><a href='#'>Meine Buchungen</a></span>" +
 			    "                <span class='nein'><a href='#'>Hilfe</a></span>" +
 			    "            </p>" +

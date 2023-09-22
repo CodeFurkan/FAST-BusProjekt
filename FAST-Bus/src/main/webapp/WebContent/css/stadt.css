@@ -1,24 +1,30 @@
+body{
+	background-color: black;
+}
 main {
-	background-color: #171717;
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.überschrift {
-	color: #696868; 
+.uberschrift{
+	color: #dbdedf; 
 	font-family : "Poppins", sans-serif;
 	font-style: italic;
 	font-family: "Poppins", sans-serif;
 }
 
-.hero-container-alleStädte {
+
+
+.hero-container-alleStdte{
+	background-color: #dbdedf;
 	display: flex;
 	flex-direction: column;
-	background-color: white;
 	width: 1120px;
 	height: 1120px;
 	margin-bottom: 10px;
+	
 }
 
 .stadtReihe {
@@ -43,6 +49,7 @@ main {
 	flex-direction: row;
 	margin-left: 180px;
 	margin-right: 50px;
+	
 }
 
 .bild {
@@ -55,7 +62,7 @@ main {
 	min-width: 100%;
 	aspect-ratio: 16/9;
 	transition: transform 1s;
-	 cursor: pointer;
+	cursor: pointer;
 	
 }
 .bild img:hover,

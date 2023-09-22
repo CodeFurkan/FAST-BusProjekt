@@ -26,8 +26,8 @@
 
 	<main>
 
-		<h1 class="überschrift">Deutschlands Städte</h1>
-		<div class="hero-container-alleStädte">
+		<h1 class="uberschrift">Deutschlands Städte</h1>
+		<div class="hero-container-alleStdte">
 
 			<div class="stadtReihe">
 
