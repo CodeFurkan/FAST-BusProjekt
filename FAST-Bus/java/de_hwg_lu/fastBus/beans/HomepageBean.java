@@ -19,7 +19,7 @@ public HomepageBean() {
 		if(anmeldung == false) {
 		 html =
 			    "<nav id='navbar'>" +
-			    "  <div class='logo'><h1>FASTBUS</h1></div>" +
+			    "  <div class='logo'><a href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
 			    "  <div class='divLink'>" +
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
@@ -59,7 +59,9 @@ public HomepageBean() {
 						    "        src='../img/clipart153139.png'"					+
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
-						    "      />" 	;												
+						    "      /> " 	+
+				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Abmelkkkden</a>"
+				    		+ "</label>" ;
 			    	
 			    }
 		return html;
@@ -109,15 +111,18 @@ public HomepageBean() {
 			    "                            <input" +
 			    "                                type='text'" +
 			    "                                name='inputStart'" +
+			    "                                Id='inputStart'" +
 			    "                                class='input'" +
 			    "                                placeholder='Von...'" +
 			    "                            />" +
 			    "                            <!-- inputStart Parameter erzeugen -->" +
 			    "                            <div class='search'></div>" +
 			    "                        </div>" +
+			    " 							&nbsp;<label><img id=\"swap\" width='25px' src=\"../img/swap.png\" title=\"swap\" onclick=\"switchIt();\"/></label>	"+												
 			    "                        <div class='end'>" +
 			    "                            <input" +
 			    "                                name='inputEnd'" +
+			    "                                Id='inputEnd'" +
 			    "                                class='inputEnd'" +
 			    "                                placeholder='Nach...'" +
 			    "                            />" +

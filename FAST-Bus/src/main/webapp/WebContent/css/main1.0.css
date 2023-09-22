@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 main {
-  height: 170vh;
+/*   height: 170vh; */
 }
 body {
   /* background-color: #8d959c; */
@@ -43,6 +43,7 @@ body {
 .search-box-all-items {
   display: flex;
   flex-direction: column;
+   align-items: center;
   width: 90%;
   height: 100%;
   margin-left: 2rem;
@@ -79,15 +80,16 @@ body {
   flex-direction: column;
   margin-left: 5px;
 }
-.date {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-}
+/* .date { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   margin-left: 10px; */
+/* } */
 .date input {
-  width: 150px;
+  width: 100px;
   border: 3px solid gray;
   border-radius: 20px;
+  margin-left: 10px;
   height: 30px;
 }
 .submitContainer {

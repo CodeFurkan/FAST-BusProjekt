@@ -51,8 +51,9 @@
 		msgBean.setRegistrationWelcome();
 		response.sendRedirect("./RegView.jsp");
 	}else if(btnLogout.equals("true")){
-	loginBean.setLoggedIn(false);
-		response.sendRedirect("./RechnungView.jsp");
+		loginBean.setLoggedIn(false);
+		hb.setAnmeldung(false);
+		response.sendRedirect("./HomepageView.jsp");
 	}else{
 		msgBean.setGeneralWelcome();
 		response.sendRedirect("./LoginView.jsp");

@@ -31,7 +31,6 @@ String inputEnd = request.getParameter("inputEnd");
 String stringDate = request.getParameter("date");
 
 
-System.out.println(inputEnd);
 	String test ="";
 	String vortag ="";
 	String nachtag ="";

@@ -18,6 +18,9 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&display=swap"
       rel="stylesheet"
     />
+<!--     javascript -->
+    <script type="text/javascript" src="../js/switch.js"> </script>
+    
 	<link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
     <link type="text/css" rel="stylesheet" href="../css/main1.0.css" />
     <link type="text/css" rel="stylesheet" href="../css/main2.0.css" />
@@ -61,29 +64,29 @@
             <div class="herocontainer-FürAlleStädte">
               <div class="stadtContainer">
                 <div class="stadt">
-                  <a class="stadt-imgContainer" href="">
+                  <a class="stadt-imgContainer">
                     <span>Berlin</span>
-                    <img src="../img/berlin.jpeg" />
+                    <img src="../img/berlin.jpeg" name="Berlin" onclick="stadt(this.name);"/>
                   </a>
                 </div>
                 <div class="stadt">
-                  <a class="stadt-imgContainer" href="">
+                  <a class="stadt-imgContainer">
                     <span>München</span>
-                    <img src="../img/muenchen.jpeg" />
+                    <img src="../img/muenchen.jpeg" name="München"onclick="stadt(this.name);"/>
                   </a>
                 </div>
               </div>
               <div class="stadtContainer">
                 <div class="stadt">
-                  <a class="stadt-imgContainer" href="">
+                  <a class="stadt-imgContainer">
                     <span>Frankfurt</span>
-                    <img src="../img/frankfurt.jpeg" />
+                    <img src="../img/frankfurt.jpeg" name="Frankfurt"onclick="stadt(this.name);"/>
                   </a>
                 </div>
                 <div class="stadt">
-                  <a class="stadt-imgContainer" href="">
+                  <a class="stadt-imgContainer">
                     <span>Hamburg</span>
-                    <img src="../img/hamburg.jpeg" />
+                    <img src="../img/hamburg.jpeg" name="Hamburg"onclick="stadt(this.name);"/>
                   </a>
                 </div>
               </div>
