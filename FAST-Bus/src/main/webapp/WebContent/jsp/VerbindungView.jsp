@@ -21,6 +21,9 @@
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
 
 <link type="text/css" rel="stylesheet" href="../css/footer.css" />
+
+    <script type="text/javascript" src="../js/switch.js"> </script>
+
 </head>
 
 
@@ -53,16 +56,17 @@
     <div class="vornachtagbox">
       <div class="vornachtag">
         <div class="vortag">
-          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen">
+          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen" 
+          Id="tagDavor" onclick="return einTagDavor();">
           <jsp:getProperty name="vb" property="vorTag"/>
           </a>
 <!--           <a href='./TerminauswahlAppl.jsp?auswaehlen=auswaehlen&uhrzeit=" + i+ "'>auswaehlen</a> -->
         </div>
-        <div class="tagtag">
+        <div class="tagtag" Id="ausgewaehlterTag">
           <a href="url"> <jsp:getProperty name="vb" property="datum"/> </a>
         </div>
          <div class="nachtag">
-          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&btnVerbindung=Suchen">
+          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&btnVerbindung=Suchen" >
           <jsp:getProperty name="vb" property="nachTag"/>
           </a>
 <!--           <a href='./TerminauswahlAppl.jsp?auswaehlen=auswaehlen&uhrzeit=" + i+ "'>auswaehlen</a> -->

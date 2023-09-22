@@ -7,7 +7,7 @@ public class HomepageBean {
 	String inputEnd;
 	Date datum;
 	boolean anmeldung;
-	
+	String Vorname;
 //damit man pullen kann
 public HomepageBean() {
 }
@@ -52,7 +52,10 @@ public HomepageBean() {
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
 						    "  </div>"													+
-						    "  <div class='divLogout'>" 								+
+						     "<div class='Profilname'>"
+						    + "Hallo, "+getVorname()+"!"
+						    + "</div>"	
+						    +"  <div class='divLogout'>" 								+
 						    "    <label class='abmelden'>" 								+
 						    "      <img" 												+
 						    "        class=''" 											+
@@ -60,41 +63,15 @@ public HomepageBean() {
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
 						    "      /> " 	+
-				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Abmelden</a>"
-				    		+ "</label>" ;
+				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Ausloggen</a>"
+				    		+ "</label>"
+				    		+ "</div>" ;
 			    	
 			    }
 		return html;
 	}
 	//unnötig falls die Methode oben klappt 
-	public String getNavbarWithLogoutAsHtml() {
-			String html =
-				    "<nav id='navbar'>"											+
-				    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></div>" 				+
-				    "  <div class='divLink'>" 									+
-				    "    <ul>" 													+
-				    "      <!--<li><a href=''>Reise Planen</a></li>-->" 		+
-				    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" 					+
-				    "      <li><a href='url'>Meine Buchungen</a></li>" 			+
-				    "      <li><a href='url'>Hilfe</a></li>" 					+
-				    "    </ul>" 												+
-				    "  </div>"													+
-				    "  <div class='divLogout'>" 								+
-				    "    <label class='abmelden'>" 								+
-				    "      <img" 												+
-				    "        class=''" 											+
-				    "        src='../img/clipart153139.png'"					+
-				    "        alt='abmelden'" 									+
-				    "        width='15px'" 										+
-				    "      />" 													+
-				    "<a href='./LoginAppl.jsp?btnLogout=true' class='abmelden'>Abmelden</a>"     +
-				    "    </label>"												+
-	    			"  </div>" 													+
-	    			"</nav>";
-	
-	
-	return html;
-	}
+
 	
 	public String getFormularBoxAsHtml() {
 		String html =
@@ -191,14 +168,14 @@ public HomepageBean() {
 			    "                <i class='fa fa-phone'" +
 			    "                    ><img src='../img/phone-24.png' alt='' width='18px'" +
 			    "                /></i>" +
-			    "                <p></p>" +
+			    "                <p>+49 123 123456789</p>" +
 			    "            </div>" +
 			    "            <div>" +
 			    "                <i class='fa fa-envelope'" +
 			    "                    ><img src='../img/email-3-24.png' alt='' width='18px'" +
 			    "                /></i>" +
 			    "                <p>" +
-			    "                    <a href='mailto:support@company.com'></a>" +
+			    "                    <a href='mailto:support@fastbus.de'> support@fastbus.de </a>" +
 			    "                </p>" +
 			    "            </div>" +
 			    "        </div>" +
@@ -264,6 +241,13 @@ public boolean isAnmeldung() {
 
 public void setAnmeldung(boolean anmeldung) {
 	this.anmeldung = anmeldung;
+}
+public String getVorname() {
+	return Vorname;
+}
+
+public void setVorname(String vorname) {
+	Vorname = vorname;
 }
 }
 

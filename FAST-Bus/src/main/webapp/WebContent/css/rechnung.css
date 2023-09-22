@@ -2,16 +2,24 @@ body{
    font-family: "Open Sans", sans-serif;
     font-family: "Poppins", sans-serif;
     background-color: #ffffff;
-    height: 100vh;
+/*     height: 100vh; */
     
     
 }
+.main{
+	position: relative;
+	min-height: 100vh;
+}
 main {
+  position: relative;
+/*   min-height: 100vh; */
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  margin-left: 300px;
-  margin-bottom: 50px;
+  justify-content:center;
+/*   margin-left: 300px; */
+/*   margin-bottom: 50px; */
+  
 }
 .container {
   display: flex;

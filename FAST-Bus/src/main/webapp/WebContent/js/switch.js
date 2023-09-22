@@ -17,7 +17,7 @@ function stadt(myStadt) {
 	zielStadt.value = myStadt;
 }
 function datum() {
-
+	//für calendar vergangenheit disable
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth() + 1;
@@ -32,6 +32,7 @@ function datum() {
 	today = yyyy + '-' + mm + '-' + dd;
 	//alert(today);
 	document.getElementById("dateInput").setAttribute("min", today);
+	
 }
 function checkSelbeStadt(verbindungSuche) {
 	var verbindungSuche = true;
@@ -48,4 +49,29 @@ function checkSelbeStadt(verbindungSuche) {
 //		}
 	}
 	return verbindungSuche;
+}
+function einTagDavor(){
+	//
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd
+	}
+	if (mm < 10) {
+		mm = '0' + mm
+	}
+
+//	today = yyyy + '-' + mm + '-' + dd;
+	today = dd + '.' + mm + '.' + yyyy;
+	
+	var ausgewaehlterTag = document.getElementById("ausgewaehlterTag").innerText;
+//	alert(ausgewaehlterTag);
+//	alert(today);
+	if(today==ausgewaehlterTag){
+//		alert("false");
+		return false;
+	}
+	return true;
 }

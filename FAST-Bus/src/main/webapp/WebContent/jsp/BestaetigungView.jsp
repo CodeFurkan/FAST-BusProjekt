@@ -20,7 +20,7 @@
 
   						  <!-- Navbarr -->
       <header>
-           <jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
+           <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
       
       </header>
 							<!-- Navbar end -->

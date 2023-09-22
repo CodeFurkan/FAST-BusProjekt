@@ -36,6 +36,11 @@ String stringDate = request.getParameter("date");
 	String nachtag ="";
 	String blabla ="";
 	String dingbing ="";
+	
+	System.out.println(inputStart);
+	System.out.println(inputEnd);
+	System.out.println(stringDate);
+	
 try{
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Date convertedCurrentDate = sdf.parse(stringDate);
@@ -87,8 +92,6 @@ else{
 if(btnVerbindung == null ) btnVerbindung="";
 //Hier muss evtl die Methode von der LoginBean hinzugefuegt werden wie zb in der PortalAppl.jsp VL 
 //Falls ein Nutzer nicht eingeloggt ist wird der per Message aufgeforder dies zu tun
-
-
 if(btnVerbindung.equals("Suchen")){
     vb.setStartStadt(inputStart);   
     vb.setZielStadt(inputEnd);  

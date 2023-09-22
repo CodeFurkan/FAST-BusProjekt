@@ -37,131 +37,130 @@
 
 <body>
 	<header>
-		<jsp:getProperty name="hb" property="navbarWithLogoutAsHtml" />
+		<jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
 	</header>
+	<div class="main">
+		<main>
+			<form action="./RechnungAppl.jsp" method="get">
+				<div class="container">
+					<div class="zahlungsadresse">
 
-	<main>
-<form action="./RechnungAppl.jsp" method="get">
-		<div class="container">
-			<div class="zahlungsadresse">
+						<div class="header">
+							<h1>Zahlungsadresse</h1>
+						</div>
 
-				<div class="header">
-					<h1>Zahlungsadresse</h1>
-				</div>
-				
-					<div class="main-Content">
-						<div class="vor-Nachname">
-							<div class="vorname">
-								<label class="vorname">Vorname </label> <input type="text"
-									name="vorname"
-									value='<jsp:getProperty name="loginBean" property="vorname"/>' />
+						<div class="main-Content">
+							<div class="vor-Nachname">
+								<div class="vorname">
+									<label class="vorname">Vorname </label> <input type="text"
+										name="vorname"
+										value='<jsp:getProperty name="loginBean" property="vorname"/>' />
+								</div>
+								<div class="nachname">
+									<label>Nachname </label> <input type="text" name="nachname"
+										value='<jsp:getProperty name="loginBean" property="nachname" />' />
+								</div>
 							</div>
-							<div class="nachname">
-								<label>Nachname </label> <input type="text" name="nachname"
-									value='<jsp:getProperty name="loginBean" property="nachname" />' />
+							<div class="email">
+								<label>Email </label> <input type="text" name="email"
+									value='<jsp:getProperty name="loginBean" property="email"/>' />
+							</div>
+							<div class="adresse">
+								<label>Stra&szlig;e und Hausnummer </label> <input type="text"
+									name="adresse" value="" required />
+							</div>
+							<div class="stadt-plz">
+								<div class="plz">
+									<label>PLZ </label> <input type="text" name="plz" value=""
+										pattern="[0-9]{5}" required />
+								</div>
+								<div class="stadt">
+									<label>Stadt </label> <input type="text" name="stadt" value=""
+										required />
+								</div>
 							</div>
 						</div>
-						<div class="email">
-							<label>Email </label> <input type="text" name="email"
-								value='<jsp:getProperty name="loginBean" property="email"/>' />
-						</div>
-						<div class="adresse">
-							<label>Stra&szlig;e und Hausnummer </label> <input type="text"
-								name="adresse" value="" required />
-						</div>
-						<div class="stadt-plz">
-							<div class="plz">
-								<label>PLZ </label> <input type="text" name="plz" value=""
-									pattern="[0-9]{5}" required />
+
+						<div class="zahlung">
+
+							<div class="zwischen-Header">
+								<h1>SEPA-Lastschrift</h1>
 							</div>
-							<div class="stadt">
-								<label>Stadt </label> <input type="text" name="stadt" value=""
+
+							<div class="kontoname">
+								<label>Kontoname </label> <input type="text" name="nameKonto"
+									value="" required />
+							</div>
+							<div class="iban-bic">
+								<label>IBAN </label> <input type="text" name="iban" value=""
 									required />
 							</div>
+
+							<div class="iban-bic">
+								<label>BIC </label> <input type="text" name="bic" value=""
+									required />
+							</div>
+							<div class="kasse">
+								<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
+									class="btnKasse">Jetzt kaufen</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="verbindungsContainer">
+				<div class="überschrift">
+					<h1>Deine Verbindung</h1>
+				</div>
+				<div class="main-container">
+					<!-- 				<div class="datum"> -->
+					<!-- 					<h4> -->
+					<!-- 						Abf.: -->
+					<%-- 						<jsp:getProperty name="rb" property="datum" /></h4> --%>
+					<!-- 				</div> -->
+					<div class="route-Container">
+						<div class="Uhrzeit">
+							<p class="von-uhr">
+								<jsp:getProperty name="rb" property="startUhrzeit" /></p>
+							<p class="nach-uhr">
+								<jsp:getProperty name="rb" property="zielUhrzeit" />
+							</p>
+						</div>
+						<div class="bild-route">
+							<img src="../img/von-nach_BildNew.jpg" alt="">
+						</div>
+						<div class="Stadt">
+							<p class="von-stadt">
+								<jsp:getProperty name="rb" property="startStadt" /></p>
+							<p class="nach-stadt">
+								<jsp:getProperty name="rb" property="zielStadt" /></p>
+						</div>
+						<div class="alleDatum">
+							<p class="von-datum">
+								<jsp:getProperty name="rb" property="datum" /></p>
+							<p class="nach-datum">
+								<jsp:getProperty name="rb" property="zielDatum" /></p>
 						</div>
 					</div>
 
-					<div class="zahlung">
-
-						<div class="zwischen-Header">
-							<h1>SEPA-Lastschrift</h1>
-						</div>
-
-						<div class="kontoname">
-							<label>Kontoname </label> <input type="text" name="nameKonto"
-								value="" required />
-						</div>
-						<div class="iban-bic">
-							<label>IBAN </label> <input type="text" name="iban" value=""
-								required />
-						</div>
-
-						<div class="iban-bic">
-							<label>BIC </label> <input type="text" name="bic" value=""
-								required />
-						</div>
-						<div class="kasse">
-							<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
-								class="btnKasse">Jetzt kaufen</button>
-						</div>
-					</div>
-			</div>
-		</div>
-		</form>
-		</div>
-		<div class="verbindungsContainer">
-			<div class="überschrift">
-				<h1>Deine Verbindung</h1>
-			</div>
-			<div class="main-container">
-				<!-- 				<div class="datum"> -->
-				<!-- 					<h4> -->
-				<!-- 						Abf.: -->
-				<%-- 						<jsp:getProperty name="rb" property="datum" /></h4> --%>
-				<!-- 				</div> -->
-				<div class="route-Container">
-					<div class="Uhrzeit">
-						<p class="von-uhr">
-							<jsp:getProperty name="rb" property="startUhrzeit" /></p>
-						<p class="nach-uhr">
-							<jsp:getProperty name="rb" property="zielUhrzeit" />
-						</p>
-					</div>
-					<div class="bild-route">
-						<img src="../img/von-nach_BildNew.jpg" alt="">
-					</div>
-					<div class="Stadt">
-						<p class="von-stadt">
-							<jsp:getProperty name="rb" property="startStadt" /></p>
-						<p class="nach-stadt">
-							<jsp:getProperty name="rb" property="zielStadt" /></p>
-					</div>
-					<div class="alleDatum">
-						<p class="von-datum">
-							<jsp:getProperty name="rb" property="datum" /></p>
-						<p class="nach-datum">
-							<jsp:getProperty name="rb" property="zielDatum" /></p>
+					<div class="busBild">
+						<img src="../img/Fast-BusZahlung.png" alt="">
 					</div>
 				</div>
 
-				<div class="busBild">
-					<img src="../img/Fast-BusZahlung.png" alt="">
+				<div class="gesamtpreis">
+					<h3>Preis (inkl. MwSt.)</h3>
+					<h3 class="summe">
+						<jsp:getProperty name="rb" property="preis" />
+					</h3>
 				</div>
+
 			</div>
-
-			<div class="gesamtpreis">
-				<h3>Preis (inkl. MwSt.)</h3>
-				<h3 class="summe">
-					<jsp:getProperty name="rb" property="preis" />
-				</h3>
-			</div>
-
-		</div>
-	</main>
-
+		</main>
+	</div>
 	<jsp:getProperty name="hb" property="footerAsHtml" />
 
-<!-- push -->
+	<!-- push -->
 
 
 

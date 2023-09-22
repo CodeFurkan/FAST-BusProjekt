@@ -33,8 +33,10 @@
 		if(accountFound){
 			loginBean.setLoggedIn(true);
 			hb.setAnmeldung(true);
+			hb.setVorname(loginBean.getVorname());
 			msgBean.setLogin(email);
 			System.out.println("Anmelden");
+			
 			response.sendRedirect("./HomepageView.jsp");
 		}else{
 			loginBean.setLoggedIn(false);
