@@ -107,30 +107,45 @@ public HomepageBean() {
 			    "                </div>" +
 			    "                <div class='searchbar-box-main'>" +
 			    "                    <div class='start-end'>" +
-			    "                        <div class='start'>" +
-			    "                            <input" +
-			    "                                type='text'" +
-			    "                                name='inputStart'" +
-			    "                                Id='inputStart'" +
-			    "                                class='input'" +
-			    "                                placeholder='Von...'" +
-			    "                            />" +
+			    "                        <div class='start'>"
+			    + "<div class=\"custom-select\" style=\"width:150px;\">" +
+			    							
+			    "                            	<select name=\"inputStart\"Id='inputStart' placeholder='Von...'>\n"
+			    + "									<option value='Von...'>Von...</option>\n"
+			    + "									 <option value=\"Berlin\">Berlin</option>"
+			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
+			    + "									<option value='Frankfurt'>Frankfurt</option>"
+			    + "									<option value='Hamburg'>Hamburg</option>"
+			    + "									<option value='Leipzig'>Leipzig</option>"
+			    + "									<option value='Mannheim'>Mannheim</option>"
+			    + "									<option value='München'>München</option>"
+			    + "									<option value='Stuttgart'>Stuttgart</option>"
+			    + "								</select>"
+			    + "</div>" +
 			    "                            <!-- inputStart Parameter erzeugen -->" +
 			    "                            <div class='search'></div>" +
 			    "                        </div>" +
 			    " 							&nbsp;<label><img id=\"swap\" width='25px' src=\"../img/swap.png\" title=\"swap\" onclick=\"switchIt();\"/></label>	"+												
 			    "                        <div class='end'>" +
-			    "                            <input" +
-			    "                                name='inputEnd'" +
-			    "                                Id='inputEnd'" +
-			    "                                class='inputEnd'" +
-			    "                                placeholder='Nach...'" +
-			    "                            />" +
+			     "<div class=\"custom-select\" style=\"width:150px;\">" +
+				
+			    "                            	<select name=\"inputEnd\"Id='inputEnd' placeholder='Von...'>\n"
+			    + "									<option value='Nach...'>Nach...</option>\n"
+			    + "									 <option value=\"Berlin\">Berlin</option>"
+			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
+			    + "									<option value='Frankfurt'>Frankfurt</option>"
+			    + "									<option value='Hamburg'>Hamburg</option>"
+			    + "									<option value='Leipzig'>Leipzig</option>"
+			    + "									<option value='Mannheim'>Mannheim</option>"
+			    + "									<option value='München'>München</option>"
+			    + "									<option value='Stuttgart'>Stuttgart</option>"
+			    + "								</select>"
+			    + "</div>" +
 			    "                            <!-- inputEnd Parameter erzeugen -->" +
 			    "                        </div>" +
 			    "                    </div>" +
 			    "                    <div class='date'>" +
-			    "                        <input type='date' name='date' class='date' id='dateInput'/>" +
+			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' onclick='datum();'/>" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
 			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' >Suchen</button>" +

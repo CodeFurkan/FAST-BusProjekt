@@ -49,6 +49,11 @@ body {
   margin-left: 2rem;
   /*overflow-y: auto; /* Scrollen, wenn der Inhalt die Höhe überschreitet */
 }
+.search-box-all-items select {
+  height: 30px;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
 .search-box-all-items input {
   height: 20px;
   border: 3px solid gray;
@@ -129,3 +134,4 @@ body {
   padding: 5px 10px; /* Kleinere Abmessungen */
   font-size: 14px; /* Kleinere Schriftgröße */
 }
+

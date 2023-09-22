@@ -15,6 +15,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&display=swap" 
 	rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="../css/main1.0.css" />
 <link type="text/css" rel="stylesheet" href="../css/verbindungen.css" />
 <!-- <link type="text/css" rel="stylesheet" href="../css/main2.0.css" /> tst-->
 <link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
