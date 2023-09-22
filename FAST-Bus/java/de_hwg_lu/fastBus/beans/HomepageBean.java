@@ -19,11 +19,11 @@ public HomepageBean() {
 		if(anmeldung == false) {
 		 html =
 			    "<nav id='navbar'>" +
-			    "  <div class='logo'><a href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
+			    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
 			    "  <div class='divLink'>" +
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
-			    "      <li><a href='url'>Städte</a></li>" +
+			    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
 			    "      <li><a href='url'>Meine Buchungen</a></li>" +
 			    "      <li><a href='url'>Hilfe</a></li>" +
 			    "    </ul>" +
@@ -43,11 +43,11 @@ public HomepageBean() {
 			    }
 			    else if(anmeldung == true) {
 			    	html =   "<nav id='navbar'>" +
-						    "  <div class='logo'><h1>FASTBUS</h1></div>" +
+						    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
 						    "  <div class='divLink'>" +
 						    "    <ul>" +
 						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
-						    "      <li><a href='url'>Städte</a></li>" +
+						    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
 						    "      <li><a href='url'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
@@ -69,11 +69,11 @@ public HomepageBean() {
 	public String getNavbarWithLogoutAsHtml() {
 			String html =
 				    "<nav id='navbar'>"											+
-				    "  <div class='logo'><h1>FASTBUS</h1></div>" 				+
+				    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></div>" 				+
 				    "  <div class='divLink'>" 									+
 				    "    <ul>" 													+
 				    "      <!--<li><a href=''>Reise Planen</a></li>-->" 		+
-				    "      <li><a href='url'>Städte</a></li>" 					+
+				    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" 					+
 				    "      <li><a href='url'>Meine Buchungen</a></li>" 			+
 				    "      <li><a href='url'>Hilfe</a></li>" 					+
 				    "    </ul>" 												+
