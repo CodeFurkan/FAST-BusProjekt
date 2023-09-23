@@ -150,7 +150,7 @@ public HomepageBean() {
 	public String getFooterAsHtml(){
 		String html =
 			    "<footer>" +
-			    "    <footer class='footer-distributed'>" +
+			    "    <footer class='footer-distributed noPrint'>" +
 			    "        <div class='footer-left'>" +
 			    "            <a href='#' class='link-1'>" +
 			    "                <h3>FASt<span>BUS</span></h3>" +

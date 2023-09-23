@@ -71,7 +71,11 @@
                 </tr>
             </tbody>
         </table>
-      
+   
+        <div class="ausdruckenBox noPrint">
+	     <a class="ausdrucken-button" href="#" onclick="javascript:window.print();" >Jetzt ausdrucken</a>
+        </div>
+
     </div>
     	<jsp:getProperty name="hb" property="footerAsHtml" />
     
