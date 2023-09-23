@@ -2,11 +2,16 @@ package de_hwg_lu.fastBus.beans;
 
 import java.sql.Connection;
 import java.util.Date;
+import java.util.Iterator;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
@@ -20,6 +25,7 @@ public class VerbindungBean {
 	String vorTag;
 	String nachTag;
 	String vorTagFuerLink;
+	String datumUnformatiert;
 	String nachTagFuerLink;
 	
 	String routenID;
@@ -29,9 +35,44 @@ public class VerbindungBean {
 	double dauer;
 	double preis;
 	int dauerStd, dauerMin;
-	
+	double jetztUhrzeit;
+	public VerbindungBean(){
+//		tageszeiten= {6,14,22}
+	}
+	public void uhrzeitSchonVorbei() {
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String date = simpleDateFormat.format(new Date());
+		if(date.equals(getDatumUnformatiert())) {
+			System.out.println("datum unformatiert");
+		       LocalTime now = LocalTime.now(ZoneId.of("Europe/Berlin"));
+		       int hour = now.getHour();
+		       int groeßer=3;
+		       if(hour>=tageszeiten[0]) {
+		    	   groeßer=2;	//alle 3 anzeigen
+		    	   if(hour>=tageszeiten[1]) {
+		    		   groeßer=1;
+		    		   if(hour>=tageszeiten[2]) {
+		    			   groeßer=0;
+		    		   }
+		    	   }
+		       }
+		       double[] merker = new double[groeßer];
+		       for (int i = 0; i < merker.length; i++) {
+
+				merker[merker.length-1-i]=tageszeiten[tageszeiten.length-1-i];
+			}
+		       tageszeiten=merker;
+		}else {
+//			double[] merker= {6,14,22};
+//			this.tageszeiten=merker;
+		}  
+	}
 	public String getVerbindungsBox() throws SQLException {
 		dauerPreisRoutenID();
+//		System.out.println("fürtest "+getDatumUnformatiert());
+		
+		uhrzeitSchonVorbei();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
 			html += " <div class=\"verbindungsbox\">"
@@ -78,9 +119,13 @@ public class VerbindungBean {
 					+ "  </div>";
 		}
 		
-		
+		double[] merker= {6,14,22};
+		this.tageszeiten=merker;
 		return html;
 	}
+
+
+
 
 
 	public void dauerPreisRoutenID() throws SQLException {
@@ -195,6 +240,7 @@ public class VerbindungBean {
 
 
 public String getStartStadt() {
+	System.out.println(startStadt);
 	return startStadt;
 }
 
@@ -291,6 +337,12 @@ public int getPlaetzeFrei(String tageszeit) throws SQLException {
 
 public void setPlaetzeFrei(int plaetzeFrei) {
 	this.plaetzeFrei = plaetzeFrei;
+}
+public String getDatumUnformatiert() {
+	return datumUnformatiert;
+}
+public void setDatumUnformatiert(String datumUnformatiert) {
+	this.datumUnformatiert = datumUnformatiert;
 }
 
 

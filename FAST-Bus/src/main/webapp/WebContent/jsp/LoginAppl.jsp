@@ -14,6 +14,7 @@
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean"  scope="session" />
+<jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
 
 <%
 	String email = request.getParameter("email");
@@ -33,15 +34,20 @@
 		try{
 		boolean accountFound = loginBean.checkEmailPassword();
 		if(accountFound){
+			
 			loginBean.setLoggedIn(true);
 			hb.setAnmeldung(true);
 			hb.setVorname(loginBean.getVorname());
 			rb.setEmail(email);
 			
 			msgBean.setLogin(email);
-			System.out.println("Anmelden");
-			
+			if(!vb.getStartStadt().equals("")&&!vb.getZielStadt().equals("")){
+				response.sendRedirect("./VerbindungView.jsp");
+			}else{
 			response.sendRedirect("./HomepageView.jsp");
+			}
+			System.out.println(vb.getStartStadt());
+			
 		}else{
 			loginBean.setLoggedIn(false);
 			msgBean.setLoginFailed();

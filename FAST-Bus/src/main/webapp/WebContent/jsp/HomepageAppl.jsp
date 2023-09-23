@@ -95,11 +95,15 @@ if(btnVerbindung == null ) btnVerbindung="";
 if(btnVerbindung.equals("Suchen")){
     vb.setStartStadt(inputStart);   
     vb.setZielStadt(inputEnd);  
+    System.out.println("Mariooooooooooooooooo "+inputStart);
+    hb.setInputStart(inputStart);   
+    hb.setInputEnd(inputEnd); 
     
  	vb.setVorTag(vortag);
  	vb.setNachTag(nachtag);
-   	vb.setDatum(test);	
+   	vb.setDatum(test);
    	
+   	vb.setDatumUnformatiert(stringDate);
    	vb.setVorTagFuerLink(blabla);
     vb.setNachTagFuerLink(dingbing);
     

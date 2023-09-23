@@ -29,17 +29,17 @@
   
   	<!-- JSP USEBEAN  -->
 	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean" scope="session" />
+	<jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean" scope="session" />
 	<jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session" />
+	
 	<!-- JSP USEBEAN  -->
-  
-  
+
   <body>
-  
-		
     <div class="container">
     						  <!-- Navbar -->
       <header>
            <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
+     
       </header>
 							<!-- Navbar end -->
 
