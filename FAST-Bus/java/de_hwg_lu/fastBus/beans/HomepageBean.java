@@ -24,7 +24,7 @@ public HomepageBean() {
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
 			    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
-			    "      <li><a href='url'>Meine Buchungen</a></li>" +
+			    "      <li><a href='../jsp/meineBuchungenView.jsp'>Meine Buchungen</a></li>" +
 			    "      <li><a href='url'>Hilfe</a></li>" +
 			    "    </ul>" +
 			    "  </div>" +
@@ -51,7 +51,7 @@ public HomepageBean() {
 						    "    <ul>" +
 						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
 						    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
-						    "      <li><a href='url'>Meine Buchungen</a></li>" +
+						    "      <li><a href='../jsp/meineBuchungenView.jsp'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
 						    "  </div>"													+
@@ -93,7 +93,7 @@ public HomepageBean() {
 			    							
 			    "                            	<select name=\"inputStart\"Id='inputStart' placeholder='Von...' required>\n"
 			    + "									<option value='' disabled selected>Von...</option>\n"
-			    + "									 <option value=\"Berlin\">Berlin</option>"
+			    + "									<option value=\"Berlin\">Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
 			    + "									<option value='Hamburg'>Hamburg</option>"
@@ -111,7 +111,7 @@ public HomepageBean() {
 			     "<div class=\"custom-select\" style=\"width:150px;\">" +
 				
 			    "                            	<select name=\"inputEnd\"Id='inputEnd' placeholder='Nach...' required>\n"
-			    + "									<option value=''>Nach...</option>\n"
+			    + "									<option value='' disabled selected>Nach...</option>\n"
 			    + "									 <option value=\"Berlin\">Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
@@ -126,7 +126,7 @@ public HomepageBean() {
 			    "                        </div>" +
 			    "                    </div>" +
 			    "                    <div class='date'>" +
-			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' onclick='datum();'/>" +
+			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' required onclick='datum();'/>" +
 			    "                    </div>" +
 			    "                    <div class='submitContainer'>" +
 			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' onclick=\"setButtonClicked(this.name)\" >Suchen</button>" +
@@ -159,10 +159,11 @@ public HomepageBean() {
 			    "                <h3>FASt<span>BUS</span></h3>" +
 			    "            </a>" +
 			    "            <p class='footer-links'>" +
-			    "                <a href='#' class='link-1'>Home</a>" +
+			    "                <a href='../jsp/HomepageView.jsp' class='link-1'>Home</a>" +
 			    "                <span class='nein'><a href='../jsp/städteView.jsp'>Alle Städte</a></span>" +
-			    "                <span class='nein'><a href='#'>Meine Buchungen</a></span>" +
+			    "                <span class='nein'><a href='../jsp/meineBuchungenView.jsp'>Meine Buchungen</a></span>" +
 			    "                <span class='nein'><a href='#'>Hilfe</a></span>" +
+			    "                <span class='nein'><a href='../jsp/ImpressumView.jsp'>Impressum</a></span>" +
 			    "            </p>" +
 			    "            <p class='footer-company-name'>FAStBUS © 2023</p>" +
 			    "        </div>" +

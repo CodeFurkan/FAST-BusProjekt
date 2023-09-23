@@ -26,8 +26,6 @@
 
 </head>
 
-
-
 <body>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 

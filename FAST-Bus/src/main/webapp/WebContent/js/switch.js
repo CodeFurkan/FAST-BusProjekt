@@ -37,16 +37,16 @@ function datum() {
 function checkSelbeStadt(verbindungSuche) {
 	var verbindungSuche = true;
 	if (document.buttonClicked == "btnVerbindung") {
-		if (document.getElementById('inputStart').value == document.getElementById('inputEnd').value) {
+	var startStadt=document.getElementById('inputStart').value;
+	var zielStadt=document.getElementById('inputEnd').value;
+	
+		if (startStadt == zielStadt) {
 			var myMsgField = document.getElementById("selbeStadtMsg");
 			selbeStadtMsg.innerText = "Verschiedene Städte auswählen";
 			verbindungSuche = false;
+			return verbindungSuche;
 		}
-//		if(document.getElementById('inputStart').value == 'Von...' || document.getElementById('inputEnd').value=='Nach...'){
-//			var myMsgField = document.getElementById("selbeStadtMsg");
-//			selbeStadtMsg.innerText = "Gewünschte Route bitte eingeben";
-//			verbindungSuche = false;
-//		}
+		startStadt
 	}
 	return verbindungSuche;
 }
