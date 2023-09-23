@@ -25,6 +25,7 @@
       </header>
 							<!-- Navbar end -->
 
+	<main >
 
  <div class="invoice-container">
         <div class="invoice-header">
@@ -74,6 +75,7 @@
    
         <div class="ausdruckenBox noPrint">
 	     <a class="ausdrucken-button noPrint" href="#" onclick="javascript:window.print();" >Jetzt ausdrucken</a>
+	</main>
         </div>
 
     </div>

@@ -7,10 +7,16 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 h1{
 	display: flex;
 /* 	align-items: center; */
 	justify-content: center;
+}
+main{
+	flex: 1;
+	display: flex;
+	align-items: center;
 }
 .invoice-container {
 	flex: 1;
@@ -85,7 +91,7 @@ ausdruckenBox{
     border-radius: 5px; /* Abrundung der Ecken */
     font-size: 16px;
     cursor: pointer;
-	margin-left: 600px;
+    margin-left: 636px;
 	margin-top: 20px;
 	
 	}
