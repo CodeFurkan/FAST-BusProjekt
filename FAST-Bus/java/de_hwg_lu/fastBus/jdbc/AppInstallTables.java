@@ -14,12 +14,15 @@ public class AppInstallTables {
 
 	}
 	public void doSomething() throws SQLException {
-//		this.createTableAccount();
-		this.dropTableBusInfo();
-//		this.createTableStaedte();
+		this.dropTableBuchung();
+		this.dropTableAccount();
+		this.createTableAccount();
+		this.createTableBuchung();
+//		this.dropTableBusInfo();
+//		this.dropTableRouten();
+//		this.createTableRouten();
 //		this.insertRouten();
-//		this.createTableBuchung();
-		this.createTableBusInfo();
+//		this.createTableBusInfo();
 	}
 	
 	public void executeUpdateWithoutParms(String sql) throws SQLException{
@@ -30,8 +33,8 @@ public class AppInstallTables {
 	public void createTableBuchung() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Buchung("
-						+ "				 BuchungId 		serial 			not null primary key	,"
-						+ "				 KundenId 		integer			not null				,"
+						+ "				 BuchungID 		serial 			not null primary key	,"
+						+ "				 KundenID 		integer			not null				,"
 						+ "				 RoutenID 		char(6)			not null				,"
 						+ "				 Adresse		varchar(256)	not null				,"
 						+ "				 Stadt 			varchar(256)	not null				,"
@@ -39,7 +42,8 @@ public class AppInstallTables {
 						+ "				 IBAN 			varchar(256)	not null				,"
 						+ "				 BIC 			varchar(256)	not null				,"
 						+ "				 NameKonto		varchar(256)	not null				,"
-						+ "				 foreign key (KundenId) references bwi520_632085.account(Kundenid)"
+						+ "				 foreign key (KundenID) references bwi520_632085.Account(KundenID),"
+						+ "				 foreign key (RoutenID) references bwi520_632085.Routen(RoutenID)"
 						+ "				 )"
 						);
 	}
@@ -47,14 +51,36 @@ public class AppInstallTables {
 	public void createTableAccount() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Account("
-				+ "	KundenId 		serial 			not null primary key	,"
+				+ "	KundenID 		serial 			not null primary key	,"
 				+ "	Vorname 		varchar(256) 	not null				,"
 				+ "	Nachname 		varchar(256) 	not null				,"
-				+ " Geburtsdatum 	date									,"
+				+ " Geburtsdatum 	date			not null				,"
 				+ "	Email 			varchar(256) 	not null				,"
-				+ " Passwort 		char(32) 		not null				 "
+				+ " Passwort 		char(32) 		not null				,"
+				+ " UNIQUE (Email)"
 				+ ")"
 				);			
+	}
+	public void dropTableAccount() throws SQLException {
+		String sql = "drop table if exists Account";
+		System.out.println(sql);
+		this.dbConn.prepareStatement(sql).executeUpdate();
+		System.out.println("Table Account gedropped");
+		
+	}
+	public void dropTableBuchung() throws SQLException {
+		String sql = "drop table if exists Buchung";
+		System.out.println(sql);
+		this.dbConn.prepareStatement(sql).executeUpdate();
+		System.out.println("Table Buchung gedropped");
+		
+	}
+	private void dropTableRouten() throws SQLException {
+		String sql = "drop table if exists Routen";
+		System.out.println(sql);
+		this.dbConn.prepareStatement(sql).executeUpdate();
+		System.out.println("Table Routen gedropped");
+		
 	}
 	
 	public void dropTableBusInfo() throws SQLException{
@@ -64,7 +90,7 @@ public class AppInstallTables {
 	System.out.println("Table BusInfo gedropped");
 }
 	
-	public void createTableStaedte() throws SQLException {
+	public void createTableRouten() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Routen("
 				+ "	RoutenID char(6) not null primary key,"

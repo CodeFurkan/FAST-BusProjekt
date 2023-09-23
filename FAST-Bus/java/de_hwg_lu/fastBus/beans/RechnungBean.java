@@ -11,7 +11,7 @@ import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class RechnungBean {
 
-	String kundennummer;
+	int kundenid;
 	String vorname;
 	String nachname;
 	String email;
@@ -51,27 +51,37 @@ public class RechnungBean {
 		this.startUhrzeit= "";
 		this.zielUhrzeit= "";
 	}
-
-	public void insertIntoBuchung() throws SQLException {
-		String sql = "insert into Buchung (adresse, stadt, plz, iban, bic, nameKonto) "
-				+ "values (?,?,?,?,?,?)";
+	public void getKundenIDvonAccount() throws SQLException {
+		String sql = "SELECT kundenid FROM Account where email = ?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
-		
-		prep.setString(1, this.adresse);
-		prep.setString(2, this.stadt);
-		prep.setString(3, this.plz);
-		prep.setString(4, this.iban);
-		prep.setString(5, this.bic);
-		prep.setString(6, this.nameKonto);
+		prep.setString(1, this.email);
+		ResultSet dbRes = prep.executeQuery();
+		if (dbRes.next()) {
+			this.kundenid=dbRes.getInt("kundenid");
+			System.out.println(kundenid);
+		}
+	}
+	public void insertIntoBuchung() throws SQLException {
+		getKundenIDvonAccount();
+		String sql = "insert into Buchung (kundenid,routenid,adresse, stadt, plz, iban, bic, nameKonto) "
+				+ "values (?,?,?,?,?,?,?,?)";
+		System.out.println(sql);
+		Connection dbConn = new PostgreSQLAccess().getConnection();
+		PreparedStatement prep = dbConn.prepareStatement(sql);
+		prep.setInt(1, this.kundenid);
+		prep.setString(2, this.routenID);
+		prep.setString(3, this.adresse);
+		prep.setString(4, this.stadt);
+		prep.setString(5, this.plz);
+		prep.setString(6, this.iban);
+		prep.setString(7, this.bic);
+		prep.setString(8, this.nameKonto);
 		prep.executeUpdate();
 		System.out.println("Buchung erfolgreich abgeschlossen");
 
 	}
-
-
-
 	public boolean checkBusInfoExists() throws SQLException {
 		String sql = "SELECT datum,tageszeit,RoutenID,plaetzeFrei FROM BusInfo where datum = ? AND tageszeit = ? "
 				+ "AND RoutenID=?";
@@ -306,6 +316,11 @@ public class RechnungBean {
 	public void setNextDay(String nextDay) {
 		this.nextDay = nextDay;
 	}
-	
+	public int getKundenid() {
+		return kundenid;
+	}
+	public void setKundenid(int kundenid) {
+		this.kundenid = kundenid;
+	}
 }
 

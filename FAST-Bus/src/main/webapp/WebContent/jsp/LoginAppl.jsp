@@ -13,6 +13,7 @@
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
+<jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean"  scope="session" />
 
 <%
 	String email = request.getParameter("email");
@@ -35,6 +36,8 @@
 			loginBean.setLoggedIn(true);
 			hb.setAnmeldung(true);
 			hb.setVorname(loginBean.getVorname());
+			rb.setEmail(email);
+			
 			msgBean.setLogin(email);
 			System.out.println("Anmelden");
 			

@@ -28,14 +28,14 @@
 
  <div class="invoice-container">
         <div class="invoice-header">
-            <h1 class="invoice-title"></h1>
+            <h1>Vielen Dank für Ihre Buchung</h1>
         </div>
+<!--             <h1></h1> -->
         <div class="invoice-details">
-            <h2>Bestellinformationen</h2>
             <!-- strong Kundennummer wird fett geschrieben -->
-            <p><strong>Kundennummer:</strong> </p>
-            
-            <p><strong>Datum:</strong> </p>
+            <p><strong>Kundennummer: <jsp:getProperty  name="rb" property="kundenid"/></strong> </p>
+             <p><strong>Buchungsnummer: <jsp:getProperty  name="rb" property="routenID"/></strong> </p>
+            <p><strong>Datum: <jsp:getProperty  name="rb" property="datum"/></strong> </p>
         </div>
         <div class="invoice-address">
             <h2>Kundeninformation</h2>
@@ -60,7 +60,7 @@
                     <td><jsp:getProperty  name="rb" property="startStadt"/></td>
                     <td><jsp:getProperty  name="rb" property="datum"/></td>
                     <td>  <jsp:getProperty  name="rb" property="startUhrzeit"/></td>
-                    <td rowspan="2"> <jsp:getProperty  name="rb" property="preis"/></td>
+                    <td rowspan="2"><jsp:getProperty  name="rb" property="preis"/> &euro;</td>
                 </tr>
                 <tr>
                     <td> <jsp:getProperty  name="rb" property="zielStadt"/></td>
