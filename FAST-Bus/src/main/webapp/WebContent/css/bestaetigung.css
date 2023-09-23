@@ -70,19 +70,30 @@ ausdruckenBox{
     display:none;
   }
 }
+
 .ausdruckenBox {
     display: inline-block;
     padding: 10px 20px;
     background-color: #007bff; /* Hintergrundfarbe des Buttons */
-    color: white; /* Textfarbe des Buttons */
+    color: white; 
     text-decoration: none;
     border-radius: 5px; /* Abrundung der Ecken */
     font-size: 16px;
     cursor: pointer;
 	margin-left: 600px;
 	margin-top: 20px;
+	
 	}
 
 .ausdruckenBox:hover {
     background-color: gray; /* Hintergrundfarbe des Buttons bei Hover */
+}
+ausdrucken-button{
+	color: white;
+}
+
+a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
 }

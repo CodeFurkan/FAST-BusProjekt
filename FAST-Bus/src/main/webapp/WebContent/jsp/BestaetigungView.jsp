@@ -73,7 +73,7 @@
         </table>
    
         <div class="ausdruckenBox noPrint">
-	     <a class="ausdrucken-button" href="#" onclick="javascript:window.print();" >Jetzt ausdrucken</a>
+	     <a class="ausdrucken-button noPrint" href="#" onclick="javascript:window.print();" >Jetzt ausdrucken</a>
         </div>
 
     </div>
