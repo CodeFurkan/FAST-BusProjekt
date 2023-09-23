@@ -4,6 +4,7 @@
 }
 main {
 /*   height: 170vh; */
+flex: 1;
 }
 body {
   /* background-color: #8d959c; */
@@ -24,8 +25,8 @@ body {
 }
 .hero-search-box {
   position: absolute;
-  height: 20vh;
-  width: 60%;
+    height: 150px;  
+    width: 60%;
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
