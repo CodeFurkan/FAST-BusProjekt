@@ -6,11 +6,11 @@ body{
     
     
 }
-.main{
+main{
 	position: relative;
-	min-height: 100vh;
+    min-height: 72vh;
 }
-main {
+.ObersterContainer {
   position: relative;
 /*   min-height: 100vh; */
   margin-top: 20px;
@@ -19,15 +19,18 @@ main {
   justify-content:center;
 /*   margin-left: 300px; */
 /*   margin-bottom: 50px; */
-  
+ 
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.zahlungsadresse {
+form{
+	
+	margin-bottom: 20px;
 }
 .header {
   width: 41.5%;

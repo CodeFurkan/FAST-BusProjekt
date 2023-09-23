@@ -41,8 +41,8 @@
 	<header>
 		<jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
 	</header>
-	<div class="main">
-		<main>
+	<main>
+	<div class="ObersterContainer">
 			<form action="./RechnungAppl.jsp" method="get">
 				<div class="container">
 					<div class="zahlungsadresse">
@@ -158,8 +158,9 @@
 				</div>
 
 			</div>
-		</main>
 	</div>
+		</main>
+		
 	<jsp:getProperty name="hb" property="footerAsHtml" />
 
 	<!-- push -->
