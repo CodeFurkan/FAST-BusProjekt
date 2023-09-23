@@ -20,7 +20,7 @@ public HomepageBean() {
 		 html =
 			    "<nav id='navbar'>" +
 			    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
-			    "  <div class='divLink'>" +
+			    "  <div class='divLinkAnmelden'>" +
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
 			    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
@@ -52,10 +52,10 @@ public HomepageBean() {
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
 						    "  </div>"													+
-						     "<div class='Profilname'>"
-						    + "Hallo, "+getVorname()+"!"
-						    + "</div>"	
-						    +"  <div class='divLogout'>" 								+
+						    "  <div class='divLogout'>" 								+
+						    "<div class='Profilname'>"									+
+						    "Hallo, "+getVorname()+"!"								+
+						     "</div>"+
 						    "    <label class='abmelden'>" 								+
 						    "      <img" 												+
 						    "        class=''" 											+
