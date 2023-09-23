@@ -48,7 +48,8 @@ public class RechnungBean {
 		this.iban = "";
 		this.bic = "";
 		this.nameKonto = "";
-
+		this.startUhrzeit= "";
+		this.zielUhrzeit= "";
 	}
 
 	public void insertIntoBuchung() throws SQLException {
@@ -95,8 +96,12 @@ public class RechnungBean {
 
 	public void insertIntoBusInfo() throws SQLException {
 		boolean alreadyExists = checkBusInfoExists();
-		if (plaetzeFrei != 0) {
+		System.out.println(plaetzeFrei);
 			if (alreadyExists) {
+				if(plaetzeFrei==0) {
+					System.out.println("keine plaetze mehr!");
+					return;
+				}
 				plaetzeFrei--;
 				String sql = "update BusInfo set plaetzeFrei='" + plaetzeFrei + "' where datum=? "
 						+ "AND tageszeit=? AND RoutenID=?";
@@ -107,7 +112,6 @@ public class RechnungBean {
 				prep.setString(2, this.startUhrzeit);
 				prep.setString(3, this.routenID);
 				prep.executeUpdate();
-				
 			} else {
 				// inserten alles
 				String sql = "insert into BusInfo(datum, tageszeit, RoutenID, plaetzeFrei) " + "values (?,?,?,?)";
@@ -120,9 +124,6 @@ public class RechnungBean {
 				prep.setInt(4, 49);
 				prep.executeUpdate();
 			}
-		}else {
-			System.out.println("keine plaetze mehr frei! \n konnte nicht inserten");
-		}
 	}
 
 	public String getVorname() {
@@ -262,14 +263,22 @@ public class RechnungBean {
 	}
 
 	public String getZielDatum() {
-		String zweiZeichenZielUhrzeit = this.zielUhrzeit;
-		String zweiZeichenStartUhrzeit=this.startUhrzeit;
-		
-		zweiZeichenZielUhrzeit=zweiZeichenZielUhrzeit.substring(0, 2);
-		zweiZeichenStartUhrzeit=zweiZeichenStartUhrzeit.substring(0, 2);
-		
-		int merkerZiel=Integer.parseInt(zweiZeichenZielUhrzeit);
-		int merkerStart=Integer.parseInt(zweiZeichenStartUhrzeit);
+		String zweiZeichenZielUhrzeit="";
+		String zweiZeichenStartUhrzeit="";
+		int merkerZiel=0;
+		int merkerStart=0;
+		try {
+			zweiZeichenZielUhrzeit = this.zielUhrzeit;
+			zweiZeichenStartUhrzeit=this.startUhrzeit;
+			
+			zweiZeichenZielUhrzeit=zweiZeichenZielUhrzeit.substring(0, 2);
+			zweiZeichenStartUhrzeit=zweiZeichenStartUhrzeit.substring(0, 2);
+			
+			merkerZiel=Integer.parseInt(zweiZeichenZielUhrzeit);
+			merkerStart=Integer.parseInt(zweiZeichenStartUhrzeit);
+		}catch (Exception e) {
+			return getDatum();
+		}
 		
 		if(merkerStart==22 && merkerZiel <=22 ) {
 //			System.out.println(getNextDay());

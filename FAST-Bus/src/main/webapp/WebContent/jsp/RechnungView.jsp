@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 
-<jsp:getProperty name="loginBean" property="checkLoggedIn" />
+
 
 <title>Zahlungsvorgang</title>
 <link rel="stylesheet" type="text/css" href="../css/rechnung.css">
@@ -34,6 +34,8 @@
 	scope="session" />
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean"
 	scope="session" />
+
+<jsp:getProperty name="loginBean" property="checkLoggedIn" />
 
 <body>
 	<header>
@@ -93,12 +95,12 @@
 							</div>
 							<div class="iban-bic">
 								<label>IBAN </label> <input type="text" name="iban" value=""
-									required />
+									required minlength="22"/>
 							</div>
 
 							<div class="iban-bic">
 								<label>BIC </label> <input type="text" name="bic" value=""
-									required />
+									minlength="8" required/>
 							</div>
 							<div class="kasse">
 								<button type="submit" name="btnJetztKaufen" value="jetzt kaufen"
