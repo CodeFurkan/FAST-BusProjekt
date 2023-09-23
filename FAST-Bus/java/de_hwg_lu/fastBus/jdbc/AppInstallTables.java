@@ -31,15 +31,16 @@ public class AppInstallTables {
 		this.executeUpdateWithoutParms(
 				"Create table Buchung("
 						+ "				 BuchungId 		serial 			not null primary key	,"
-						+ "				 Kundennummer 	int										,"
+						+ "				 KundenId 		integer			not null				,"
+						+ "				 RoutenID 		char(6)			not null				,"
 						+ "				 Adresse		varchar(256)	not null				,"
 						+ "				 Stadt 			varchar(256)	not null				,"
 						+ "				 PLZ 			varchar(256)	not null				,"
 						+ "				 IBAN 			varchar(256)	not null				,"
 						+ "				 BIC 			varchar(256)	not null				,"
-						+ "				NameKonto		varchar(256)	not null				,"
-						+ "				foreign key (Kundennummer) references bwi520_632085.account(kundenid)"
-						+ "				)"
+						+ "				 NameKonto		varchar(256)	not null				,"
+						+ "				 foreign key (KundenId) references bwi520_632085.account(Kundenid)"
+						+ "				 )"
 						);
 	}
 	
@@ -55,6 +56,7 @@ public class AppInstallTables {
 				+ ")"
 				);			
 	}
+	
 	public void dropTableBusInfo() throws SQLException{
 	String sql = "drop table if exists BusInfo";
 	System.out.println(sql);
@@ -65,7 +67,7 @@ public class AppInstallTables {
 	public void createTableStaedte() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table Routen("
-				+ "	RoutenID char(32) not null primary key,"
+				+ "	RoutenID char(6) not null primary key,"
 				+ "	StartStadt varchar(256) not null,"
 				+ "	ZielStadt varchar(256) not null,"
 				+ "	Dauer decimal(4,2) not null,"
@@ -73,6 +75,7 @@ public class AppInstallTables {
 				+ "	)"
 				);	
 	}
+	
 	public void createTableBusInfo() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table BusInfo("
@@ -152,7 +155,5 @@ public class AppInstallTables {
 				+ "    ('DUSLEI', 'Düsseldorf', 'Leipzig', 06.00, 22.00),"
 				+ "    ('DUSSTU', 'Düsseldorf', 'Stuttgart', 05.15, 24.00)"
 			);
-		
 	}
-
 	}

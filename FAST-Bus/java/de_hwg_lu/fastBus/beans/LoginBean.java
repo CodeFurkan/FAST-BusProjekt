@@ -26,7 +26,6 @@ public class LoginBean {
 		this.geburtsdatum  ="";
 		this.password ="";
 		this.isLoggedIn = false;
-		
 	}
 	/*
 	 * überprüft, ob es einen Datensatz mit this.email und this.password in table account gibt - TRUE

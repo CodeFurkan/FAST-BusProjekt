@@ -47,12 +47,9 @@
 		
 		response.sendRedirect("./BestaetigungView.jsp");
 		
-	}else
+	}else{
 		response.sendRedirect("./HomepageView.jsp");
-		
-	
-	
-
+	}
 %>
 </body>
 </html>

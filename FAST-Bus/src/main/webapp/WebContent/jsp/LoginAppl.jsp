@@ -14,7 +14,6 @@
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 
-
 <%
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
@@ -24,6 +23,8 @@
 	
 	if(btnsubmit == null) btnsubmit="";
 	if(zurReg == null) zurReg="";
+	if(btnLogout == null) btnLogout="";
+	
 	//kaka
 	if(btnsubmit.equals("Anmelden")){
 		loginBean.setEmail(email);
