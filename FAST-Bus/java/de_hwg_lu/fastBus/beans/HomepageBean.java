@@ -28,8 +28,10 @@ public HomepageBean() {
 			    "      <li><a href='url'>Hilfe</a></li>" +
 			    "    </ul>" +
 			    "  </div>" +
+			    "    "
+			    + "<label>" +
 			    "  <div class='divLogin'>" +
-			    "    <label class='anmelden'>" +
+			    "    <div class='anmelden'>" +
 			    "      <img" +
 			    "        class=''" +
 			    "        src='../img/clipart153139.png'" +
@@ -37,8 +39,9 @@ public HomepageBean() {
 			    "        width='15px'" +
 			    "      />" 	 + 
 			    "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
-			    			"    </label>" +
+			    			"    </div>" +
 			    			"  </div>" +
+			    			"    </label>" +
 			    			"</nav>";
 			    }
 			    else if(anmeldung == true) {
@@ -52,10 +55,10 @@ public HomepageBean() {
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
 						    "  </div>"													+
-						    "  <div class='divLogout'>" 								+
 						    "<div class='Profilname'>"									+
 						    "Hallo, "+getVorname()+"!"								+
-						     "</div>"+
+						    "</div>"+
+						    "  <div class='divLogout'>" 								+
 						    "    <label class='abmelden'>" 								+
 						    "      <img" 												+
 						    "        class=''" 											+
