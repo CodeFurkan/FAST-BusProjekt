@@ -1,59 +1,63 @@
- body {
-            font-family: Arial, sans-serif;
-        }
+html {
+  height: 100%;
+}
+body {
+	font-family: Arial, sans-serif;
+	  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-        .invoice-container {
-            max-width: 800px;
-            margin: 0 auto;
-            margin-top: 20px;
-    		margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid rgb(255, 255, 255);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.invoice-container {
+	flex: 1;
+	max-width: 800px;
+	min-width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid rgb(255, 255, 255);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .invoice-header {
-            text-align: center;
-        }
+.invoice-header {
+	text-align: center;
+}
 
-        .invoice-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+.invoice-title {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
 
-        .invoice-details {
-            margin-top: 20px;
-        }
+.invoice-details {
+	margin-top: 20px;
+}
 
-        .invoice-details h2 {
-            font-size: 18px;
-        }
+.invoice-details h2 {
+	font-size: 18px;
+}
 
-        .invoice-address {
-            margin-top: 10px;
-        }
+.invoice-address {
+	margin-top: 10px;
+}
 
-        .invoice-table {
-            width: 100%;
-    
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
+.invoice-table {
+	width: 100%;
+	margin-top: 20px;
+	border-collapse: collapse;
+}
 
-        .invoice-table th,
-        .invoice-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+.invoice-table th, .invoice-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
 
-        .invoice-table th {
-            background-color: #f2f2f2;
-        }
+.invoice-table th {
+	background-color: #f2f2f2;
+}
 
-        .invoice-total {
-            margin-top: 20px;
-            text-align: right;
-        }
-       
-       
+.invoice-total {
+	margin-top: 20px;
+	text-align: right;
+}

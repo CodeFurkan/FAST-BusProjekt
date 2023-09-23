@@ -63,8 +63,9 @@
 					</div>
 					<div class="text">
 						<h3>Hamburg</h3>
-						<p1>Die Hafenstadt im Norden, die für ihre einzigartige
-						Architektur, die Elbphilharmonie und eine maritime Atmosphäre
+						<p1>Die Hafenstadt im Norden, <br>
+						die für ihre einzigartige Architektur, <br>
+						die Elbphilharmonie und eine maritime Atmosphäre
 						entlang der Alster und Elbe berühmt ist.</p1>
 					</div>
 				</div>
