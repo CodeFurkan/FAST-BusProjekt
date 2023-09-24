@@ -25,11 +25,11 @@ public class MessageBean {
 	//Reg-Methoden
 	public void setRegistrationWelcome() {
 		this.setInformationsMsg("Planen Sie ihre n&auml;chste Reise mit FASt-Bus.");
-		this.setActionMsg("Bitte registrieren Sie sich");
+		this.setActionMsg("Bitte registrieren Sie sich.");
 		
 	}
 	public void setAccountAngelegt(String email) {
-		this.setInformationsMsg("Account "+email+ "erfolgreich angelegt.");
+		this.setInformationsMsg("Account "+email+ " erfolgreich angelegt.");
 		this.setActionMsg("Melden Sie sich an.");
 	}
 	public void setAccountVorhanden(String email) {
@@ -42,7 +42,7 @@ public class MessageBean {
 		this.setActionMsg("Ihre Reise beginnt hier.");
 	}
 	public void setLoginFailed() {
-		this.setInformationsMsg("Ihre Anmeldung konnte nicht abgeschlossen werden.");
+		this.setInformationsMsg("Ihr Email oder Kennwort ist nicht korrekt.");
 		this.setActionMsg("Bitte versuchen Sie es erneut.");
 	}
 	public void setLoggedOut() {

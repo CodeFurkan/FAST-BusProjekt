@@ -70,10 +70,11 @@
 				</div>
 			</div>
 			</form>
-	<h2><jsp:getProperty name="msgBean" property="informationsMsg" />
-	</h2>
-	<h2><jsp:getProperty name="msgBean" property="actionMsg" />
-	</h2>
+			<div class="ms"> 
+	<p1><jsp:getProperty name="msgBean" property="informationsMsg" /></p1>
+	<br>
+	<p1><jsp:getProperty name="msgBean" property="actionMsg" /> </p1>
+			</div>
 	</main>
 
 	<jsp:getProperty name="hb" property="footerAsHtml" />

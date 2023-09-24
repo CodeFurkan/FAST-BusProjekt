@@ -34,6 +34,9 @@
 	<!-- Navbar end -->
 
 	<main>
+		<div class="massage">
+				<p1> Herzlich Willkommen</p1>
+			</div>
 		<form action="./RegAppl.jsp" method="get">
 			<div class="heroContainer">
 				<div class="uerberschrift">
@@ -81,10 +84,8 @@
 	
 		</form>
 		
-	<h2><jsp:getProperty name="msgBean" property="informationsMsg" />
-	</h2>
-	<h2><jsp:getProperty name="msgBean" property="actionMsg" />
-	</h2>
+
+	<h2><jsp:getProperty name="msgBean" property="actionMsg" />	</h2>
 	</main>
 	<jsp:getProperty name="hb" property="footerAsHtml" />
 </body>

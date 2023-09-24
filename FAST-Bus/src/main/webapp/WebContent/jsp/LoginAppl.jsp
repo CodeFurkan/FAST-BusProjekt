@@ -33,14 +33,15 @@
 		loginBean.setPassword(password);
 		try{
 		boolean accountFound = loginBean.checkEmailPassword();
+		
 		if(accountFound){
 			
 			loginBean.setLoggedIn(true);
 			hb.setAnmeldung(true);
 			hb.setVorname(loginBean.getVorname());
 			rb.setEmail(email);
-			
 			msgBean.setLogin(email);
+			
 			if(!vb.getStartStadt().equals("")&&!vb.getZielStadt().equals("")){
 				response.sendRedirect("./VerbindungView.jsp");
 			}else{
