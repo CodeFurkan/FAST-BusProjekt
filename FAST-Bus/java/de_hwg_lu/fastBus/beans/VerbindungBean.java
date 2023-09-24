@@ -17,8 +17,6 @@ import java.util.Locale;
 import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 
 public class VerbindungBean {
-
-	
 	String startStadt="";
 	String zielStadt="";
 	String datum;
@@ -39,42 +37,33 @@ public class VerbindungBean {
 	double preis;
 	int dauerStd, dauerMin;
 	double jetztUhrzeit;
-	public VerbindungBean(){
-//		tageszeiten= {6,14,22}
-	}
+
 	public void uhrzeitSchonVorbei() {
 		String pattern = "yyyy-MM-dd";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String date = simpleDateFormat.format(new Date());
 		if(date.equals(getDatumUnformatiert())) {
-			System.out.println("datum unformatiert");
-		       LocalTime now = LocalTime.now(ZoneId.of("Europe/Berlin"));
+		       LocalTime now = LocalTime.now(ZoneId.of("Europe/Berlin"));	//die jetztige Zeit
 		       int hour = now.getHour();
-//		       hour=13; //testen
 		       int groeßer=3;
 		       if(hour>=tageszeiten[0]) {
 		    	   groeßer=2;	//alle 3 anzeigen
 		    	   if(hour>=tageszeiten[1]) {
-		    		   groeßer=1;
+		    		   groeßer=1; //2 verbindungsboxen anzeigen
 		    		   if(hour>=tageszeiten[2]) {
-		    			   groeßer=0;
+		    			   groeßer=0;	//nur eine anzeigen
 		    		   }
 		    	   }
 		       }
 		       double[] merker = new double[groeßer];
 		       for (int i = 0; i < merker.length; i++) {
-
-				merker[merker.length-1-i]=tageszeiten[tageszeiten.length-1-i];
+				merker[merker.length-1-i]=tageszeiten[tageszeiten.length-1-i];	//speichere die tageszeiten die noch übrig sind in den merker
 			}
 		       tageszeiten=merker;
-		}else {
-//			double[] merker= {6,14,22};
-//			this.tageszeiten=merker;
-		}  
+		} 
 	}
 	public String getVerbindungsBox() throws SQLException {
 		dauerPreisRoutenID();
-//		System.out.println("fürtest "+getDatumUnformatiert());
 		uhrzeitSchonVorbei();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
@@ -142,49 +131,34 @@ public class VerbindungBean {
 			this.dauer= dbRes.getDouble("Dauer");
 			this.preis=dbRes.getDouble("Preis");
 			this.routenID=dbRes.getString("RoutenID");
-//			String result = String.format("%.2f", dauer);
-//			System.out.println(result)
 		}
 		
-		int[] dauersplit = dauerSplit(dauer);
+		int[] dauersplit = dauerSplit(dauer);		
 		setDauerStd(dauersplit[0]);
 		
-		if(dauersplit[1]/10==0)dauersplit[1]*=10;
+		if(dauersplit[1]/10==0)dauersplit[1]*=10;	//Wenn die minutenanzahl einstellig ist 
 		setDauerMin(dauersplit[1]);
 		
 	}
 	
 	public String tagesZeitPlusDauer(double tageszeit) {
-		double ins= tageszeit+this.dauer;
-		int[] dauersplit=dauerSplit(ins);
+		double ins= tageszeit+this.dauer; 	//tageszeit+dauer um ankunftzeit zu bestimmen
+		int[] dauersplit=dauerSplit(ins); 	//die ankunftzeit wird gesplitted
 		
-		int speicher = dauersplit[1]/60;
-		dauersplit[0] += speicher;
+		int speicher = dauersplit[1]/60;	//die minuten werden durch 60 geteilt um die stunden zu bekommen 
+		dauersplit[0] += speicher;			
 
-		dauersplit[1]%=60;
+		dauersplit[1]%=60;					//die restlichen minuten 
 		
-		
-		dauersplit[0] %= 24;
-//		
-//		int stunden = dauersplit[0]%24;
-//		dauersplit[0] = stunden;
-//		
-//		int minuten= dauersplit[1]/60;
-//		dauersplit[0]+=minuten;
-//		
-
-		return dauerInString(dauersplit);
+		dauersplit[0] %= 24;				// falls die stunden über die 24h marke ereichen
+		return dauerInString(dauersplit);	//das double wird zu einer uhrzeit formatiert
 	}
 	
-	public int[] dauerSplit(double dauerzumsplit) {
+	public int[] dauerSplit(double dauerzumsplit) {				//teilt die dauer an der komma stelle um stunden und minuten und gibt einen array mit den inhalt der beiden zurück
+		String dauerString = Double.toString(dauerzumsplit);	//macht einen String um es teilen zu können
+		String[] convert = dauerString.split("\\.");	
 		
-//		DecimalFormat df = new DecimalFormat("#.##");
-//		dauerzumsplit = Double.parseDouble(df.format(dauerzumsplit));
-		
-		String dauerString = Double.toString(dauerzumsplit);
-		String[] convert = dauerString.split("\\.");
-		
-		int[] dauersplit= {Integer.parseInt(convert[0]),Integer.parseInt(convert[1])};
+		int[] dauersplit= {Integer.parseInt(convert[0]),Integer.parseInt(convert[1])};	//die daten werden als integer gecasted und in einem int array gespeichert
 
 		return dauersplit;
 	     
@@ -195,7 +169,6 @@ public class VerbindungBean {
 		if(tageszeitString.split( "\\:" )[ 1 ].length() == 1 ) tageszeitString+="0";
 		if(tageszeitString.split( "\\:" )[ 0 ].length() == 1 ) tageszeitString="0"+tageszeitString;
 		return tageszeitString;
-		
 	}
 
 	public int getDauerStd() {
@@ -216,10 +189,10 @@ public class VerbindungBean {
 
 	public String getPreisString() {
 		Locale locale = Locale.GERMANY;
-		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);	//die Euro Währung
 		String s = numberFormat.format(this.preis);
 		String res;
-		res= s.substring(0, s.length() - 1);
+		res= s.substring(0, s.length() - 1);									//der letzte char wird -1 genommen wegen des Euro Zeichens
 
 		return res;
 	}
@@ -227,82 +200,80 @@ public class VerbindungBean {
 		this.preis = preis;
 	}
 
+	public String getStartStadt() {
+		return startStadt;
+	}
+
+	public void setStartStadt(String startStadt) {
+		this.startStadt = startStadt;
+	}
+
+	public String getZielStadt() {
+		return zielStadt;
+	}
+
+	public void setZielStadt(String zielStadt) {
+		this.zielStadt = zielStadt;
+	}
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+
+	public double[] getTageszeiten() {
+		return tageszeiten;
+	}
+
+	public void setTageszeiten(double[] tageszeiten) {
+		this.tageszeiten = tageszeiten;
+	}
+
+	public String getVorTag() {
+		return vorTag;
+	}
+
+	public void setVorTag(String vorTag) {
+		this.vorTag = vorTag;
+	}
+
+	public String getNachTag() {
+		return nachTag;
+	}
+
+	public void setNachTag(String nachTag) {
+		this.nachTag = nachTag;
+	}
+
+	public String getVorTagFuerLink() {
+		return vorTagFuerLink;
+	}
+
+	public void setVorTagFuerLink(String vorTagFuerLink) {
+		this.vorTagFuerLink = vorTagFuerLink;
+	}
+
+	public String getNachTagFuerLink() {
+		return nachTagFuerLink;
+	}
+
+	public void setNachTagFuerLink(String nachTagFuerLink) {
+		this.nachTagFuerLink = nachTagFuerLink;
+	}
+
+	public String getRoutenID() {
+		return routenID;
+	}
+
+	public void setRoutenID(String routenID) {
+		this.routenID = routenID;
+	}
 
 
-public String getStartStadt() {
-	return startStadt;
-}
-
-public void setStartStadt(String startStadt) {
-	this.startStadt = startStadt;
-}
-
-public String getZielStadt() {
-	return zielStadt;
-}
-
-public void setZielStadt(String zielStadt) {
-	this.zielStadt = zielStadt;
-}
-
-public String getDatum() {
-	return datum;
-}
-
-public void setDatum(String datum) {
-	this.datum = datum;
-}
-
-public double[] getTageszeiten() {
-	return tageszeiten;
-}
-
-public void setTageszeiten(double[] tageszeiten) {
-	this.tageszeiten = tageszeiten;
-}
-
-public String getVorTag() {
-	return vorTag;
-}
-
-public void setVorTag(String vorTag) {
-	this.vorTag = vorTag;
-}
-
-public String getNachTag() {
-	return nachTag;
-}
-
-public void setNachTag(String nachTag) {
-	this.nachTag = nachTag;
-}
-
-public String getVorTagFuerLink() {
-	return vorTagFuerLink;
-}
-
-public void setVorTagFuerLink(String vorTagFuerLink) {
-	this.vorTagFuerLink = vorTagFuerLink;
-}
-
-public String getNachTagFuerLink() {
-	return nachTagFuerLink;
-}
-
-public void setNachTagFuerLink(String nachTagFuerLink) {
-	this.nachTagFuerLink = nachTagFuerLink;
-}
-
-public String getRoutenID() {
-	return routenID;
-}
-
-public void setRoutenID(String routenID) {
-	this.routenID = routenID;
-}
-
-
-public int getPlaetzeFrei(String tageszeit) throws SQLException {
+	public int getPlaetzeFrei(String tageszeit) throws SQLException {
 	String sql = "SELECT plaetzeFrei FROM BusInfo where StartDatum = ? AND StartZeit = ? "
 			+ "AND RoutenID=?";
 	System.out.println(sql);
@@ -318,48 +289,46 @@ public int getPlaetzeFrei(String tageszeit) throws SQLException {
 	
 	if (dbRes.next()) {
 		this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
-	}
+		}
 	return plaetzeFrei;
-}
-
-
-public void setPlaetzeFrei(int plaetzeFrei) {
-	this.plaetzeFrei = plaetzeFrei;
-}
-public String getDatumUnformatiert() {
-	return datumUnformatiert;
-}
-public void setDatumUnformatiert(String datumUnformatiert) {
-	this.datumUnformatiert = datumUnformatiert;
-}
-public String getTageszeitString() {
-	return tageszeitString;
-}
-public void setTageszeitString(String tageszeitString) {
-	this.tageszeitString = tageszeitString;
-}
-public int getWunschplaetze() {
-	System.out.println("gehste hier rein?");
-	System.out.println(wunschplaetze);
-	return wunschplaetze;
-}
-public void setWunschplaetze(int wunschplaetze) {
-	this.wunschplaetze = wunschplaetze;
-}
-public String getProPerson() {
-	if(getWunschplaetze()>1) {
-		proPerson="pro Person";
-	}else {
-		proPerson="";
 	}
+
+
+	public void setPlaetzeFrei(int plaetzeFrei) {
+		this.plaetzeFrei = plaetzeFrei;
+	}
+	public String getDatumUnformatiert() {
+		return datumUnformatiert;
+	}
+	public void setDatumUnformatiert(String datumUnformatiert) {
+		this.datumUnformatiert = datumUnformatiert;
+	}
+	public String getTageszeitString() {
+		return tageszeitString;
+	}
+	public void setTageszeitString(String tageszeitString) {
+		this.tageszeitString = tageszeitString;
+	}
+	public int getWunschplaetze() {
+		return wunschplaetze;
+	}
+	public void setWunschplaetze(int wunschplaetze) {
+		this.wunschplaetze = wunschplaetze;
+	}
+	public String getProPerson() {
+		if(getWunschplaetze()>1) {
+			proPerson="pro Person";
+		}else {
+			proPerson="";
+		}
 	return proPerson;
-}
-public void setProPerson(String proPerson) {
-	this.proPerson = proPerson;
-}
-public double getPreis() {
-	return preis;
-}
+	}
+	public void setProPerson(String proPerson) {
+		this.proPerson = proPerson;
+	}
+	public double getPreis() {
+		return preis;
+	}
 
 
 }

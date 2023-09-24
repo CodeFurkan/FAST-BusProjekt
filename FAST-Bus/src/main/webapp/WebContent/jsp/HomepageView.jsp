@@ -18,7 +18,7 @@
 	href="https://fonts.googleapis.com/css2?family=Mooli&family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,500;1,100;1,200&family=Roboto:wght@700&display=swap"
 	rel="stylesheet">
 <!--     javascript -->
-    <script type="text/javascript" src="../js/switch.js"> </script>
+    <script type="text/javascript" src="../js/switch.js"></script>
     
 	<link type="text/css" rel="stylesheet" href="../css/headerAndNavbar.css" />
     <link type="text/css" rel="stylesheet" href="../css/main1.0.css" />

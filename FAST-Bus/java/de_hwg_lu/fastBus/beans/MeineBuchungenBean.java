@@ -27,25 +27,7 @@ public class MeineBuchungenBean {
 	
 	double preisdouble;
 	String preis;
-//	public String meineBuchungHtml() {
-//		String html="            <tbody>\r\n"
-//				+ "                <tr>\r\n"
-//				+ "                    <td>startStadt</td>\r\n"
-//				+ "                    <td>startDatum</td>\r\n"
-//				+ "                    <td>startUhrzeit</td>\r\n"
-//				+ "                    <td rowspan=\"2\"> preis</td>\r\n"
-//				+ "                </tr>\r\n"
-//				+ "                <tr>\r\n"
-//				+ "                    <td> zielStadt</td>\r\n"
-//				+ "                     <td>zielDatum</td>\r\n"
-//				+ "                    <td>zielUhrzeit</td>\r\n"
-//				+ "                      \r\n"
-//				+ "                        \r\n"
-//				+ "                </tr>\r\n"
-//				+ "            </tbody>";
-//		
-//		return html;
-//	}
+
 	public void selectAccount() throws SQLException {
 		String sql = "SELECT kundenid FROM Account where email = ?";
 		System.out.println(sql);
@@ -101,7 +83,6 @@ public class MeineBuchungenBean {
 		if (dbRes.next()) {
 			this.startStadt=dbRes.getString("startstadt");
 			this.zielStadt=dbRes.getString("zielstadt");
-//			this.preisdouble=dbRes.getDouble("preis");
 		}
 	}
 	public void selectBusinfo() throws SQLException {

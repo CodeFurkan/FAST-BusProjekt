@@ -16,6 +16,21 @@ public class MessageBean {
 //		this.setNotLoggedIn();	
 		
 	}
+	public String getInformationsMsg() {
+		return informationsMsg;
+	}
+
+	public void setInformationsMsg(String informationsMsg) {
+		this.informationsMsg = informationsMsg;
+	}
+
+	public String getActionMsg() {
+		return actionMsg;
+	}
+
+	public void setActionMsg(String actionMsg) {
+		this.actionMsg = actionMsg;
+	}
 	public void setGeneralWelcome(){
 		
 	this.setInformationsMsg("Ein Schritt entfernt von Ihrer großen Reise.");
@@ -25,11 +40,11 @@ public class MessageBean {
 	//Reg-Methoden
 	public void setRegistrationWelcome() {
 		this.setInformationsMsg("Planen Sie ihre n&auml;chste Reise mit FASt-Bus.");
-		this.setActionMsg("Bitte registrieren Sie sich.");
+		this.setActionMsg("Bitte registrieren Sie sich");
 		
 	}
 	public void setAccountAngelegt(String email) {
-		this.setInformationsMsg("Account "+email+ " erfolgreich angelegt.");
+		this.setInformationsMsg("Account "+email+ "erfolgreich angelegt.");
 		this.setActionMsg("Melden Sie sich an.");
 	}
 	public void setAccountVorhanden(String email) {
@@ -42,7 +57,7 @@ public class MessageBean {
 		this.setActionMsg("Ihre Reise beginnt hier.");
 	}
 	public void setLoginFailed() {
-		this.setInformationsMsg("Ihr Email oder Kennwort ist nicht korrekt.");
+		this.setInformationsMsg("Ihre Anmeldung konnte nicht abgeschlossen werden.");
 		this.setActionMsg("Bitte versuchen Sie es erneut.");
 	}
 	public void setLoggedOut() {
@@ -61,20 +76,4 @@ public class MessageBean {
 		this.setActionMsg("Bitte wenden Sie sich an den Support.");
 	}
 	
-	public String getInformationsMsg() {
-		return informationsMsg;
-	}
-
-	public void setInformationsMsg(String informationsMsg) {
-		this.informationsMsg = informationsMsg;
-	}
-
-	public String getActionMsg() {
-		return actionMsg;
-	}
-
-	public void setActionMsg(String actionMsg) {
-		this.actionMsg = actionMsg;
-	}
-
 }

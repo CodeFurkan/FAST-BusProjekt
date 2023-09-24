@@ -15,16 +15,11 @@ public class RegBean {
 	String email;
 	String password;
 	
-	
-	
 	public RegBean() {
-		
 		this.vorname ="";
 		this.nachname ="";
-		
 		this.email="";
 		this.password ="";
-		
 	}
 	public void insertAccoutNoCheck() throws SQLException {
 		String sql ="insert into account (vorname, nachname, geburtsdatum, email, passwort) "
@@ -51,9 +46,7 @@ public class RegBean {
 		ResultSet dbRes = prep.executeQuery();
 		
 		boolean gefunden = dbRes.next();
-		
 		return gefunden;	
-		
 	}
 	public boolean insertAccountIfNotExists( ) throws SQLException {
 		boolean accountVorhanden = this.checkAccountExists();
@@ -63,7 +56,6 @@ public class RegBean {
 		}else {
 			this.insertAccoutNoCheck();
 			return true;
-			
 		}
 	}
 	
@@ -97,8 +89,4 @@ public class RegBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-
 }

@@ -59,7 +59,7 @@ public class RechnungBean {
 		this.zielUhrzeit= "";
 	}
 	public void getKundenIDvonAccount() throws SQLException {
-		String sql = "SELECT kundenid FROM Account where email = ?";
+		String sql = "SELECT kundenid FROM Account where email = ?";	//email ist unique
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -67,7 +67,6 @@ public class RechnungBean {
 		ResultSet dbRes = prep.executeQuery();
 		if (dbRes.next()) {
 			this.kundenid=dbRes.getInt("kundenid");
-			System.out.println(kundenid);
 		}
 	}
 	public void getBusinfoIDvonBusinfo() throws SQLException {
@@ -81,27 +80,13 @@ public class RechnungBean {
 		ResultSet dbRes = prep.executeQuery();
 		if (dbRes.next()) {
 			this.businfoID=dbRes.getInt("businfoid");
-			System.out.println(businfoID);
 		}
 	
 	}
-//	public void getBuchungsnummerVonSQL() {
-//		String sql = "SELECT buchungid FROM buchung where kundenid = ? AND ";
-//		System.out.println(sql);
-//		Connection dbConn = new PostgreSQLAccess().getConnection();
-//		PreparedStatement prep = dbConn.prepareStatement(sql);
-//		prep.setString(1, this.email);
-//		ResultSet dbRes = prep.executeQuery();
-//		if (dbRes.next()) {
-//			this.kundenid=dbRes.getInt("kundenid");
-//			System.out.println(kundenid);
-//		}
-//	}
-	
 	public void insertIntoBuchung() throws SQLException {
 		getKundenIDvonAccount();
 		getBusinfoIDvonBusinfo();
-		if(checkBuchungExisitertBereits()) {
+		if(checkBuchungExisitertBereits()) {	//Wenn die Buchung bereits genau unter all den selben Daten existiert wird returned
 			return;
 		}
 		String sql = "insert into Buchung (kundenid,businfoid,routenid,adresse, stadt, plz, iban, bic,vorname,nachname, nameKonto,preisgesamt)"
@@ -149,11 +134,10 @@ public class RechnungBean {
 		if (dbRes.next()) {
 			gefunden = true;
 			this.buchungid=dbRes.getInt("buchungid");
-//			System.out.println("Buchung konnte nicht abgeschlossen werden");
-//			System.out.println("Die Buchung existiert bereits");
 		}
 		return gefunden;
 	}
+	//checkt ob der Bus bereits in der Vergangenheit gebucht wurde 
 	public boolean checkBusInfoExists() throws SQLException {
 		String sql = "SELECT StartDatum,StartZeit,RoutenID,plaetzeFrei FROM BusInfo where StartDatum = ? AND StartZeit = ? "
 				+ "AND RoutenID=?";
@@ -168,18 +152,14 @@ public class RechnungBean {
 		ResultSet dbRes = prep.executeQuery();
 		if (dbRes.next()) {
 			gefunden = true;
-			System.out.println("plaetzefreo??????????????????????????????");
-//			this.plaetzeFrei = dbRes.getInt("plaetzeFrei");
 			this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
-			System.out.println(plaetzeFrei);
 		}
 		return gefunden;
 	}
-
+	
 	public void insertIntoBusInfo() throws SQLException {
 		boolean alreadyExists = checkBusInfoExists();
-		System.out.println("plaetze frei in der methode insertintobusinfo "+plaetzeFrei);
-			if (alreadyExists) {
+			if (alreadyExists) { //Wenn der bus bereits belegt ist, nimm die noch freien plätze aus der datenbank und subtrahier die gewünschten plätze vom kunden 
 				if(plaetzeFrei==0 || plaetzeFrei-wunschplaetze<0) {
 					System.out.println("Insert nicht möglich \n plaetze 0 oder darunter");
 					return;
@@ -191,10 +171,10 @@ public class RechnungBean {
 				Connection dbConn = new PostgreSQLAccess().getConnection();
 				PreparedStatement prep = dbConn.prepareStatement(sql);
 				prep.setString(1, this.datum);
-				prep.setString(2, this.startUhrzeit);
+				prep.setString(2, this.startUhrzeit);	//Diese 3 daten reichen aus um zusammen einzigartig zu sein
 				prep.setString(3, this.routenID);
 				prep.executeUpdate();
-			} else {
+			} else {		//Wenn der Bus nicht belegt ist trage eine neue zeile an und subtrahier die gewünschten sitze vom kunden von 50
 				// inserten alles
 				String sql = "insert into BusInfo(StartDatum, ZielDatum, StartZeit,Zielzeit, RoutenID, plaetzeFrei) " + "values (?,?,?,?,?,?)";
 				System.out.println(sql);
@@ -362,12 +342,9 @@ public class RechnungBean {
 		}catch (Exception e) {
 			return getDatum();
 		}
-		System.out.println(merkerStart);
-		System.out.println(merkerZiel);
-		System.out.println(getDatum());
 		
 		if(merkerStart==22 && merkerZiel <=22 ) {
-//			System.out.println(getNextDay());
+
 			return getNextDay();
 		}
 		return getDatum();
