@@ -34,7 +34,7 @@
 		<jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
 
 	</header>
-	<!-- Navbar end -->
+	<!-- Navbar endn -->
 	
 	<main>
 			<div class="massage">
