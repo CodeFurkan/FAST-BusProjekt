@@ -67,18 +67,26 @@
 						<jsp:getProperty name="vb" property="vorTag" />
 					</a>
 				</div>
-				<img class="pfeillinks" src="../img/pfeil_links.png">
+				<a
+                    href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen"
+                    Id="tagDavorPfeil" onclick="return einTagDavor();"> <img
+                    class="pfeillinks" src="../img/pfeil_links.png">
+                </a>
 				
 				
 				<!-- HEUTIGER DATUM -->
 				<div class="tagtag" Id="ausgewaehlterTag">
 					<img class="calendar" src="../img/calendar.png" /> 
-					<a href="">
+					<a href="#">
 					<jsp:getProperty name="vb" property="datum" />
 					</a>
 				</div>
 				
-				<img class="pfeilrechts klickElement" src="../img/pfeil_rechts.png" />
+				<a
+                    href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&btnVerbindung=Suchen"
+                    class="klickElement"> <img class="pfeilrechts klickElement"
+                    src="../img/pfeil_rechts.png" />
+                </a>
 				
 				<!--  NachtTAG-->
 				<div class="nachtag">
