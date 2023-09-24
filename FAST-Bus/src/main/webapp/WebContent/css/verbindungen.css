@@ -14,6 +14,7 @@
 /*   background-color: white; */
   /* box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3); */
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .vornachtag {
@@ -26,9 +27,20 @@
 
 .vornachtag div {
   display: flex;
-  padding: 10px;
+  padding: 5px;
   font-size: 25px;
   border-radius: 10px;
+  background-color: darkgray;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 30px;
+}
+
+
+.vornachtag div:hover{
+    background-color: #000000;
+    transition: all 0.5s ease 0s;  
 }
 
 .vornachtag a {
@@ -36,7 +48,7 @@
   /* font-family: "Poppins", sans-serif; */
   text-decoration: none;
 	color: white;
-
+	font-size: 18px;
 }
 
 /*                   Verbindungsbox               */
@@ -45,7 +57,7 @@
   margin-top: 70px;
   /* padding-top: 30px; */
   /* height: 20vh; */
-  height: 190px;
+  height: 180px;
   /* width:125vh; */
 /*   width: 1200px; */
   width: 60%;
@@ -55,6 +67,7 @@
   background-color: white;
   box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .vObenUnten {

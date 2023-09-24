@@ -314,7 +314,7 @@ public void setRoutenID(String routenID) {
 
 
 public int getPlaetzeFrei(String tageszeit) throws SQLException {
-	String sql = "SELECT plaetzeFrei FROM BusInfo where datum = ? AND tageszeit = ? "
+	String sql = "SELECT plaetzeFrei FROM BusInfo where startdatum = ? AND startzeit = ? "
 			+ "AND RoutenID=?";
 	System.out.println(sql);
 	Connection dbConn = new PostgreSQLAccess().getConnection();
