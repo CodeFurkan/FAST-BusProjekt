@@ -63,8 +63,8 @@
 				<div class="vortag">
 					<img class="calendar" src="../img/calendar.png"> <a
 						href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen"
-						Id="tagDavor" onclick="return einTagDavor();"> <jsp:getProperty
-							name="vb" property="vorTag" />
+						Id="tagDavor" onclick="return einTagDavor();"> 
+						<jsp:getProperty name="vb" property="vorTag" />
 					</a>
 				</div>
 				<img class="pfeillinks" src="../img/pfeil_links.png">
@@ -72,8 +72,9 @@
 				
 				<!-- HEUTIGER DATUM -->
 				<div class="tagtag" Id="ausgewaehlterTag">
-					<img class="calendar" src="../img/calendar.png" /> <a href="url">
-						<jsp:getProperty name="vb" property="datum" />
+					<img class="calendar" src="../img/calendar.png" /> 
+					<a href="url">
+					<jsp:getProperty name="vb" property="datum" />
 					</a>
 				</div>
 				
@@ -90,7 +91,7 @@
 			</div>
 		</div>
 		
-		<form action="./VerbindungAppl.jsp" method="get">
+		<form action="./VerbindungAppl.jsp" method="get" onsubmit="return ueberbuchung(this)">
 			<jsp:getProperty name="vb" property="verbindungsBox" />
 		</form>
 		<!------------------ footer------------ -->

@@ -1,3 +1,4 @@
+
 function setButtonClicked(btnName) {
 	document.buttonClicked = btnName;
 }
@@ -5,14 +6,10 @@ function switchIt() {
 	var startStadt = document.getElementById("inputStart");
 	var zielStadt = document.getElementById("inputEnd");
 	var merker = startStadt.value;
-	//	alert(merker);
 	document.getElementById('inputStart').value = document.getElementById('inputEnd').value;
 	document.getElementById('inputEnd').value = merker;
-	//	startStadt.value=zielStadt.value;
-	//	zielStadt.value=merker;
 }
 function stadt(myStadt) {
-	//	alert(myStadt);
 	var zielStadt = document.getElementById("inputEnd");
 	zielStadt.value = myStadt;
 }
@@ -30,9 +27,30 @@ function datum() {
 	}
 
 	today = yyyy + '-' + mm + '-' + dd;
-	//alert(today);
 	document.getElementById("dateInput").setAttribute("min", today);
 	
+}
+
+function einTagDavor(){
+	
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd
+	}
+	if (mm < 10) {
+		mm = '0' + mm
+	}
+
+	today = dd + '.' + mm + '.' + yyyy;
+	
+	var ausgewaehlterTag = document.getElementById("ausgewaehlterTag").innerText;
+	if(today==ausgewaehlterTag){
+		return false;
+	}
+	return true;
 }
 function checkSelbeStadt(verbindungSuche) {
 	var verbindungSuche = true;
@@ -50,30 +68,19 @@ function checkSelbeStadt(verbindungSuche) {
 	}
 	return verbindungSuche;
 }
-function einTagDavor(){
-	//
-	var today = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth() + 1;
-	var yyyy = today.getFullYear();
-	if (dd < 10) {
-		dd = '0' + dd
-	}
-	if (mm < 10) {
-		mm = '0' + mm
-	}
+var clicked;
+function ueberbuchung(verbindungen){
+	var verbindungSuche = true;
+	if (document.buttonClicked == "btnZumAngebot") {
+	var plaetzefrei=document.getElementById('freiePlaetze'+clicked).innerText;
 
-//	today = yyyy + '-' + mm + '-' + dd;
-	today = dd + '.' + mm + '.' + yyyy;
-	
-	var ausgewaehlterTag = document.getElementById("ausgewaehlterTag").innerText;
-//	alert(ausgewaehlterTag);
-//	alert(today);
-	if(today==ausgewaehlterTag){
-//		alert("false");
-		return false;
+	var wunschplaetze=document.getElementById('invisibleWunschPlaetze').innerText;
+
+		if(plaetzefrei < wunschplaetze){
+			verbindungSuche=false;
+		}
 	}
-	return true;
+	return verbindungSuche;
 }
 
 // JavaScript-Funktion, um den A-Tag auszulösen, wenn auf das Bild geklickt wird

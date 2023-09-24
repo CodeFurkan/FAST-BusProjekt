@@ -105,8 +105,8 @@ public class VerbindungBean {
 					+ "          </div>"
 					+ "        </div>"
 					+ "        <div class=\"vBoxUnten\">"
-					+ "          <div class=\"vPlaetzeFrei\">"
-					+ "            "+getPlaetzeFrei(dauerInString(dauerSplit(tageszeiten[i])))+" von 50 Plätzen frei"
+					+ "          <div class=\"vPlaetzeFrei\" id='vPlaetzeFrei'>"
+					+ "            <div id='freiePlaetze"+tageszeiten[i]+"'>"+getPlaetzeFrei(dauerInString(dauerSplit(tageszeiten[i])))+"</div> von 50 Plätzen frei"
 					+ "          </div>\r\n"
 					+ "          <div class=\"vPreisButton\">"
 					+"			 <div class=proPerson>"+getProPerson()+"</div>"
@@ -114,23 +114,20 @@ public class VerbindungBean {
 					+ "              "+getPreisString()+"&euro;"
 					+ "            </div>"
 					+ "            <div class=\"vButton\">"
-					+ "              <!-- <input type=\"submit\" name=\"btnZumAngebot\" value=\"Zum Angebot1\" /> -->"
-					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+tageszeiten[i]+"' >Zum Angebot</button>"
+					+ "              <button type='submit' name='btnZumAngebot' class='subbutton' onclick=\"setButtonClicked(this.name);clicked='"+tageszeiten[i]+"'\"  value='Zum Angebot"+tageszeiten[i]+"' >Zum Angebot</button>"
 					+ "            </div>"
 					+ "          </div>"
 					+ "        </div>"
-					+ "      </div>"
+					+ "      <div id=invisibleWunschPlaetze>"+getWunschplaetze()+"</div>"
+					+ "		 <div id=invisiblePlaetze>"+getWunschplaetze()+"</div>"
+					+ "		</div>"
 					+ "  </div>";
 		}
-		
+		System.out.println(html);
 		double[] merker= {6,14,22};
 		this.tageszeiten=merker;
 		return html;
 	}
-
-
-
-
 
 	public void dauerPreisRoutenID() throws SQLException {
 		
@@ -342,6 +339,8 @@ public void setTageszeitString(String tageszeitString) {
 	this.tageszeitString = tageszeitString;
 }
 public int getWunschplaetze() {
+	System.out.println("gehste hier rein?");
+	System.out.println(wunschplaetze);
 	return wunschplaetze;
 }
 public void setWunschplaetze(int wunschplaetze) {

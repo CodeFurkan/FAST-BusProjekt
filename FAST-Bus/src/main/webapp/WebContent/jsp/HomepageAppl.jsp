@@ -57,7 +57,6 @@ try{
 	calendar.add(Calendar.DATE, +2);
 	Date tmrw = calendar.getTime();
 
-	// System.out.println("vortag "+yesterday);
 
 	Date myDate = convertedCurrentDate;
 	 test = new SimpleDateFormat("dd.MM.yyyy").format(myDate);
@@ -66,7 +65,9 @@ try{
 
 	 blabla = new SimpleDateFormat("yyyy-MM-dd").format(yesterday);
 	 dingbing = new SimpleDateFormat("yyyy-MM-dd").format(tmrw);
+	 
 	 wunschplaetze=Integer.parseInt(quantity);
+	 
 }catch(Exception e){
 	e.printStackTrace();
 }
@@ -97,7 +98,6 @@ if(btnVerbindung.equals("Suchen")){
 	response.sendRedirect("./VerbindungView.jsp");
 }else if(meineBuchungen.equals("meineBuchungen")){
 	if(hb.isAnmeldung()){
-// 		System.out.println(hb.isAnmeldung());
 		mbb.setEmail(rb.getEmail());
 		mbb.getMeineBuchungAsHtml();
 		response.sendRedirect("./meineBuchungenView.jsp");

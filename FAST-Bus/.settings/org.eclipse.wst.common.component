@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
+            
+    
     <wb-module deploy-name="FAST-Bus">
-                
+                        
+        
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                
+                        
+        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/java"/>
-        <dependent-module archiveName="postgresql-42.6.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/felci/Desktop/postgresql-42.6.0.jar">
+                
+        <dependent-module archiveName="postgresql-42.6.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Ali/Desktop/Stude/elcipse zeugs/eclipsoso/postgresql-42.6.0.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+        <dependent-module archiveName="apache-tomcat-9.0.41.zip" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Ali/Desktop/Stude/elcipse zeugs/eclipsoso/apache-tomcat-9.0.41.zip">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                
+                        
+        
         <property name="context-root" value="FAST-Bus"/>
-                
+                        
+        
         <property name="java-output-path" value="/FAST-Bus/build/classes"/>
-            
-    </wb-module>
+                    
     
+    </wb-module>
+        
+
 </project-modules>
