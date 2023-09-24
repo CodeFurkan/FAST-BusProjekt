@@ -75,3 +75,16 @@ function einTagDavor(){
 	}
 	return true;
 }
+
+// JavaScript-Funktion, um den A-Tag auszulösen, wenn auf das Bild geklickt wird
+var klickElemente = document.getElementsByClassName("klickElement");
+
+for (var i = 0; i < klickElemente.length; i++) {
+  klickElemente[i].addEventListener("click", function() {
+    var parentDiv = this.closest(".nachtag"); // Das Elternelement mit der Klasse "nachtag" finden
+    var linkTag = parentDiv.querySelector("a"); // Das nächste <a>-Tag innerhalb des Elternelements finden
+    if (linkTag) {
+      linkTag.click(); // A-Tag auslösen
+    }
+  });
+}

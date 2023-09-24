@@ -31,7 +31,7 @@
         <div class="invoice-header">
             <h1>Vielen Dank für Ihre Buchung</h1>
         </div>
-<!--             <h1></h1> -->
+        
         <div class="invoice-details">
             <!-- strong Kundennummer wird fett geschrieben -->
             <p><strong>Kundennummer: <jsp:getProperty  name="rb" property="kundenid"/></strong> </p>
