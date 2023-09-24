@@ -76,7 +76,7 @@ section {
 .footer-distributed .footer-links a::after {
   content: "";
   display: block;
-  border-bottom: solid 1px hsl(0, 100%, 100%);
+  border-bottom: solid 2px hsl(0, 100%, 100%);
   transform: scaleX(0);
   transform-origin: top left;
   transition: transform 0.3s ease;

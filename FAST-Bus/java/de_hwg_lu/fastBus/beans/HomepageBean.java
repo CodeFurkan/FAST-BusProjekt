@@ -19,7 +19,7 @@ public HomepageBean() {
 		if(anmeldung == false) {
 		 html =
 			    "<nav id='navbar'>" +
-			    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
+			    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><img class='FastBus' src='../img/FastBus.png'/></a></div>" +
 			    "  <div class='divLinkAnmelden'>" +
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
@@ -45,7 +45,7 @@ public HomepageBean() {
 			    }
 			    else if(anmeldung == true) {
 			    	html =   "<nav id='navbar'>" +
-						    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><h1>FASTBUS</h1></a></div>" +
+						    "  <div class='logo'><a class='logolink' href='../jsp/HomepageView.jsp'><img class='FastBus' src='../img/FastBus.png'/></a></div>" +
 						    "  <div class='divLink'>" +
 						    "    <ul>" +
 						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
