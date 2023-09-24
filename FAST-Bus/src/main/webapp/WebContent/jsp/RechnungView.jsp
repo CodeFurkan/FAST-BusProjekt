@@ -34,6 +34,8 @@
 	scope="session" />
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean"
 	scope="session" />
+		<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" 
+		scope="session" />
 
 <jsp:getProperty name="loginBean" property="checkLoggedIn" />
 
@@ -108,8 +110,11 @@
 							</div>
 						</div>
 					</div>
+				<h2 style=color:red><jsp:getProperty name="msgBean" property="actionMsg" /></h2>
+				<h2><jsp:getProperty name="msgBean" property="informationsMsg" /></h2>
 				</div>
 			</form>
+			
 			<div class="verbindungsContainer">
 				<div class="überschrift">
 					<h1>Deine Verbindung</h1>
@@ -153,7 +158,7 @@
 				<div class="gesamtpreis">
 					<h3>Preis (inkl. MwSt.)</h3>
 					<h3 class="summe">
-						<jsp:getProperty name="rb" property="preis" />
+						<jsp:getProperty name="rb" property="preis" /> &euro;
 					</h3>
 				</div>
 

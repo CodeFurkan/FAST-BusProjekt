@@ -34,19 +34,16 @@
 		zumLogin = "";
 	Date geburtsdatum = null;
 	java.sql.Date geburtsdatumSql = null;
-
+	
 	try {
 		System.out.println("Eingegebenes Geburtsdatum: " + geburtsdatumStr);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date geburtsdatumUtil = dateFormat.parse(geburtsdatumStr); // Parse das Geburtsdatum als java.util.Date
 		geburtsdatumSql = new java.sql.Date(geburtsdatumUtil.getTime()); // Konvertiere es in java.sql.Date
-	}
-
-	catch (ParseException e) {
+	}catch (Exception e) {
 		e.printStackTrace();
 		System.out.println("Fehler: Das Geburtsdatum ist ungültig. Bitte geben Sie ein Datum im Format dd.MM.yyyy ein.");
 	}
-
 	if (btnRegister.equals("kostenlos registrieren")) {
 		msgBean.setRegistrationWelcome();
 		regBean.setVorname(vorname);

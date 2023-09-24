@@ -19,14 +19,15 @@ import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 public class VerbindungBean {
 
 	
-	String startStadt;
-	String zielStadt;
+	String startStadt="";
+	String zielStadt="";
 	String datum;
 	String vorTag;
 	String nachTag;
 	String vorTagFuerLink;
 	String datumUnformatiert;
 	String nachTagFuerLink;
+	String tageszeitString;
 	
 	String routenID;
 	int plaetzeFrei;
@@ -47,6 +48,7 @@ public class VerbindungBean {
 			System.out.println("datum unformatiert");
 		       LocalTime now = LocalTime.now(ZoneId.of("Europe/Berlin"));
 		       int hour = now.getHour();
+//		       hour=13; //testen
 		       int groeßer=3;
 		       if(hour>=tageszeiten[0]) {
 		    	   groeßer=2;	//alle 3 anzeigen
@@ -71,7 +73,6 @@ public class VerbindungBean {
 	public String getVerbindungsBox() throws SQLException {
 		dauerPreisRoutenID();
 //		System.out.println("fürtest "+getDatumUnformatiert());
-		
 		uhrzeitSchonVorbei();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
@@ -111,7 +112,7 @@ public class VerbindungBean {
 					+ "            </div>"
 					+ "            <div class=\"vButton\">"
 					+ "              <!-- <input type=\"submit\" name=\"btnZumAngebot\" value=\"Zum Angebot1\" /> -->"
-					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+i+"' >Zum Angebot</button>"
+					+ "              <button type=\"submit\" class=\"subbutton\" name='btnZumAngebot' value='Zum Angebot"+tageszeiten[i]+"' >Zum Angebot</button>"
 					+ "            </div>"
 					+ "          </div>"
 					+ "        </div>"
@@ -190,7 +191,7 @@ public class VerbindungBean {
 	}
 	public String dauerInString(int[]dauersplit) {
 		
-		String tageszeitString = ""+dauersplit[0]+":"+dauersplit[1];
+		tageszeitString = ""+dauersplit[0]+":"+dauersplit[1];
 		if(tageszeitString.split( "\\:" )[ 1 ].length() == 1 ) tageszeitString+="0";
 		if(tageszeitString.split( "\\:" )[ 0 ].length() == 1 ) tageszeitString="0"+tageszeitString;
 		return tageszeitString;
@@ -314,7 +315,7 @@ public void setRoutenID(String routenID) {
 
 
 public int getPlaetzeFrei(String tageszeit) throws SQLException {
-	String sql = "SELECT plaetzeFrei FROM BusInfo where startdatum = ? AND startzeit = ? "
+	String sql = "SELECT plaetzeFrei FROM BusInfo where StartDatum = ? AND StartZeit = ? "
 			+ "AND RoutenID=?";
 	System.out.println(sql);
 	Connection dbConn = new PostgreSQLAccess().getConnection();
@@ -330,6 +331,7 @@ public int getPlaetzeFrei(String tageszeit) throws SQLException {
 	if (dbRes.next()) {
 		System.out.println(tageszeit);
 		this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
+		System.out.println("wie viele plaetze frei: "+plaetzeFrei);
 	}
 	return plaetzeFrei;
 }
@@ -343,6 +345,12 @@ public String getDatumUnformatiert() {
 }
 public void setDatumUnformatiert(String datumUnformatiert) {
 	this.datumUnformatiert = datumUnformatiert;
+}
+public String getTageszeitString() {
+	return tageszeitString;
+}
+public void setTageszeitString(String tageszeitString) {
+	this.tageszeitString = tageszeitString;
 }
 
 

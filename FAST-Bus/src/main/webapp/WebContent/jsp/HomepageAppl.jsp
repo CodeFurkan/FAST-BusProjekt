@@ -20,8 +20,9 @@
 
 <jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"  scope="session" />
 <jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
-
+<jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
+<jsp:useBean id="mbb" class="de_hwg_lu.fastBus.beans.MeineBuchungenBean" scope="session"/>
 
 <%
 
@@ -29,6 +30,7 @@ String btnVerbindung = request.getParameter("btnVerbindung");
 String inputStart = request.getParameter("inputStart");
 String inputEnd = request.getParameter("inputEnd");
 String stringDate = request.getParameter("date");
+String meineBuchungen = request.getParameter("meineBuchungen");
 
 
 	String test ="";
@@ -70,32 +72,18 @@ try{
 	e.printStackTrace();
 }
 
-// System.out.println("vortag "+vortag);
-// System.out.println("nachtag "+nachtag);
-
-// try {
-//     date = dateFormat.parse(stringDate);
-//     System.out.println(date);
-// }
-// catch (ParseException e) {
-//     e.printStackTrace();
-//  }
-
 if(loginBean.isLoggedIn() == true){
 	hb.setAnmeldung(true);
 }
 else{
 	hb.setAnmeldung(false);
 }
-
-
 if(btnVerbindung == null ) btnVerbindung="";
 //Hier muss evtl die Methode von der LoginBean hinzugefuegt werden wie zb in der PortalAppl.jsp VL 
 //Falls ein Nutzer nicht eingeloggt ist wird der per Message aufgeforder dies zu tun
 if(btnVerbindung.equals("Suchen")){
     vb.setStartStadt(inputStart);   
     vb.setZielStadt(inputEnd);  
-    System.out.println("Mariooooooooooooooooo "+inputStart);
     hb.setInputStart(inputStart);   
     hb.setInputEnd(inputEnd); 
     
@@ -108,12 +96,18 @@ if(btnVerbindung.equals("Suchen")){
     vb.setNachTagFuerLink(dingbing);
     
 	response.sendRedirect("./VerbindungView.jsp");
+}else if(meineBuchungen.equals("meineBuchungen")){
+	if(hb.isAnmeldung()){
+// 		System.out.println(hb.isAnmeldung());
+		mbb.setEmail(rb.getEmail());
+		mbb.getMeineBuchungAsHtml();
+		response.sendRedirect("./meineBuchungenView.jsp");
+	}else{
+		response.sendRedirect("./LoginView.jsp");
+	}
 }else{
 	response.sendRedirect("./HomepageView.jsp");
 }
-
-
-
 
 %>
 

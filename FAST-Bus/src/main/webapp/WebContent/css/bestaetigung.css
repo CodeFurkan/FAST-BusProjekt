@@ -20,7 +20,7 @@ main{
 }
 .invoice-container {
 	flex: 1;
-	max-height: 656px;;
+/* 	max-height: 656px;; */
 	max-width: 800px;
 	min-width: 700px;
 	margin: 0 auto;
@@ -63,7 +63,9 @@ main{
 	padding: 8px;
 	text-align: left;
 }
-
+.invoice-table tbody {
+    border-bottom: 2px solid;
+}
 .invoice-table th {
 	background-color: #f2f2f2;
 }

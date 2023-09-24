@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import de_hwg_lu.fastBus.jdbc.NoConnectionException;
@@ -12,8 +14,11 @@ import de_hwg_lu.fastBus.jdbc.PostgreSQLAccess;
 public class RechnungBean {
 
 	int kundenid;
-	String vorname;
-	String nachname;
+	int businfoID;
+	int buchungid;
+	
+	String rechnungVorname;
+	String rechnungNachname;
 	String email;
 	String adresse;
 	String stadt;
@@ -34,13 +39,14 @@ public class RechnungBean {
 	String preis;
 
 	String routenID;
+	
 	int plaetzeFrei;
 	
 	String nextDay;
 
 	public RechnungBean() {
-		this.vorname = "";
-		this.nachname = "";
+		this.rechnungVorname = "";
+		this.rechnungNachname = "";
 		this.email = "";
 		this.adresse = "";
 		this.stadt = "";
@@ -63,30 +69,93 @@ public class RechnungBean {
 			System.out.println(kundenid);
 		}
 	}
+	public void getBusinfoIDvonBusinfo() throws SQLException {
+		String sql = "SELECT businfoid FROM businfo where StartDatum = ? AND StartZeit=? AND routenid=?";
+		System.out.println(sql);
+		Connection dbConn = new PostgreSQLAccess().getConnection();
+		PreparedStatement prep = dbConn.prepareStatement(sql);
+		prep.setString(1, this.datum);
+		prep.setString(2, this.startUhrzeit);
+		prep.setString(3, this.routenID);
+		ResultSet dbRes = prep.executeQuery();
+		if (dbRes.next()) {
+			this.businfoID=dbRes.getInt("businfoid");
+			System.out.println(businfoID);
+		}
+	
+	}
+//	public void getBuchungsnummerVonSQL() {
+//		String sql = "SELECT buchungid FROM buchung where kundenid = ? AND ";
+//		System.out.println(sql);
+//		Connection dbConn = new PostgreSQLAccess().getConnection();
+//		PreparedStatement prep = dbConn.prepareStatement(sql);
+//		prep.setString(1, this.email);
+//		ResultSet dbRes = prep.executeQuery();
+//		if (dbRes.next()) {
+//			this.kundenid=dbRes.getInt("kundenid");
+//			System.out.println(kundenid);
+//		}
+//	}
+	
 	public void insertIntoBuchung() throws SQLException {
 		getKundenIDvonAccount();
-		String sql = "insert into Buchung (kundenid,routenid,adresse, stadt, plz, iban, bic, nameKonto) "
-				+ "values (?,?,?,?,?,?,?,?)";
+		getBusinfoIDvonBusinfo();
+		if(checkBuchungExisitertBereits()) {
+			return;
+		}
+		String sql = "insert into Buchung (kundenid,businfoid,routenid,adresse, stadt, plz, iban, bic,vorname,nachname, nameKonto) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
 		prep.setInt(1, this.kundenid);
-		prep.setString(2, this.routenID);
-		prep.setString(3, this.adresse);
-		prep.setString(4, this.stadt);
-		prep.setString(5, this.plz);
-		prep.setString(6, this.iban);
-		prep.setString(7, this.bic);
-		prep.setString(8, this.nameKonto);
+		prep.setInt(2, this.businfoID);
+		prep.setString(3, this.routenID);
+		prep.setString(4, this.adresse);
+		prep.setString(5, this.stadt);
+		prep.setString(6, this.plz);
+		prep.setString(7, this.iban);
+		prep.setString(8, this.bic);
+		prep.setString(9, this.rechnungVorname);
+		prep.setString(10, this.rechnungNachname);
+		prep.setString(11, this.nameKonto);
 		prep.executeUpdate();
+		
 		System.out.println("Buchung erfolgreich abgeschlossen");
-
+	}
+	public boolean checkBuchungExisitertBereits() throws SQLException {
+		String sql = "SELECT buchungid FROM Buchung where kundenid = ? AND businfoid = ? AND routenid = ? AND "
+				+ "adresse = ? AND stadt = ? AND plz = ? AND iban = ? AND bic = ? AND "
+				+ "vorname = ? AND nachname = ? AND nameKonto = ? ";
+		System.out.println(sql);
+		boolean gefunden = false;
+		Connection dbConn = new PostgreSQLAccess().getConnection();
+		PreparedStatement prep = dbConn.prepareStatement(sql);
+		prep.setInt(1, this.kundenid);
+		prep.setInt(2, this.businfoID);
+		prep.setString(3, this.routenID);
+		prep.setString(4, this.adresse);
+		prep.setString(5, this.stadt);
+		prep.setString(6, this.plz);
+		prep.setString(7, this.iban);
+		prep.setString(8, this.bic);
+		prep.setString(9, this.rechnungVorname);
+		prep.setString(10, this.rechnungNachname);
+		prep.setString(11, this.nameKonto);
+		ResultSet dbRes = prep.executeQuery();
+		if (dbRes.next()) {
+			gefunden = true;
+			this.buchungid=dbRes.getInt("buchungid");
+//			System.out.println("Buchung konnte nicht abgeschlossen werden");
+//			System.out.println("Die Buchung existiert bereits");
+		}
+		return gefunden;
 	}
 	public boolean checkBusInfoExists() throws SQLException {
-		String sql = "SELECT datum,tageszeit,RoutenID,plaetzeFrei FROM BusInfo where datum = ? AND tageszeit = ? "
+		String sql = "SELECT StartDatum,StartZeit,RoutenID,plaetzeFrei FROM BusInfo where StartDatum = ? AND StartZeit = ? "
 				+ "AND RoutenID=?";
-		boolean gefunden = false;
 		System.out.println(sql);
+		boolean gefunden = false;
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
 		prep.setString(1, this.datum);
@@ -106,15 +175,15 @@ public class RechnungBean {
 
 	public void insertIntoBusInfo() throws SQLException {
 		boolean alreadyExists = checkBusInfoExists();
-		System.out.println(plaetzeFrei);
+		System.out.println("plaetze frei in der methode insertintobusinfo "+plaetzeFrei);
 			if (alreadyExists) {
 				if(plaetzeFrei==0) {
 					System.out.println("keine plaetze mehr!");
 					return;
 				}
 				plaetzeFrei--;
-				String sql = "update BusInfo set plaetzeFrei='" + plaetzeFrei + "' where datum=? "
-						+ "AND tageszeit=? AND RoutenID=?";
+				String sql = "update BusInfo set plaetzeFrei='" + plaetzeFrei + "' where StartDatum=? "
+						+ "AND StartZeit=? AND RoutenID=?";
 				System.out.println(sql);
 				Connection dbConn = new PostgreSQLAccess().getConnection();
 				PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -124,34 +193,34 @@ public class RechnungBean {
 				prep.executeUpdate();
 			} else {
 				// inserten alles
-				String sql = "insert into BusInfo(datum, tageszeit, RoutenID, plaetzeFrei) " + "values (?,?,?,?)";
+				String sql = "insert into BusInfo(StartDatum, ZielDatum, StartZeit,Zielzeit, RoutenID, plaetzeFrei) " + "values (?,?,?,?,?,?)";
 				System.out.println(sql);
 				Connection dbConn = new PostgreSQLAccess().getConnection();
 				PreparedStatement prep = dbConn.prepareStatement(sql);
 				prep.setString(1, this.datum);
-				prep.setString(2, this.startUhrzeit);
-				prep.setString(3, this.routenID);
-				prep.setInt(4, 49);
+				prep.setString(2, this.getZielDatum());
+				prep.setString(3, this.startUhrzeit);
+				prep.setString(4, this.zielUhrzeit);
+				prep.setString(5, this.routenID);
+				prep.setInt(6, 49);
 				prep.executeUpdate();
 			}
 	}
 
-	public String getVorname() {
-		return vorname;
-	}
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
-	}
 
-	public String getNachname() {
-		return nachname;
+	public String getRechnungVorname() {
+		return rechnungVorname;
 	}
-
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
+	public void setRechnungVorname(String rechnungVorname) {
+		this.rechnungVorname = rechnungVorname;
 	}
-
+	public String getRechnungNachname() {
+		return rechnungNachname;
+	}
+	public void setRechnungNachname(String rechnungNachname) {
+		this.rechnungNachname = rechnungNachname;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -286,9 +355,13 @@ public class RechnungBean {
 			
 			merkerZiel=Integer.parseInt(zweiZeichenZielUhrzeit);
 			merkerStart=Integer.parseInt(zweiZeichenStartUhrzeit);
+			
 		}catch (Exception e) {
 			return getDatum();
 		}
+		System.out.println(merkerStart);
+		System.out.println(merkerZiel);
+		System.out.println(getDatum());
 		
 		if(merkerStart==22 && merkerZiel <=22 ) {
 //			System.out.println(getNextDay());
@@ -321,6 +394,18 @@ public class RechnungBean {
 	}
 	public void setKundenid(int kundenid) {
 		this.kundenid = kundenid;
+	}
+	public int getBuchungid() {
+		return buchungid;
+	}
+	public void setBuchungid(int buchungid) {
+		this.buchungid = buchungid;
+	}
+	public String getHeutigeDatumFuerQuittung() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+		LocalDate localDate = LocalDate.now();
+		System.out.println(dtf.format(localDate));
+		return dtf.format(localDate);
 	}
 }
 

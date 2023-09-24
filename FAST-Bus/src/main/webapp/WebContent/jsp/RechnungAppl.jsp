@@ -14,8 +14,8 @@
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
 <jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <%
-	String vorname = request.getParameter("vorname");
-	String nachname = request.getParameter("nachname");
+	String rechnungVorname = request.getParameter("vorname");
+	String rechnungNachname = request.getParameter("nachname");
 	String email = request.getParameter("email");
 	String adresse = request.getParameter("adresse");
 	String plz =  request.getParameter("plz");
@@ -35,17 +35,27 @@
 		
 	}else if(btnJetztKaufen.equals("jetzt kaufen")){
 		
-
 		rb.setAdresse(adresse);
 		rb.setStadt(stadt);
 		rb.setPlz(plz);
 		rb.setIban(iban);
 		rb.setBic(bic);
 		rb.setNameKonto(nameKonto);
-		rb.insertIntoBuchung();
+		rb.setRechnungVorname(rechnungVorname);
+		rb.setRechnungNachname(rechnungNachname);
+		
+		if(rb.checkBuchungExisitertBereits()){
+			msgBean.setActionMsg("Buchung konnte nicht abgeschlossen werden");
+			msgBean.setInformationsMsg("Diese Buchung exisitert bereits");
+			response.sendRedirect("./RechnungView.jsp");
+		}else{
+
 		rb.insertIntoBusInfo();
+		rb.insertIntoBuchung();
+		rb.checkBuchungExisitertBereits(); //damit die Buchungsnummer in der Quittung steht
 		
 		response.sendRedirect("./BestaetigungView.jsp");
+		}
 		
 	}else{
 		response.sendRedirect("./HomepageView.jsp");

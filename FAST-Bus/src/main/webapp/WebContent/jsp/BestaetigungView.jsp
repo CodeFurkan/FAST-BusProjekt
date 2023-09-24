@@ -35,15 +35,16 @@
         <div class="invoice-details">
             <!-- strong Kundennummer wird fett geschrieben -->
             <p><strong>Kundennummer: <jsp:getProperty  name="rb" property="kundenid"/></strong> </p>
-             <p><strong>Buchungsnummer: <jsp:getProperty  name="rb" property="routenID"/></strong> </p>
-            <p><strong>Datum: <jsp:getProperty  name="rb" property="datum"/></strong> </p>
+             <p><strong>Buchungsnummer: <jsp:getProperty  name="rb" property="buchungid"/></strong> </p>
+             <p><strong>Routenkennung: <jsp:getProperty  name="rb" property="routenID"/></strong> </p>
+            <p><strong>Datum: <jsp:getProperty  name="rb" property="heutigeDatumFuerQuittung"/></strong> </p>
         </div>
         <div class="invoice-address">
             <h2>Kundeninformation</h2>
             <p><strong>Vorname :</strong></p>
-		<jsp:getProperty  name="loginBean" property="vorname" />
+		<jsp:getProperty  name="rb" property="rechnungVorname" />
             <p><strong>Nachname:</strong></p>
-            <jsp:getProperty  name="loginBean" property="nachname" />
+            <jsp:getProperty  name="rb" property="rechnungNachname" />
             <p><strong>Adresse:</strong></p>
             <jsp:getProperty  name="rb" property="adresse"/>   <jsp:getProperty  name="rb" property="stadt"/> <jsp:getProperty  name="rb" property="plz"/>
         </div>

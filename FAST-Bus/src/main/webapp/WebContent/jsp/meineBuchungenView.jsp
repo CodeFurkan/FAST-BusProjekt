@@ -16,6 +16,7 @@
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean" scope="session"/>
 <jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
+<jsp:useBean id="mbb" class="de_hwg_lu.fastBus.beans.MeineBuchungenBean" scope="session"/>
 
 				  <!-- Navbarr -->
       <header>
@@ -38,21 +39,7 @@
                     <th>Preis</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>startStadt</td>
-                    <td>startDatum</td>
-                    <td>  startUhrzeit</td>
-                    <td rowspan="2"> preis</td>
-                </tr>
-                <tr>
-                    <td> zielStadt</td>
-                     <td>zielDatum</td>
-                    <td>zielUhrzeit</td>
-                      
-                        
-                </tr>
-            </tbody>
+            <jsp:getProperty name="mbb" property="meineBuchungAsHtml" />
         </table>
 
 </div>

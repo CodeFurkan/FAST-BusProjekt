@@ -39,7 +39,6 @@
     						  <!-- Navbar -->
       <header>
            <jsp:getProperty name="hb" property="navbarWithLoginAsHtml" />
-     
       </header>
 							<!-- Navbar end -->
 

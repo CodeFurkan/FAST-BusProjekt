@@ -11,18 +11,22 @@
 <jsp:useBean id="loginBean" class="de_hwg_lu.fastBus.beans.LoginBean" scope="session"/>
 <jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean"  scope="session" />
 <jsp:useBean id="rb" class="de_hwg_lu.fastBus.beans.RechnungBean"  scope="session" />
-
+<jsp:useBean id="msgBean" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session"/>
 <%
 
 String btnZumAngebot = request.getParameter("btnZumAngebot");
 
 if(btnZumAngebot == null ) btnZumAngebot="";
 
-if(btnZumAngebot.equals("Zum Angebot0")){
+msgBean.setInformationsMsg("");
+msgBean.setActionMsg("");
+
+if(btnZumAngebot.equals("Zum Angebot6.0")){
 // 	System.out.println("tesuonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
 	rb.setDatum(vb.getDatum());
+	
 	rb.setDauerStd(vb.getDauerStd());
 	rb.setDauerMin(vb.getDauerMin());
 	rb.setPreis(vb.getPreisString());
@@ -31,10 +35,11 @@ if(btnZumAngebot.equals("Zum Angebot0")){
 	
 	rb.setStartUhrzeit("06:00");
 	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(6.0));
+	
+	rb.setNextDay(vb.getNachTag());
+	
 	response.sendRedirect("./RechnungView.jsp");
-}
-
-if(btnZumAngebot.equals("Zum Angebot1")){
+}else if(btnZumAngebot.equals("Zum Angebot14.0")){
 // 	System.out.println("tesutonr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
@@ -48,10 +53,10 @@ if(btnZumAngebot.equals("Zum Angebot1")){
 	rb.setStartUhrzeit("14:00");
 	rb.setZielUhrzeit(vb.tagesZeitPlusDauer(14.0));
 	
+	rb.setNextDay(vb.getNachTag());
+	
 	response.sendRedirect("./RechnungView.jsp");
-}
-
-if(btnZumAngebot.equals("Zum Angebot2")){
+}else if(btnZumAngebot.equals("Zum Angebot22.0")){
 // 	System.out.println("tesutnr1");
 	rb.setStartStadt(vb.getStartStadt());
 	rb.setZielStadt(vb.getZielStadt());
@@ -68,6 +73,8 @@ if(btnZumAngebot.equals("Zum Angebot2")){
 	rb.setNextDay(vb.getNachTag());
 	
 	response.sendRedirect("./RechnungView.jsp");
+}else{
+	response.sendRedirect("./HomepageView.jsp");
 }
 %>
 </body>

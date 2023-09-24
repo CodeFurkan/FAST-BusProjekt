@@ -14,15 +14,15 @@ public class AppInstallTables {
 
 	}
 	public void doSomething() throws SQLException {
-		this.dropTableBuchung();
-		this.dropTableAccount();
-		this.createTableAccount();
-		this.createTableBuchung();
-//		this.dropTableBusInfo();
+//		this.dropTableBuchung();
+//		this.dropTableAccount();
+//		this.createTableAccount();
+//		this.createTableBuchung();
+		this.dropTableBusInfo();
 //		this.dropTableRouten();
 //		this.createTableRouten();
 //		this.insertRouten();
-//		this.createTableBusInfo();
+		this.createTableBusInfo();
 	}
 	
 	public void executeUpdateWithoutParms(String sql) throws SQLException{
@@ -35,12 +35,15 @@ public class AppInstallTables {
 				"Create table Buchung("
 						+ "				 BuchungID 		serial 			not null primary key	,"
 						+ "				 KundenID 		integer			not null				,"
+						+ "				 BusinfoID 		integer			not null				,"
 						+ "				 RoutenID 		char(6)			not null				,"
 						+ "				 Adresse		varchar(256)	not null				,"
 						+ "				 Stadt 			varchar(256)	not null				,"
 						+ "				 PLZ 			varchar(256)	not null				,"
 						+ "				 IBAN 			varchar(256)	not null				,"
 						+ "				 BIC 			varchar(256)	not null				,"
+						+ "				 Vorname 		varchar(256) 	not null				,"
+						+ "				 Nachname 		varchar(256) 	not null				,"
 						+ "				 NameKonto		varchar(256)	not null				,"
 						+ "				 foreign key (KundenID) references bwi520_632085.Account(KundenID),"
 						+ "				 foreign key (RoutenID) references bwi520_632085.Routen(RoutenID)"
@@ -105,8 +108,11 @@ public class AppInstallTables {
 	public void createTableBusInfo() throws SQLException {
 		this.executeUpdateWithoutParms(
 				"Create table BusInfo("
-				+	" datum char(10) not null,"
-				+	" tageszeit char(5) not null,"
+				+ 	" BusinfoID serial not null primary key,"
+				+	" StartDatum char(10) not null,"
+				+	" ZielDatum char(10) not null,"
+				+	" StartZeit char(5) not null,"
+				+	" ZielZeit char(5) not null,"
 				+	" RoutenID char(6) not null ,"
 				+	" PlaetzeFrei integer not null"
 				+ 	" )"

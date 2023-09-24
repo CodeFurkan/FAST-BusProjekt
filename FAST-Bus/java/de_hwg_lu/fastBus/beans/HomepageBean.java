@@ -24,7 +24,7 @@ public HomepageBean() {
 			    "    <ul>" +
 			    "      <!--<li><a href=''>Reise Planen</a></li>-->" +
 			    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
-			    "      <li><a href='../jsp/meineBuchungenView.jsp'>Meine Buchungen</a></li>" +
+			    "      <li><a href='./HomepageAppl.jsp?meineBuchungen=meineBuchungen'>Meine Buchungen</a></li>" +
 			    "      <li><a href='url'>Hilfe</a></li>" +
 			    "    </ul>" +
 			    "  </div>" +
@@ -50,7 +50,7 @@ public HomepageBean() {
 						    "    <ul>" +
 						    "      <!--<li><a href=''>Reise Planenn</a></li>-->" +
 						    "      <li><a href='../jsp/städteView.jsp'>Städte</a></li>" +
-						    "      <li><a href='../jsp/meineBuchungenView.jsp'>Meine Buchungen</a></li>" +
+						    "      <li><a href='./HomepageAppl.jsp?meineBuchungen=meineBuchungen'>Meine Buchungen</a></li>" +
 						    "      <li><a href='url'>Hilfe</a></li>" +
 						    "    </ul>" +
 						    "  </div>"													+

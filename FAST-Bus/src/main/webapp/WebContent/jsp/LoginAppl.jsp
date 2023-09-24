@@ -22,6 +22,7 @@
 	String btnsubmit = request.getParameter("btnsubmit");
 	String zurReg = request.getParameter("zurReg");
 	String btnLogout = request.getParameter("btnLogout");
+
 	
 	if(btnsubmit == null) btnsubmit="";
 	if(zurReg == null) zurReg="";
@@ -43,6 +44,7 @@
 			msgBean.setLogin(email);
 			
 			if(!vb.getStartStadt().equals("")&&!vb.getZielStadt().equals("")){
+				//Wenn bereits in den Städten was eigetragen wurde soll es wieder zu den Verbindungen
 				response.sendRedirect("./VerbindungView.jsp");
 			}else{
 			response.sendRedirect("./HomepageView.jsp");
@@ -51,6 +53,7 @@
 			
 		}else{
 			loginBean.setLoggedIn(false);
+			hb.setAnmeldung(false);
 			msgBean.setLoginFailed();
 			response.sendRedirect("./LoginView.jsp");
 		}
