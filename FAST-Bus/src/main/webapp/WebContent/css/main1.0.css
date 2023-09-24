@@ -98,6 +98,16 @@ body {
   margin-left: 10px;
   height: 30px;
 }
+
+.quani{
+margin-left: 40px;
+}
+
+.benutzer{
+ width: 30px;
+ height: 30px;	
+}
+
 .submitContainer {
   margin-left: 80px;
   display: flex;

@@ -126,8 +126,9 @@ public HomepageBean() {
 			    "                    <div class='date'>" +
 			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' required onclick='datum();'/>" +
 			    "                    </div>"
-			    + "              	<div class=\"quani\">\n"
-			    + "                		<input style='margin-left: 20px;'id=\"quantity\" max=\"50\" min=\"1\" value='1' name=\"quantity\" type=\"number\" />\n"
+			    + "              	<div class='quani'>" 
+			    + 				"<img class='benutzer' src='../img/benutzer.png'/>"
+			    + "                		<input 'id=\"quantity\" max=\"50\" min=\"1\" value='1' name=\"quantity\" type=\"number\" />\n"
 			    + "              	</div>" +
 			    "                    <div class='submitContainer'>" +
 			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' onclick=\"setButtonClicked(this.name)\" >Suchen</button>" +
