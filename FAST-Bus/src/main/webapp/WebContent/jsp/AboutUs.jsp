@@ -68,7 +68,7 @@
 							<div class="personal-role">Bus Operator Manager</div>
 						</div>
 						<div class="personal-member">
-							<img src="../img/Furkan2.png" alt="Personal2"
+							<img src="../img/Furkan.png" alt="Personal2"
 								class="personal-image">
 							<div class="personal-name">Furkan</div>
 							<div class="personal-role">Customer Service Manager</div>
