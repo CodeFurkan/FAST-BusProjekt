@@ -31,15 +31,14 @@ public HomepageBean() {
 			    "    "
 			    + "<label>" +
 			    "  <div class='divLogin'>" +
-			    "    <div class='anmelden'>" +
+			    "    <a href='./LoginView.jsp' class='anmelden'>" +
 			    "      <img" +
 			    "        class=''" +
 			    "        src='../img/clipart153139.png'" +
 			    "        alt='anmelden'" +
 			    "        width='15px'" +
 			    "      />" 	 + 
-			    "<a href='./LoginView.jsp' class=''>Anmelden</a>" +
-			    			"    </div>" +
+			    			"   <p1> Anmelden </p1> </a>" +
 			    			"  </div>" +
 			    			"    </label>" +
 			    			"</nav>";
@@ -59,16 +58,15 @@ public HomepageBean() {
 						    "Hallo, "+getVorname()+"!"								+
 						    "</div>"+
 						    "  <div class='divLogout'>" 								+
-						    "    <label class='abmelden'>" 								+
+						    "    <a class='abmelden' href='./LoginAppl.jsp?btnLogout=true'>" 									+
 						    "      <img" 												+
 						    "        class=''" 											+
 						    "        src='../img/clipart153139.png'"					+
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
-						    "      /> " 	+
-				    		"<a href='./LoginAppl.jsp?btnLogout=true' class=''>Ausloggen</a>"
-				    		+ "</label>"
-				    		+ "</div>" ;
+						    "      /> " 												+	
+				    		 	 " <p1> Ausloggen </p1> </a>"													+
+				    		 "</div>" ;
 			    	
 			    }
 		return html;
