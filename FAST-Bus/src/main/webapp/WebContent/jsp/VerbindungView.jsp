@@ -62,7 +62,7 @@
 			<!-- VORTAG -->
 				<div class="vortag">
 					<img class="calendar" src="../img/calendar.png"> <a
-						href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen"
+						href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&quantity=<jsp:getProperty name="vb" property="wunschplaetze"/>&btnVerbindung=Suchen"
 						Id="tagDavor" onclick="return einTagDavor();"> 
 						<jsp:getProperty name="vb" property="vorTag" />
 					</a>
@@ -83,7 +83,7 @@
 				<!--  NachtTAG-->
 				<div class="nachtag">
 					<img class="calendar" src="../img/calendar.png"> <a
-						href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&btnVerbindung=Suchen" class="klickElement">
+						href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&quantity=<jsp:getProperty name="vb" property="wunschplaetze"/>&btnVerbindung=Suchen" class="klickElement">
 						<jsp:getProperty name="vb" property="nachTag" />
 					</a>
 
@@ -97,7 +97,6 @@
 		<!------------------ footer------------ -->
 		<jsp:getProperty name="hb" property="footerAsHtml" />
 		<!------------------ footer end------------ -->
-
 	</div>
 </body>
 </html>
