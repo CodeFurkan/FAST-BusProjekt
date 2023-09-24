@@ -67,6 +67,7 @@ public class VerbindungBean {
 		uhrzeitSchonVorbei();
 		String html="";
 		for (int i = 0; i < tageszeiten.length; i++) {
+			
 			html += " <div class=\"verbindungsbox\">"
 					+ "      <div class=\"vObenUnten\">"
 					+ "        <div class=\"vBoxOben\">"
@@ -108,11 +109,10 @@ public class VerbindungBean {
 					+ "          </div>"
 					+ "        </div>"
 					+ "      <div id=invisibleWunschPlaetze>"+getWunschplaetze()+"</div>"
-					+ "		 <div id=invisiblePlaetze>"+getWunschplaetze()+"</div>"
+					+ "		 <div id=invisiblePlaetze>"+getPlaetzeFrei(dauerInString(dauerSplit(tageszeiten[i])))+"</div>"
 					+ "		</div>"
 					+ "  </div>";
 		}
-		System.out.println(html);
 		double[] merker= {6,14,22};
 		this.tageszeiten=merker;
 		return html;

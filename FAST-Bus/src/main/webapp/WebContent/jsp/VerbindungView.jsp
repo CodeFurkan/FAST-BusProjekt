@@ -73,7 +73,7 @@
 				<!-- HEUTIGER DATUM -->
 				<div class="tagtag" Id="ausgewaehlterTag">
 					<img class="calendar" src="../img/calendar.png" /> 
-					<a href="url">
+					<a href="">
 					<jsp:getProperty name="vb" property="datum" />
 					</a>
 				</div>

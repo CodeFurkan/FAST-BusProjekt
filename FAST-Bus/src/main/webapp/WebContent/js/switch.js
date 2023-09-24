@@ -68,30 +68,16 @@ function checkSelbeStadt(verbindungSuche) {
 	}
 	return verbindungSuche;
 }
-var clicked;
 function ueberbuchung(verbindungen){
 	var verbindungSuche = true;
 	if (document.buttonClicked == "btnZumAngebot") {
-	var plaetzefrei=document.getElementById('freiePlaetze'+clicked).innerText;
+	var plaetzefrei=parseInt(document.getElementById('freiePlaetze'+clicked).innerText);
 
-	var wunschplaetze=document.getElementById('invisibleWunschPlaetze').innerText;
+	var wunschplaetze=parseInt(document.getElementById('invisibleWunschPlaetze').innerText);
 
 		if(plaetzefrei < wunschplaetze){
 			verbindungSuche=false;
 		}
 	}
 	return verbindungSuche;
-}
-
-// JavaScript-Funktion, um den A-Tag auszulösen, wenn auf das Bild geklickt wird
-var klickElemente = document.getElementsByClassName("klickElement");
-
-for (var i = 0; i < klickElemente.length; i++) {
-  klickElemente[i].addEventListener("click", function() {
-    var parentDiv = this.closest(".nachtag"); // Das Elternelement mit der Klasse "nachtag" finden
-    var linkTag = parentDiv.querySelector("a"); // Das nächste <a>-Tag innerhalb des Elternelements finden
-    if (linkTag) {
-      linkTag.click(); // A-Tag auslösen
-    }
-  });
 }

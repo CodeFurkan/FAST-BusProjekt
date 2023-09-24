@@ -49,7 +49,6 @@
 			}else{
 			response.sendRedirect("./HomepageView.jsp");
 			}
-			System.out.println(vb.getStartStadt());
 			
 		}else{
 			loginBean.setLoggedIn(false);
