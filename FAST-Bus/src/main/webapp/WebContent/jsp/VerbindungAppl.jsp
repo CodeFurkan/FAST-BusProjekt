@@ -40,7 +40,7 @@
 			if(vb.getWunschplaetze()>1){
 				vb.setPreis(vb.getPreis()*vb.getWunschplaetze());
 			}
-			//die methode getpreisstring greift auf das klassenattribut preis zu was wir oben ändern
+			//diee methode getpreisstring greift auf das klassenattribut preis zu was wir oben ändern
 			rb.setPreis(vb.getPreisString());
 			rb.setRoutenID(vb.getRoutenID());
 			
