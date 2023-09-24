@@ -55,16 +55,20 @@
     <div class="vornachtagbox">
       <div class="vornachtag">
         <div class="vortag">
-          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen" 
-          Id="tagDavor" onclick="return einTagDavor();">
+        <img class="calendar" src="../img/calendar.png">
+          <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="vorTagFuerLink"/>&btnVerbindung=Suchen" Id="tagDavor" onclick="return einTagDavor();">
           <jsp:getProperty name="vb" property="vorTag"/>
           </a>
 <!--           <a href='./TerminauswahlAppl.jsp?auswaehlen=auswaehlen&uhrzeit=" + i+ "'>auswaehlen</a> -->
         </div>
+          <img class="pfeillinks" src="../img/pfeil_links.png" />
         <div class="tagtag" Id="ausgewaehlterTag">
+                <img class="calendar" src="../img/calendar.png"/>
           <a href="url"> <jsp:getProperty name="vb" property="datum"/> </a>
         </div>
+         <img class="pfeilrechts" src="../img/pfeil_rechts.png"/>
          <div class="nachtag">
+            <img class="calendar" src="../img/calendar.png">
           <a href="./HomepageAppl.jsp?inputStart=<jsp:getProperty name="vb" property="startStadt"/>&inputEnd=<jsp:getProperty name="vb" property="zielStadt"/>&date=<jsp:getProperty name="vb" property="nachTagFuerLink"/>&btnVerbindung=Suchen" >
           <jsp:getProperty name="vb" property="nachTag"/>
           </a>

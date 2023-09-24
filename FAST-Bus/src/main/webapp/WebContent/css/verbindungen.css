@@ -32,11 +32,13 @@
   border-radius: 10px;
   background-color: darkgray;
   align-items: center;
-  justify-content: center;
   width: 130px;
   height: 30px;
 }
-
+.calendar{
+	width: 30px; /* Die gewünschte Breite des Bildes */
+    height: 30px;
+}
 
 .vornachtag div:hover{
     background-color: #000000;
@@ -50,6 +52,16 @@
 	color: white;
 	font-size: 18px;
 }
+
+.pfeil_links{
+	
+}
+.pfeil_rechts{
+	width: 30px;
+	height: 30px;
+}
+
+
 
 /*                   Verbindungsbox               */
 .verbindungsbox {
