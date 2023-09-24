@@ -200,7 +200,6 @@ form{
 
 .gesamtpreis {
   display: flex;
-  margin-top: 22px;
   margin-left: 20px;
   color: rgb(0, 0, 0);
   font-size: 15px;
@@ -217,4 +216,7 @@ form{
 }
 .alleDatum{
 	margin-left: 20%;
+}
+.summe{
+	margin-top: 42px;
 }
