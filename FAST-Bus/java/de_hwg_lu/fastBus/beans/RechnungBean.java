@@ -43,6 +43,7 @@ public class RechnungBean {
 	int plaetzeFrei;
 	
 	String nextDay;
+	int wunschplaetze;
 
 	public RechnungBean() {
 		this.rechnungVorname = "";
@@ -103,8 +104,8 @@ public class RechnungBean {
 		if(checkBuchungExisitertBereits()) {
 			return;
 		}
-		String sql = "insert into Buchung (kundenid,businfoid,routenid,adresse, stadt, plz, iban, bic,vorname,nachname, nameKonto) "
-				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Buchung (kundenid,businfoid,routenid,adresse, stadt, plz, iban, bic,vorname,nachname, nameKonto,preisgesamt)"
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -119,6 +120,7 @@ public class RechnungBean {
 		prep.setString(9, this.rechnungVorname);
 		prep.setString(10, this.rechnungNachname);
 		prep.setString(11, this.nameKonto);
+		prep.setString(12, this.getPreis());
 		prep.executeUpdate();
 		
 		System.out.println("Buchung erfolgreich abgeschlossen");
@@ -126,7 +128,7 @@ public class RechnungBean {
 	public boolean checkBuchungExisitertBereits() throws SQLException {
 		String sql = "SELECT buchungid FROM Buchung where kundenid = ? AND businfoid = ? AND routenid = ? AND "
 				+ "adresse = ? AND stadt = ? AND plz = ? AND iban = ? AND bic = ? AND "
-				+ "vorname = ? AND nachname = ? AND nameKonto = ? ";
+				+ "vorname = ? AND nachname = ? AND nameKonto = ? AND preisgesamt=? ";
 		System.out.println(sql);
 		boolean gefunden = false;
 		Connection dbConn = new PostgreSQLAccess().getConnection();
@@ -142,6 +144,7 @@ public class RechnungBean {
 		prep.setString(9, this.rechnungVorname);
 		prep.setString(10, this.rechnungNachname);
 		prep.setString(11, this.nameKonto);
+		prep.setString(12, this.getPreis());
 		ResultSet dbRes = prep.executeQuery();
 		if (dbRes.next()) {
 			gefunden = true;
@@ -177,11 +180,11 @@ public class RechnungBean {
 		boolean alreadyExists = checkBusInfoExists();
 		System.out.println("plaetze frei in der methode insertintobusinfo "+plaetzeFrei);
 			if (alreadyExists) {
-				if(plaetzeFrei==0) {
-					System.out.println("keine plaetze mehr!");
+				if(plaetzeFrei==0 || plaetzeFrei-wunschplaetze<0) {
+					System.out.println("Insert nicht möglich \n plaetze 0 oder darunter");
 					return;
 				}
-				plaetzeFrei--;
+				plaetzeFrei-=getWunschplaetze();
 				String sql = "update BusInfo set plaetzeFrei='" + plaetzeFrei + "' where StartDatum=? "
 						+ "AND StartZeit=? AND RoutenID=?";
 				System.out.println(sql);
@@ -202,7 +205,7 @@ public class RechnungBean {
 				prep.setString(3, this.startUhrzeit);
 				prep.setString(4, this.zielUhrzeit);
 				prep.setString(5, this.routenID);
-				prep.setInt(6, 49);
+				prep.setInt(6, 50-getWunschplaetze());
 				prep.executeUpdate();
 			}
 	}
@@ -407,5 +410,12 @@ public class RechnungBean {
 		System.out.println(dtf.format(localDate));
 		return dtf.format(localDate);
 	}
+	public int getWunschplaetze() {
+		return wunschplaetze;
+	}
+	public void setWunschplaetze(int wunschplaetze) {
+		this.wunschplaetze = wunschplaetze;
+	}
+	
 }
 

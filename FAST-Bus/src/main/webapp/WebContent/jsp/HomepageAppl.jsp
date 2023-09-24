@@ -31,6 +31,7 @@ String inputStart = request.getParameter("inputStart");
 String inputEnd = request.getParameter("inputEnd");
 String stringDate = request.getParameter("date");
 String meineBuchungen = request.getParameter("meineBuchungen");
+String quantity = request.getParameter("quantity");
 
 
 	String test ="";
@@ -38,12 +39,10 @@ String meineBuchungen = request.getParameter("meineBuchungen");
 	String nachtag ="";
 	String blabla ="";
 	String dingbing ="";
-	
-	System.out.println(inputStart);
-	System.out.println(inputEnd);
-	System.out.println(stringDate);
+	int wunschplaetze=0;
 	
 try{
+	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Date convertedCurrentDate = sdf.parse(stringDate);
 	String date=sdf.format(convertedCurrentDate );
@@ -67,7 +66,7 @@ try{
 
 	 blabla = new SimpleDateFormat("yyyy-MM-dd").format(yesterday);
 	 dingbing = new SimpleDateFormat("yyyy-MM-dd").format(tmrw);
-
+	 wunschplaetze=Integer.parseInt(quantity);
 }catch(Exception e){
 	e.printStackTrace();
 }
@@ -82,10 +81,12 @@ if(btnVerbindung == null ) btnVerbindung="";
 //Hier muss evtl die Methode von der LoginBean hinzugefuegt werden wie zb in der PortalAppl.jsp VL 
 //Falls ein Nutzer nicht eingeloggt ist wird der per Message aufgeforder dies zu tun
 if(btnVerbindung.equals("Suchen")){
+// 	System.out.println("WUNSCHPLAEREROIZTÜNDSPÄ"+wunschplaetze);
     vb.setStartStadt(inputStart);   
     vb.setZielStadt(inputEnd);  
     hb.setInputStart(inputStart);   
     hb.setInputEnd(inputEnd); 
+    vb.setWunschplaetze(wunschplaetze);
     
  	vb.setVorTag(vortag);
  	vb.setNachTag(nachtag);

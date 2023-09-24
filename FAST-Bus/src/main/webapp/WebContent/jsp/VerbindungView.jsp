@@ -33,6 +33,7 @@
 	<jsp:useBean id="hb" class="de_hwg_lu.fastBus.beans.HomepageBean"
 		 scope="session" />
 	<jsp:useBean id="vb" class="de_hwg_lu.fastBus.beans.VerbindungBean" scope="session" />
+	<jsp:useBean id="mb" class="de_hwg_lu.fastBus.beans.MessageBean" scope="session" />
 		 
 	<!-- JSP USEBEAN  -->
 

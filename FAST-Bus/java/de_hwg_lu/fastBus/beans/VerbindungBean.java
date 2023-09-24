@@ -28,6 +28,8 @@ public class VerbindungBean {
 	String datumUnformatiert;
 	String nachTagFuerLink;
 	String tageszeitString;
+	int wunschplaetze;
+	String proPerson;
 	
 	String routenID;
 	int plaetzeFrei;
@@ -107,6 +109,7 @@ public class VerbindungBean {
 					+ "            "+getPlaetzeFrei(dauerInString(dauerSplit(tageszeiten[i])))+" von 50 Plätzen frei"
 					+ "          </div>\r\n"
 					+ "          <div class=\"vPreisButton\">"
+					+"			 <div class=proPerson>"+getProPerson()+"</div>"
 					+ "            <div class=\"vPreis\">"
 					+ "              "+getPreisString()+"&euro;"
 					+ "            </div>"
@@ -227,21 +230,9 @@ public class VerbindungBean {
 		this.preis = preis;
 	}
 
-	public static void main(String[] args) {
-//		double d = 30.5;
-//		System.out.println(d);
-//		
-//		Locale locale = Locale.GERMANY;
-//		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-//		String s = numberFormat.format(d);
-//		String res;
-//		res= s.substring(0, s.length() - 2);
-//		System.out.println(res);
-	}
 
 
 public String getStartStadt() {
-	System.out.println(startStadt);
 	return startStadt;
 }
 
@@ -329,9 +320,7 @@ public int getPlaetzeFrei(String tageszeit) throws SQLException {
 	ResultSet dbRes = prep.executeQuery();
 	
 	if (dbRes.next()) {
-		System.out.println(tageszeit);
 		this.plaetzeFrei = dbRes.getInt("PlaetzeFrei");
-		System.out.println("wie viele plaetze frei: "+plaetzeFrei);
 	}
 	return plaetzeFrei;
 }
@@ -351,6 +340,26 @@ public String getTageszeitString() {
 }
 public void setTageszeitString(String tageszeitString) {
 	this.tageszeitString = tageszeitString;
+}
+public int getWunschplaetze() {
+	return wunschplaetze;
+}
+public void setWunschplaetze(int wunschplaetze) {
+	this.wunschplaetze = wunschplaetze;
+}
+public String getProPerson() {
+	if(getWunschplaetze()>1) {
+		proPerson="pro Person";
+	}else {
+		proPerson="";
+	}
+	return proPerson;
+}
+public void setProPerson(String proPerson) {
+	this.proPerson = proPerson;
+}
+public double getPreis() {
+	return preis;
 }
 
 

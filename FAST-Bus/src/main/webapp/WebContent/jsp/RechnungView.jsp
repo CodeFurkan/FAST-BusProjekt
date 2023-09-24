@@ -154,9 +154,13 @@
 						<img src="../img/Fast-BusZahlung.png" alt="">
 					</div>
 				</div>
+				<div class="personen">
 
+				</div>
 				<div class="gesamtpreis">
-					<h3>Preis (inkl. MwSt.)</h3>
+					<h3>Personen: <jsp:getProperty name="rb" property="wunschplaetze" />
+					<br>
+					Preis (inkl. MwSt.)</h3>
 					<h3 class="summe">
 						<jsp:getProperty name="rb" property="preis" /> &euro;
 					</h3>

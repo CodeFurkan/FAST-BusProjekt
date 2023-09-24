@@ -55,17 +55,17 @@ public HomepageBean() {
 						    "    </ul>" +
 						    "  </div>"													+
 						    "<div class='Profilname'>"									+
-						    "Hallo, "+getVorname()+"!"								+
+						    "Hallo, "+getVorname()+"!"									+
 						    "</div>"+
 						    "  <div class='divLogout'>" 								+
-						    "    <a class='abmelden' href='./LoginAppl.jsp?btnLogout=true'>" 									+
+						    "    <a class='abmelden' href='./LoginAppl.jsp?btnLogout=true'>" +
 						    "      <img" 												+
 						    "        class=''" 											+
 						    "        src='../img/clipart153139.png'"					+
 						    "        alt='abmelden'" 									+
 						    "        width='15px'" 										+
 						    "      /> " 												+	
-				    		 	 " <p1> Ausloggen </p1> </a>"													+
+				    		 	 " <p1> Ausloggen </p1> </a>"							+
 				    		 "</div>" ;
 			    	
 			    }
@@ -91,7 +91,7 @@ public HomepageBean() {
 			    							
 			    "                            	<select name=\"inputStart\"Id='inputStart' placeholder='Von...' required>\n"
 			    + "									<option value='' disabled selected>Von...</option>\n"
-			    + "									<option value=\"Berlin\">Berlin</option>"
+			    + "									<option value='Berlin'>Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
 			    + "									<option value='Hamburg'>Hamburg</option>"
@@ -110,7 +110,7 @@ public HomepageBean() {
 				
 			    "                            	<select name=\"inputEnd\"Id='inputEnd' placeholder='Nach...' required>\n"
 			    + "									<option value='' disabled selected>Nach...</option>\n"
-			    + "									 <option value=\"Berlin\">Berlin</option>"
+			    + "									 <option value='Berlin'>Berlin</option>"
 			    + "									<option value='Düsseldorf'>Düsseldorf</option>"
 			    + "									<option value='Frankfurt'>Frankfurt</option>"
 			    + "									<option value='Hamburg'>Hamburg</option>"
@@ -125,7 +125,10 @@ public HomepageBean() {
 			    "                    </div>" +
 			    "                    <div class='date'>" +
 			    "                        <input type='date' name='date' class='date' min='2023-09-15' id='dateInput' required onclick='datum();'/>" +
-			    "                    </div>" +
+			    "                    </div>"
+			    + "              	<div class=\"quani\">\n"
+			    + "                		<input style='margin-left: 20px;'id=\"quantity\" max=\"50\" min=\"1\" value='1' name=\"quantity\" type=\"number\" />\n"
+			    + "              	</div>" +
 			    "                    <div class='submitContainer'>" +
 			    "                        <button type='submit' name='btnVerbindung'  class='subbutton' value='Suchen' onclick=\"setButtonClicked(this.name)\" >Suchen</button>" +
 			    "                        <!-- null check -->" +

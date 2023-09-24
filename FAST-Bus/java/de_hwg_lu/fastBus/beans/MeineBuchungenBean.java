@@ -60,7 +60,6 @@ public class MeineBuchungenBean {
 	}
 	public String getMeineBuchungAsHtml() throws SQLException {
 		selectAccount();
-		System.out.println("hier dann zwei?");
 		String html="";
 		String sql = "SELECT * FROM Buchung where kundenid=?";
 		System.out.println(sql);
@@ -71,6 +70,7 @@ public class MeineBuchungenBean {
 		while(dbRes.next()) {
 			this.routenid=dbRes.getString("routenid");
 			this.businfoid=dbRes.getInt("businfoid");
+			this.preis=dbRes.getString("preisgesamt");
 			selectRoute();
 			selectBusinfo();
 			html+="            <tbody>\r\n"
@@ -92,7 +92,7 @@ public class MeineBuchungenBean {
 		return html;
 	}
 	public void selectRoute() throws SQLException {
-		String sql = "SELECT startstadt,zielstadt,preis FROM Routen where routenid = ?";
+		String sql = "SELECT startstadt,zielstadt FROM Routen where routenid = ?";
 		System.out.println(sql);
 		Connection dbConn = new PostgreSQLAccess().getConnection();
 		PreparedStatement prep = dbConn.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class MeineBuchungenBean {
 		if (dbRes.next()) {
 			this.startStadt=dbRes.getString("startstadt");
 			this.zielStadt=dbRes.getString("zielstadt");
-			this.preisdouble=dbRes.getDouble("preis");
+//			this.preisdouble=dbRes.getDouble("preis");
 		}
 	}
 	public void selectBusinfo() throws SQLException {
@@ -129,7 +129,7 @@ public class MeineBuchungenBean {
 		return res;
 	}
 	public String getPreis() {
-		return getPreisString();
+		return preis;
 	}
 	public String getEmail() {
 		return email;

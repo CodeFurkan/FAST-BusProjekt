@@ -14,15 +14,15 @@ public class AppInstallTables {
 
 	}
 	public void doSomething() throws SQLException {
-//		this.dropTableBuchung();
+		this.dropTableBuchung();
 //		this.dropTableAccount();
 //		this.createTableAccount();
-//		this.createTableBuchung();
-		this.dropTableBusInfo();
+		this.createTableBuchung();
+//		this.dropTableBusInfo();
 //		this.dropTableRouten();
 //		this.createTableRouten();
 //		this.insertRouten();
-		this.createTableBusInfo();
+//		this.createTableBusInfo();
 	}
 	
 	public void executeUpdateWithoutParms(String sql) throws SQLException{
@@ -45,6 +45,7 @@ public class AppInstallTables {
 						+ "				 Vorname 		varchar(256) 	not null				,"
 						+ "				 Nachname 		varchar(256) 	not null				,"
 						+ "				 NameKonto		varchar(256)	not null				,"
+						+ "				 PreisGesamt    varchar(10) 	not null				,"
 						+ "				 foreign key (KundenID) references bwi520_632085.Account(KundenID),"
 						+ "				 foreign key (RoutenID) references bwi520_632085.Routen(RoutenID)"
 						+ "				 )"
